@@ -8,7 +8,7 @@
 	</module>
 
 	<module name="network">
-		<param name="inputNetworkFile" value="network.xml" />
+		<param name="inputNetworkFile" value="payson_network.xml.gz" />
 	</module>
 
 	<module name="plans">
