@@ -49,7 +49,7 @@ public class ActivitySimPersonsReader {
             CSVReader reader = CSVUtils.createCSVReader(personsFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
-                    new String[]{"person_id"}, // mandatory columns
+                    new String[]{"person_id", "age"}, // mandatory columns
                     new String[]{"household_id"} // optional columns
             );
 
@@ -59,6 +59,8 @@ public class ActivitySimPersonsReader {
                 // Create this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
                 Person person = pf.createPerson(personId);
+
+                person.getAttributes().putAttribute("age", nextLine[col.get("age")]);
 
                 if (col.keySet().contains("household_id")){
                     String hhId = nextLine[col.get("household_id")];

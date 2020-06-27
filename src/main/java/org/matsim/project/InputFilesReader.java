@@ -39,7 +39,7 @@ public class InputFilesReader {
         File tripsFile = new File("scenarios/activitysim_output/final_trips.csv");
         reader.readActivitySimFiles(personsFile, tripsFile);
 
-        new PopulationWriter(scenario.getPopulation()).write("scenarios/activitysim_output/population.xml.gz");
+        new PopulationWriter(scenario.getPopulation()).write("scenarios/activitysim_output/population.xml");
     }
 
 }

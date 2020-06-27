@@ -49,6 +49,7 @@ public class RunMatsim{
 		Scenario scenario = ScenarioUtils.loadScenario(config) ;
 		
 		// possibly modify scenario here
+		// network population and plans
 		
 		// ---
 		

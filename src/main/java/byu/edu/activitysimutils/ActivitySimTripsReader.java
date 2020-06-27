@@ -4,12 +4,15 @@ import com.opencsv.CSVReader;
 import org.apache.log4j.Logger;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
+import org.matsim.api.core.v01.population.Activity;
 import org.matsim.api.core.v01.population.Person;
 import org.matsim.api.core.v01.population.Plan;
 import org.matsim.api.core.v01.population.PopulationFactory;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
+import org.matsim.facilities.ActivityFacility;
+import org.matsim.facilities.ActivityFacilityImpl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -64,7 +67,15 @@ public class ActivitySimTripsReader {
                 Person person = scenario.getPopulation().getPersons().get(personId);
                 Plan plan = person.getPlans().get(0);
 
+                // Get origin and destination id
+                Id<ActivityFacility> originId = Id.create(nextLine[col.get("origin")], ActivityFacility.class);
+                Id<ActivityFacility> destId   = Id.create(nextLine[col.get("destination")], ActivityFacility.class);
+
                 // If this is the first leg, add a home activity
+                if (plan.getPlanElements().isEmpty()){
+                    Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
+                    plan.addActivity(homeActivity);
+                }
 
                 // if not, add the next activity with the purpose
 
