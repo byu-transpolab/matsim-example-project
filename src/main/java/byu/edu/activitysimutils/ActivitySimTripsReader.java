@@ -4,10 +4,8 @@ import com.opencsv.CSVReader;
 import org.apache.log4j.Logger;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
-import org.matsim.api.core.v01.population.Activity;
-import org.matsim.api.core.v01.population.Person;
-import org.matsim.api.core.v01.population.Plan;
-import org.matsim.api.core.v01.population.PopulationFactory;
+import org.matsim.api.core.v01.network.Link;
+import org.matsim.api.core.v01.population.*;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
@@ -70,15 +68,51 @@ public class ActivitySimTripsReader {
                 // Get origin and destination id
                 Id<ActivityFacility> originId = Id.create(nextLine[col.get("origin")], ActivityFacility.class);
                 Id<ActivityFacility> destId   = Id.create(nextLine[col.get("destination")], ActivityFacility.class);
+                // Id<Link> leg = Id.createLinkId(nextLine[col.get("trip_mode")]);
+                String leg_mode = nextLine[col.get("trip_mode")];
+                String purpose = nextLine[col.get("purpose")];
 
                 // If this is the first leg, add a home activity
                 if (plan.getPlanElements().isEmpty()){
                     Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
                     plan.addActivity(homeActivity);
+                    // add departure time (not in input file now...)
                 }
+
+
+                Leg leg = pf.createLeg(leg_mode);
+                plan.addLeg(leg);
+
+                Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
+                plan.addActivity(activity);
+                    // next activity is destination of nextLine trip
+
 
                 // if not, add the next activity with the purpose
 
+
+
+                // Plan for each line
+                // 1 put origin as home if we need to
+                // 2 put leg with trip_mode
+                // 3 put destination as new activity
+
+                // origin -> destination
+
+                // act - origin
+                // leg - link
+                // act - destination
+
+                // trips
+                // home - work (mode, start, end)
+                // work - shop
+                // shop - home
+
+                //activities
+                // write every person home (depart)
+                // work
+                // shop
+                // home
 
             }
 
