@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Period;
 import java.util.Map;
+import java.util.Random;
 
 public class ActivitySimTripsReader {
     private static final Logger log = Logger.getLogger(ActivitySimTripsReader.class);
@@ -47,6 +48,19 @@ public class ActivitySimTripsReader {
         this.pf = scenario.getPopulation().getFactory();
     }
 
+    /**
+     * Create a method to get departure times
+     * Assign randomness to times
+     */
+
+//    private double getDepartureTime(activity) {
+//        // get time here (then call in both places in the while loop)
+//        Random r = new Random(15);
+//        Double departTime = nextLine[col.get("depart")];
+//        activity.setEndTime(7 * 3600 + r.nextGaussian() * 30*60); // random!
+//
+//    }
+
     public void readTrips() {
         try {
             // Start a reader and read the header row. `col` is an index between the column names and numbers
@@ -68,51 +82,72 @@ public class ActivitySimTripsReader {
                 // Get origin and destination id
                 Id<ActivityFacility> originId = Id.create(nextLine[col.get("origin")], ActivityFacility.class);
                 Id<ActivityFacility> destId   = Id.create(nextLine[col.get("destination")], ActivityFacility.class);
-                // Id<Link> leg = Id.createLinkId(nextLine[col.get("trip_mode")]);
+
+                // Add mode and purpose to activity
                 String leg_mode = nextLine[col.get("trip_mode")];
                 String purpose = nextLine[col.get("purpose")];
+                // Get time of departure for each trip and convert to double
+                // then add randomness
+                String time = nextLine[col.get("depart")];
+                Double dt = Double.parseDouble(time);
+                Random r = new Random(15);
+                Double depTime = dt + r.nextGaussian()*3600; //adds a random number within 60 min
+
+                // try to get to next line for departure of next activity
+//                String nextnextLine;
+//                String nextTime = nextnextLine[col.get("depart")];
+//                Double adt = Double.parseDouble(nextTime);
+//                Double actDepTime = adt + r.nextGaussian()*3600; // yes this is the same r as above. Shouldn't make dif
+
+
+                // Plan for each line
+                // 1 put origin as home if we need to and set departure time
+                // 2 put leg with trip_mode
+                // 3 put destination as new activity with departure mode (from next trip)
 
                 // If this is the first leg, add a home activity
                 if (plan.getPlanElements().isEmpty()){
                     Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
+                    homeActivity.setEndTime(depTime);
                     plan.addActivity(homeActivity);
-                    // add departure time (not in input file now...)
+                    // add departure time
+                    // departure time needs randomness (logic to check order)
                 }
+
+
+                // activitysim starts around 4 ( 2:30 == 26:30...)
+                // set departure time of previous activity
+//                String pastPurpose = previousLine[col.get("purpose")];
+//                Id<ActivityFacility> pastId   = Id.create(previousLine[col.get("destination")], ActivityFacility.class);
+//
+//                Activity prevActivity = pf.createActivityFromActivityFacilityId(pastPurpose, pastId);
+//                prevActivity.setEndTime(depTime);
+//                plan.addActivity(prevActivity);
 
 
                 Leg leg = pf.createLeg(leg_mode);
                 plan.addLeg(leg);
-
-                Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
-                plan.addActivity(activity);
-                    // next activity is destination of nextLine trip
-
-
                 // if not, add the next activity with the purpose
+                Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
+                activity.setEndTime(actDepTime);
+                plan.addActivity(activity);
+
+                //plan
+                //home activity endtime: 11
+                //leg walk
+                //activity (destination): eatout time: 11
+
+                //leg: walk
+                // activity home: endtime: 12
+
+                //leg: walk
+                //activyt: othermaint endtime: 13
+
+                //leg walk
+                //  home
 
 
 
-                // Plan for each line
-                // 1 put origin as home if we need to
-                // 2 put leg with trip_mode
-                // 3 put destination as new activity
-
-                // origin -> destination
-
-                // act - origin
-                // leg - link
-                // act - destination
-
-                // trips
-                // home - work (mode, start, end)
-                // work - shop
-                // shop - home
-
-                //activities
-                // write every person home (depart)
-                // work
-                // shop
-                // home
 
             }
 

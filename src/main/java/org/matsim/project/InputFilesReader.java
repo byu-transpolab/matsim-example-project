@@ -37,6 +37,7 @@ public class InputFilesReader {
 
         File personsFile = new File("scenarios/activitysim_output/final_persons.csv");
         File tripsFile = new File("scenarios/activitysim_output/final_trips.csv");
+        // the zonesFile probably goes here then.
         reader.readActivitySimFiles(personsFile, tripsFile);
 
         new PopulationWriter(scenario.getPopulation()).write("scenarios/activitysim_output/population.xml");
