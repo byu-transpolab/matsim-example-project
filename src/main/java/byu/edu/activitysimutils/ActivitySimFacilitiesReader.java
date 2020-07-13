@@ -36,7 +36,7 @@ public class ActivitySimFacilitiesReader {
         this.factory = scenario.getActivityFacilities().getFactory();
     }
 
-    public void readZones() {
+    public void readZones(File zonesFile) {
         try {
             // Start a reader and read the header row. `col` is an index between the column names and numbers
             CSVReader reader = CSVUtils.createCSVReader(zonesFile.toString());
@@ -51,7 +51,7 @@ public class ActivitySimFacilitiesReader {
             while((nextLine = reader.readNext()) != null) {
                 // Create a MATsim Facilities object
                 Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("zone")], ActivityFacility.class);
-                Coord coord = CoordUtils.createCoord(nextLine[col.get("x")], nextLine[col.get("y")]);
+                Coord coord = CoordUtils.createCoord(Double.valueOf(nextLine[col.get("x")]), Double.valueOf(nextLine[col.get("y")]));
                 ActivityFacility facility = factory.createActivityFacility(facilityId,coord);
 
                 scenario.getActivityFacilities().addActivityFacility(facility);
