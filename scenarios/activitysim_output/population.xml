@@ -10,8 +10,19 @@
 	<person id="107628">
 		<attributes>
 			<attribute name="age" class="java.lang.String">42</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
 		</plan>
 
 	</person>
@@ -21,6 +32,7 @@
 	<person id="110675">
 		<attributes>
 			<attribute name="age" class="java.lang.String">30</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -32,8 +44,27 @@
 	<person id="112064">
 		<attributes>
 			<attribute name="age" class="java.lang.String">48</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -43,6 +74,7 @@
 	<person id="112535">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -54,8 +86,19 @@
 	<person id="1263746">
 		<attributes>
 			<attribute name="age" class="java.lang.String">72</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -65,6 +108,7 @@
 	<person id="1264249">
 		<attributes>
 			<attribute name="age" class="java.lang.String">77</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -76,6 +120,7 @@
 	<person id="1265325">
 		<attributes>
 			<attribute name="age" class="java.lang.String">69</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -87,6 +132,7 @@
 	<person id="1265379">
 		<attributes>
 			<attribute name="age" class="java.lang.String">70</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -98,8 +144,19 @@
 	<person id="1265898">
 		<attributes>
 			<attribute name="age" class="java.lang.String">80</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -109,8 +166,19 @@
 	<person id="1266941">
 		<attributes>
 			<attribute name="age" class="java.lang.String">84</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
 		</plan>
 
 	</person>
@@ -120,6 +188,7 @@
 	<person id="1267567">
 		<attributes>
 			<attribute name="age" class="java.lang.String">85</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -131,8 +200,19 @@
 	<person id="1356077">
 		<attributes>
 			<attribute name="age" class="java.lang.String">71</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -142,8 +222,31 @@
 	<person id="1356259">
 		<attributes>
 			<attribute name="age" class="java.lang.String">79</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="20" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="shopping" facility="17" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
 		</plan>
 
 	</person>
@@ -153,8 +256,19 @@
 	<person id="1356489">
 		<attributes>
 			<attribute name="age" class="java.lang.String">67</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
 		</plan>
 
 	</person>
@@ -164,6 +278,7 @@
 	<person id="1423759">
 		<attributes>
 			<attribute name="age" class="java.lang.String">77</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -175,6 +290,7 @@
 	<person id="1423760">
 		<attributes>
 			<attribute name="age" class="java.lang.String">76</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -186,8 +302,19 @@
 	<person id="1424997">
 		<attributes>
 			<attribute name="age" class="java.lang.String">69</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -197,6 +324,7 @@
 	<person id="1424998">
 		<attributes>
 			<attribute name="age" class="java.lang.String">71</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -208,8 +336,19 @@
 	<person id="1427193">
 		<attributes>
 			<attribute name="age" class="java.lang.String">65</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -219,8 +358,39 @@
 	<person id="1427194">
 		<attributes>
 			<attribute name="age" class="java.lang.String">69</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="23" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="3" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -230,8 +400,35 @@
 	<person id="1476139">
 		<attributes>
 			<attribute name="age" class="java.lang.String">70</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="22" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="work" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="5" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="escort" facility="5" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -241,8 +438,19 @@
 	<person id="1476140">
 		<attributes>
 			<attribute name="age" class="java.lang.String">61</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="shopping" facility="21" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -252,8 +460,31 @@
 	<person id="1572659">
 		<attributes>
 			<attribute name="age" class="java.lang.String">60</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
 		</plan>
 
 	</person>
@@ -263,8 +494,31 @@
 	<person id="1572930">
 		<attributes>
 			<attribute name="age" class="java.lang.String">52</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -274,8 +528,31 @@
 	<person id="1631617">
 		<attributes>
 			<attribute name="age" class="java.lang.String">57</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="24" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="13" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -285,6 +562,7 @@
 	<person id="1632206">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -296,8 +574,23 @@
 	<person id="1632248">
 		<attributes>
 			<attribute name="age" class="java.lang.String">40</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="othdiscr" facility="19" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
 		</plan>
 
 	</person>
@@ -307,8 +600,31 @@
 	<person id="1632281">
 		<attributes>
 			<attribute name="age" class="java.lang.String">36</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="2" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="12" >
+			</activity>
 		</plan>
 
 	</person>
@@ -318,8 +634,19 @@
 	<person id="1632987">
 		<attributes>
 			<attribute name="age" class="java.lang.String">29</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="18" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="18" >
+			</activity>
 		</plan>
 
 	</person>
@@ -329,8 +656,19 @@
 	<person id="1633149">
 		<attributes>
 			<attribute name="age" class="java.lang.String">34</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
 		</plan>
 
 	</person>
@@ -340,8 +678,39 @@
 	<person id="1633214">
 		<attributes>
 			<attribute name="age" class="java.lang.String">59</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="22" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="22" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="shopping" facility="23" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="22" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="10" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="22" >
+			</activity>
 		</plan>
 
 	</person>
@@ -351,8 +720,39 @@
 	<person id="1774265">
 		<attributes>
 			<attribute name="age" class="java.lang.String">24</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="6" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="1" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="univ" facility="12" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othdiscr" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -362,8 +762,39 @@
 	<person id="1774266">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -373,8 +804,19 @@
 	<person id="1875721">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="work" facility="16" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -384,8 +826,23 @@
 	<person id="1875722">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -395,8 +852,19 @@
 	<person id="1876067">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="5" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -406,8 +874,39 @@
 	<person id="1876068">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="univ" facility="12" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="escort" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="escort" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="4" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -417,8 +916,19 @@
 	<person id="1958677">
 		<attributes>
 			<attribute name="age" class="java.lang.String">40</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -428,8 +938,19 @@
 	<person id="1958678">
 		<attributes>
 			<attribute name="age" class="java.lang.String">4</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -439,8 +960,27 @@
 	<person id="2159057">
 		<attributes>
 			<attribute name="age" class="java.lang.String">35</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="work" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="21" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="shopping" facility="17" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -450,8 +990,19 @@
 	<person id="2159058">
 		<attributes>
 			<attribute name="age" class="java.lang.String">36</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="univ" facility="10" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -461,8 +1012,19 @@
 	<person id="2159059">
 		<attributes>
 			<attribute name="age" class="java.lang.String">3</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -472,8 +1034,19 @@
 	<person id="2219996">
 		<attributes>
 			<attribute name="age" class="java.lang.String">34</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -483,8 +1056,27 @@
 	<person id="2219997">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -494,8 +1086,27 @@
 	<person id="2219998">
 		<attributes>
 			<attribute name="age" class="java.lang.String">11</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="othdiscr" facility="4" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="school" facility="18" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -505,8 +1116,19 @@
 	<person id="2458500">
 		<attributes>
 			<attribute name="age" class="java.lang.String">40</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -516,8 +1138,19 @@
 	<person id="2458501">
 		<attributes>
 			<attribute name="age" class="java.lang.String">42</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="escort" facility="22" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -527,8 +1160,35 @@
 	<person id="2458502">
 		<attributes>
 			<attribute name="age" class="java.lang.String">12</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -538,8 +1198,19 @@
 	<person id="2458503">
 		<attributes>
 			<attribute name="age" class="java.lang.String">9</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -549,8 +1220,19 @@
 	<person id="2566698">
 		<attributes>
 			<attribute name="age" class="java.lang.String">36</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="22" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -560,6 +1242,7 @@
 	<person id="2566699">
 		<attributes>
 			<attribute name="age" class="java.lang.String">29</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -571,8 +1254,19 @@
 	<person id="2566700">
 		<attributes>
 			<attribute name="age" class="java.lang.String">8</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="school" facility="21" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -582,8 +1276,19 @@
 	<person id="2566701">
 		<attributes>
 			<attribute name="age" class="java.lang.String">4</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -593,8 +1298,19 @@
 	<person id="2566702">
 		<attributes>
 			<attribute name="age" class="java.lang.String">2</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="school" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -604,8 +1320,19 @@
 	<person id="264107">
 		<attributes>
 			<attribute name="age" class="java.lang.String">28</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -615,8 +1342,19 @@
 	<person id="264108">
 		<attributes>
 			<attribute name="age" class="java.lang.String">27</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -626,6 +1364,7 @@
 	<person id="264247">
 		<attributes>
 			<attribute name="age" class="java.lang.String">20</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -637,8 +1376,31 @@
 	<person id="264248">
 		<attributes>
 			<attribute name="age" class="java.lang.String">23</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -648,8 +1410,27 @@
 	<person id="26478">
 		<attributes>
 			<attribute name="age" class="java.lang.String">46</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -659,8 +1440,27 @@
 	<person id="26686">
 		<attributes>
 			<attribute name="age" class="java.lang.String">39</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -670,8 +1470,23 @@
 	<person id="26844">
 		<attributes>
 			<attribute name="age" class="java.lang.String">51</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -681,8 +1496,19 @@
 	<person id="27726">
 		<attributes>
 			<attribute name="age" class="java.lang.String">52</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="19" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -692,6 +1518,7 @@
 	<person id="27748">
 		<attributes>
 			<attribute name="age" class="java.lang.String">57</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -703,6 +1530,7 @@
 	<person id="2877282">
 		<attributes>
 			<attribute name="age" class="java.lang.String">45</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -714,6 +1542,7 @@
 	<person id="2877283">
 		<attributes>
 			<attribute name="age" class="java.lang.String">43</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -725,8 +1554,43 @@
 	<person id="2877284">
 		<attributes>
 			<attribute name="age" class="java.lang.String">20</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="univ" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -736,6 +1600,7 @@
 	<person id="2877285">
 		<attributes>
 			<attribute name="age" class="java.lang.String">18</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -747,6 +1612,7 @@
 	<person id="2877286">
 		<attributes>
 			<attribute name="age" class="java.lang.String">16</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -758,8 +1624,19 @@
 	<person id="2877287">
 		<attributes>
 			<attribute name="age" class="java.lang.String">12</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="20" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -769,6 +1646,7 @@
 	<person id="2936497">
 		<attributes>
 			<attribute name="age" class="java.lang.String">71</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -780,8 +1658,27 @@
 	<person id="2936550">
 		<attributes>
 			<attribute name="age" class="java.lang.String">67</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -791,8 +1688,39 @@
 	<person id="2936845">
 		<attributes>
 			<attribute name="age" class="java.lang.String">68</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="6" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="6" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
 		</plan>
 
 	</person>
@@ -802,8 +1730,27 @@
 	<person id="2936848">
 		<attributes>
 			<attribute name="age" class="java.lang.String">67</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
 		</plan>
 
 	</person>
@@ -813,8 +1760,19 @@
 	<person id="2957186">
 		<attributes>
 			<attribute name="age" class="java.lang.String">70</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -824,8 +1782,19 @@
 	<person id="29625">
 		<attributes>
 			<attribute name="age" class="java.lang.String">61</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="19" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -835,8 +1804,19 @@
 	<person id="3061894">
 		<attributes>
 			<attribute name="age" class="java.lang.String">68</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="23" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="24" >
+			</activity>
 		</plan>
 
 	</person>
@@ -846,8 +1826,27 @@
 	<person id="3061895">
 		<attributes>
 			<attribute name="age" class="java.lang.String">63</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="24" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="othdiscr" facility="23" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="24" >
+			</activity>
+			<leg mode="DRIVE_LOC">
+			</leg>
+			<activity type="work" facility="22" >
+			</activity>
+			<leg mode="DRIVE_LOC">
+			</leg>
+			<activity type="Home" facility="24" >
+			</activity>
 		</plan>
 
 	</person>
@@ -857,8 +1856,31 @@
 	<person id="3188482">
 		<attributes>
 			<attribute name="age" class="java.lang.String">66</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -868,8 +1890,27 @@
 	<person id="3188483">
 		<attributes>
 			<attribute name="age" class="java.lang.String">48</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -879,8 +1920,31 @@
 	<person id="3188484">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="univ" facility="12" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="shopping" facility="5" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -890,8 +1954,23 @@
 	<person id="3188485">
 		<attributes>
 			<attribute name="age" class="java.lang.String">19</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="25" >
+			</activity>
 		</plan>
 
 	</person>
@@ -901,6 +1980,7 @@
 	<person id="3232955">
 		<attributes>
 			<attribute name="age" class="java.lang.String">42</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -912,8 +1992,43 @@
 	<person id="3233462">
 		<attributes>
 			<attribute name="age" class="java.lang.String">43</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="shopping" facility="13" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -923,8 +2038,19 @@
 	<person id="323689">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="21" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -934,6 +2060,7 @@
 	<person id="323690">
 		<attributes>
 			<attribute name="age" class="java.lang.String">23</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -945,8 +2072,19 @@
 	<person id="324051">
 		<attributes>
 			<attribute name="age" class="java.lang.String">64</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -956,8 +2094,19 @@
 	<person id="324052">
 		<attributes>
 			<attribute name="age" class="java.lang.String">58</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -967,8 +2116,27 @@
 	<person id="324909">
 		<attributes>
 			<attribute name="age" class="java.lang.String">61</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -978,6 +2146,7 @@
 	<person id="324910">
 		<attributes>
 			<attribute name="age" class="java.lang.String">53</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -989,8 +2158,35 @@
 	<person id="325431">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="11" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1000,8 +2196,19 @@
 	<person id="325432">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1011,8 +2218,43 @@
 	<person id="325623">
 		<attributes>
 			<attribute name="age" class="java.lang.String">21</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="univ" facility="13" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="5" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othdiscr" facility="8" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1022,8 +2264,19 @@
 	<person id="325624">
 		<attributes>
 			<attribute name="age" class="java.lang.String">18</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1033,8 +2286,19 @@
 	<person id="3328454">
 		<attributes>
 			<attribute name="age" class="java.lang.String">61</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1044,6 +2308,7 @@
 	<person id="3328455">
 		<attributes>
 			<attribute name="age" class="java.lang.String">64</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1055,8 +2320,19 @@
 	<person id="3328568">
 		<attributes>
 			<attribute name="age" class="java.lang.String">53</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1066,8 +2342,31 @@
 	<person id="3328569">
 		<attributes>
 			<attribute name="age" class="java.lang.String">61</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1077,8 +2376,19 @@
 	<person id="3494722">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1088,8 +2398,35 @@
 	<person id="3494723">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="14" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="escort" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="eatout" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1099,8 +2436,27 @@
 	<person id="3495080">
 		<attributes>
 			<attribute name="age" class="java.lang.String">39</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1110,8 +2466,19 @@
 	<person id="3495081">
 		<attributes>
 			<attribute name="age" class="java.lang.String">41</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1121,8 +2488,27 @@
 	<person id="3495342">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="11" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1132,8 +2518,39 @@
 	<person id="3495343">
 		<attributes>
 			<attribute name="age" class="java.lang.String">25</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="4" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1143,8 +2560,27 @@
 	<person id="3596364">
 		<attributes>
 			<attribute name="age" class="java.lang.String">56</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1154,8 +2590,19 @@
 	<person id="3596365">
 		<attributes>
 			<attribute name="age" class="java.lang.String">13</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1165,8 +2612,31 @@
 	<person id="386007">
 		<attributes>
 			<attribute name="age" class="java.lang.String">42</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1176,8 +2646,31 @@
 	<person id="386008">
 		<attributes>
 			<attribute name="age" class="java.lang.String">11</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="school" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1187,8 +2680,19 @@
 	<person id="386061">
 		<attributes>
 			<attribute name="age" class="java.lang.String">50</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1198,8 +2702,19 @@
 	<person id="386062">
 		<attributes>
 			<attribute name="age" class="java.lang.String">16</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="school" facility="13" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1209,8 +2724,19 @@
 	<person id="3891102">
 		<attributes>
 			<attribute name="age" class="java.lang.String">36</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1220,8 +2746,19 @@
 	<person id="3891103">
 		<attributes>
 			<attribute name="age" class="java.lang.String">67</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1231,8 +2768,35 @@
 	<person id="3891104">
 		<attributes>
 			<attribute name="age" class="java.lang.String">8</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="school" facility="8" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1242,8 +2806,19 @@
 	<person id="4171615">
 		<attributes>
 			<attribute name="age" class="java.lang.String">29</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="univ" facility="13" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1253,8 +2828,19 @@
 	<person id="4171616">
 		<attributes>
 			<attribute name="age" class="java.lang.String">20</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="othmaint" facility="16" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1264,8 +2850,19 @@
 	<person id="4171617">
 		<attributes>
 			<attribute name="age" class="java.lang.String">27</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1275,6 +2872,7 @@
 	<person id="4171618">
 		<attributes>
 			<attribute name="age" class="java.lang.String">24</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1286,8 +2884,23 @@
 	<person id="4171619">
 		<attributes>
 			<attribute name="age" class="java.lang.String">58</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1297,8 +2910,19 @@
 	<person id="4171620">
 		<attributes>
 			<attribute name="age" class="java.lang.String">3</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1308,6 +2932,7 @@
 	<person id="4171621">
 		<attributes>
 			<attribute name="age" class="java.lang.String">19</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1319,8 +2944,19 @@
 	<person id="4171622">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="23" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1330,8 +2966,27 @@
 	<person id="4171623">
 		<attributes>
 			<attribute name="age" class="java.lang.String">36</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="12" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="atwork" facility="15" >
+			</activity>
+			<leg mode="SHARED3FREE">
+			</leg>
+			<activity type="Work" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1341,8 +2996,39 @@
 	<person id="418441">
 		<attributes>
 			<attribute name="age" class="java.lang.String">35</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="eatout" facility="15" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="shopping" facility="20" >
+			</activity>
+			<leg mode="DRIVEALONEFREE">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1352,8 +3038,19 @@
 	<person id="418442">
 		<attributes>
 			<attribute name="age" class="java.lang.String">0</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1363,8 +3060,27 @@
 	<person id="4823797">
 		<attributes>
 			<attribute name="age" class="java.lang.String">74</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="14" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1374,8 +3090,19 @@
 	<person id="5057160">
 		<attributes>
 			<attribute name="age" class="java.lang.String">40</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="5" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1385,8 +3112,51 @@
 	<person id="5057338">
 		<attributes>
 			<attribute name="age" class="java.lang.String">33</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="eatout" facility="10" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othmaint" facility="10" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="social" facility="12" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1396,8 +3166,23 @@
 	<person id="5057765">
 		<attributes>
 			<attribute name="age" class="java.lang.String">35</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="11" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="othdiscr" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="11" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1407,6 +3192,7 @@
 	<person id="5058585">
 		<attributes>
 			<attribute name="age" class="java.lang.String">31</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1418,8 +3204,19 @@
 	<person id="5386806">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1429,8 +3226,27 @@
 	<person id="5386807">
 		<attributes>
 			<attribute name="age" class="java.lang.String">20</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="othmaint" facility="4" >
+			</activity>
+			<leg mode="BIKE">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1440,8 +3256,23 @@
 	<person id="5387236">
 		<attributes>
 			<attribute name="age" class="java.lang.String">38</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="work" facility="1" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1451,8 +3282,19 @@
 	<person id="5387237">
 		<attributes>
 			<attribute name="age" class="java.lang.String">27</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1462,8 +3304,35 @@
 	<person id="5387752">
 		<attributes>
 			<attribute name="age" class="java.lang.String">30</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="othdiscr" facility="13" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="social" facility="17" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1473,8 +3342,31 @@
 	<person id="5387753">
 		<attributes>
 			<attribute name="age" class="java.lang.String">37</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="24" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="15" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1484,8 +3376,19 @@
 	<person id="5387762">
 		<attributes>
 			<attribute name="age" class="java.lang.String">49</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1495,8 +3398,19 @@
 	<person id="5387763">
 		<attributes>
 			<attribute name="age" class="java.lang.String">39</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="14" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="9" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1506,8 +3420,35 @@
 	<person id="5389226">
 		<attributes>
 			<attribute name="age" class="java.lang.String">28</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="14" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1517,8 +3458,19 @@
 	<person id="5389227">
 		<attributes>
 			<attribute name="age" class="java.lang.String">29</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="23" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1528,8 +3480,27 @@
 	<person id="5390966">
 		<attributes>
 			<attribute name="age" class="java.lang.String">27</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="25" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="15" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1539,8 +3510,19 @@
 	<person id="5390967">
 		<attributes>
 			<attribute name="age" class="java.lang.String">26</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="17" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="17" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1550,6 +3532,7 @@
 	<person id="595684">
 		<attributes>
 			<attribute name="age" class="java.lang.String">52</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1561,6 +3544,7 @@
 	<person id="595685">
 		<attributes>
 			<attribute name="age" class="java.lang.String">18</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1572,8 +3556,19 @@
 	<person id="595686">
 		<attributes>
 			<attribute name="age" class="java.lang.String">14</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="21" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="school" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="21" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1583,8 +3578,19 @@
 	<person id="644290">
 		<attributes>
 			<attribute name="age" class="java.lang.String">47</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="12" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1594,8 +3600,31 @@
 	<person id="644291">
 		<attributes>
 			<attribute name="age" class="java.lang.String">43</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1605,8 +3634,19 @@
 	<person id="644292">
 		<attributes>
 			<attribute name="age" class="java.lang.String">7</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1616,8 +3656,43 @@
 	<person id="644476">
 		<attributes>
 			<attribute name="age" class="java.lang.String">47</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="17" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othmaint" facility="4" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1627,8 +3702,19 @@
 	<person id="644477">
 		<attributes>
 			<attribute name="age" class="java.lang.String">43</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1638,8 +3724,19 @@
 	<person id="644478">
 		<attributes>
 			<attribute name="age" class="java.lang.String">7</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="school" facility="7" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="16" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1649,8 +3746,27 @@
 	<person id="7305540">
 		<attributes>
 			<attribute name="age" class="java.lang.String">72</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="14" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1660,8 +3776,19 @@
 	<person id="7305541">
 		<attributes>
 			<attribute name="age" class="java.lang.String">62</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="13" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1671,8 +3798,19 @@
 	<person id="7453413">
 		<attributes>
 			<attribute name="age" class="java.lang.String">57</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="20" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="shopping" facility="2" >
+			</activity>
+			<leg mode="SHARED2FREE">
+			</leg>
+			<activity type="Home" facility="20" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1682,8 +3820,19 @@
 	<person id="7511168">
 		<attributes>
 			<attribute name="age" class="java.lang.String">52</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="6" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="6" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1693,6 +3842,7 @@
 	<person id="7511873">
 		<attributes>
 			<attribute name="age" class="java.lang.String">18</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1704,8 +3854,31 @@
 	<person id="7512109">
 		<attributes>
 			<attribute name="age" class="java.lang.String">35</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="atwork" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Work" facility="13" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="13" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1715,8 +3888,35 @@
 	<person id="7512514">
 		<attributes>
 			<attribute name="age" class="java.lang.String">60</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="eatout" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="11" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="social" facility="24" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1726,8 +3926,19 @@
 	<person id="7512596">
 		<attributes>
 			<attribute name="age" class="java.lang.String">20</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1737,6 +3948,7 @@
 	<person id="7513075">
 		<attributes>
 			<attribute name="age" class="java.lang.String">22</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1748,8 +3960,19 @@
 	<person id="7513432">
 		<attributes>
 			<attribute name="age" class="java.lang.String">39</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="work" facility="22" >
+			</activity>
+			<leg mode="WALK_LRF">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1759,8 +3982,19 @@
 	<person id="7513546">
 		<attributes>
 			<attribute name="age" class="java.lang.String">21</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1770,8 +4004,19 @@
 	<person id="7513554">
 		<attributes>
 			<attribute name="age" class="java.lang.String">18</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="9" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1781,8 +4026,27 @@
 	<person id="7513565">
 		<attributes>
 			<attribute name="age" class="java.lang.String">19</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="work" facility="2" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="work" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="escort" facility="8" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="8" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1792,8 +4056,19 @@
 	<person id="7523517">
 		<attributes>
 			<attribute name="age" class="java.lang.String">87</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="7" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="5" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="7" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1803,8 +4078,19 @@
 	<person id="7523648">
 		<attributes>
 			<attribute name="age" class="java.lang.String">78</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="10" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="othdiscr" facility="9" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="10" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1814,6 +4100,7 @@
 	<person id="7523764">
 		<attributes>
 			<attribute name="age" class="java.lang.String">93</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
 		</plan>
@@ -1825,8 +4112,27 @@
 	<person id="7539466">
 		<attributes>
 			<attribute name="age" class="java.lang.String">38</attribute>
+			<attribute name="sex" class="java.lang.String">2</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="3" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="univ" facility="13" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="3" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="shopping" facility="16" >
+			</activity>
+			<leg mode="WALK">
+			</leg>
+			<activity type="Home" facility="3" >
+			</activity>
 		</plan>
 
 	</person>
@@ -1836,8 +4142,19 @@
 	<person id="7539708">
 		<attributes>
 			<attribute name="age" class="java.lang.String">21</attribute>
+			<attribute name="sex" class="java.lang.String">1</attribute>
 		</attributes>
 		<plan selected="yes">
+			<activity type="Home" facility="18" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="univ" facility="12" >
+			</activity>
+			<leg mode="WALK_LOC">
+			</leg>
+			<activity type="Home" facility="18" >
+			</activity>
 		</plan>
 
 	</person>
