@@ -43,6 +43,12 @@ public class RunMatsim{
 		config.controler().setOverwriteFileSetting( OutputDirectoryHierarchy.OverwriteFileSetting.deleteDirectoryIfExists );
 
 		// possibly modify config here
+
+		// set number of iterations
+		config.controler().setLastIteration(9);
+
+		// set output folder if necessary
+		// config.controler().setOutputDirectory();
 		
 		// ---
 		
