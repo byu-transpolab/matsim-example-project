@@ -26,6 +26,8 @@ public class ActivitySimTripsReader {
     PopulationFactory pf;
     File tripsFile;
 
+    Random r = new Random(15);
+
     /**
      * Create an instance of ActivitySimTripsReader using an existing scenario
      * @param scenario A scenario
@@ -73,9 +75,19 @@ public class ActivitySimTripsReader {
 
             // Read each line of the trips file
             String[] nextLine;
+            Activity prevActivity = null;
+            Id<Person> prevPersonId = null;
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
+                if (prevPersonId != null && !personId.toString().equals(prevPersonId.toString())){
+                    Person prevPerson = scenario.getPopulation().getPersons().get(prevPersonId);
+                    Plan prevPlan = prevPerson.getPlans().get(0);
+                    prevPlan.addActivity(prevActivity);
+                    prevActivity = null;
+                }
+
+                prevPersonId = personId;
                 Person person = scenario.getPopulation().getPersons().get(personId);
                 Plan plan = person.getPlans().get(0);
 
@@ -90,22 +102,19 @@ public class ActivitySimTripsReader {
                 // then add randomness
                 String time = nextLine[col.get("depart")];
                 Double dt = Double.parseDouble(time);
-                Random r = new Random(15);
-                Double depTime = dt + r.nextGaussian()*3600; //adds a random number within 60 min
 
-                // try to get to next line for departure of next activity
-//                String nextnextLine;
-//                String nextTime = nextnextLine[col.get("depart")];
-//                Double adt = Double.parseDouble(nextTime);
-//                Double actDepTime = adt + r.nextGaussian()*3600; // yes this is the same r as above. Shouldn't make dif
+                Double depTime = dt*3600 + r.nextDouble()*3600; //adds a random number within 60 min
 
 
-                // Plan for each line
-                // 1 put origin as home if we need to and set departure time
-                // 2 put leg with trip_mode
-                // 3 put destination as new activity with departure mode (from next trip)
 
-                // If this is the first leg, add a home activity
+            // Plan for each line
+            // if previous personId != current personId then write home (last activity)
+            // 1 get previous activity (if none then write home)
+            // 2 get end time
+            // 3 get leg
+            // 4
+
+
                 if (plan.getPlanElements().isEmpty()){
                     Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
                     homeActivity.setEndTime(depTime);
@@ -114,23 +123,30 @@ public class ActivitySimTripsReader {
                     // departure time needs randomness (logic to check order)
                 }
 
-
-                // activitysim starts around 4 ( 2:30 == 26:30...)
-                // set departure time of previous activity
-//                String pastPurpose = previousLine[col.get("purpose")];
-//                Id<ActivityFacility> pastId   = Id.create(previousLine[col.get("destination")], ActivityFacility.class);
-//
-//                Activity prevActivity = pf.createActivityFromActivityFacilityId(pastPurpose, pastId);
-//                prevActivity.setEndTime(depTime);
-//                plan.addActivity(prevActivity);
-
+                if(prevActivity != null) {
+                    prevActivity.setEndTime(depTime);
+                    plan.addActivity(prevActivity);
+                }
 
                 Leg leg = pf.createLeg(leg_mode);
                 plan.addLeg(leg);
+
+                prevActivity = pf.createActivityFromActivityFacilityId(purpose, destId);
+
+
+                //Leg leg = pf.createLeg(leg_mode);
+                //plan.addLeg(leg);
+
+
+
+                // If this is the first leg, add a home activity
+
+
+
                 // if not, add the next activity with the purpose
-                Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
-                activity.setEndTime(actDepTime);
-                plan.addActivity(activity);
+                // Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
+                // activity.setEndTime(actDepTime);
+               // plan.addActivity(activity);
 
                 //plan
                 //home activity endtime: 11
@@ -150,6 +166,11 @@ public class ActivitySimTripsReader {
 
 
             }
+
+            // last line
+            Person prevPerson = scenario.getPopulation().getPersons().get(prevPersonId);
+            Plan prevPlan = prevPerson.getPlans().get(0);
+            prevPlan.addActivity(prevActivity);
 
 
         } catch (IOException e) {
