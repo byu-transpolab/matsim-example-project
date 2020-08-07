@@ -21,5 +21,5 @@ hs_err_pid*
 *.iml
 .Rproj.user
 
-data/UtahRoadsNetworkAnalysis.gdb
+data/MM_NetworkDataset_07272020.gdb
 data/agrc_network.zip
