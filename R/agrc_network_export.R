@@ -82,3 +82,54 @@ end_nodes <- link_points %>% group_by(link_id) %>% slice(n()) %>%
 mylinks <- scope_links %>%
   left_join(start_nodes %>% st_set_geometry(NULL), by = "link_id") %>%
   left_join(end_nodes   %>% st_set_geometry(NULL), by = "link_id")
+
+
+# Capacity ===================
+# The data have no lane information, which is pretty criminal. But we'll make
+# due with some defaults
+hcmr_lookup <- read_csv("data/hcmr_lookup.csv.zip")
+
+# well, we end up needing to use lots of defaults. 
+link_attributes <- tibble(
+  RoadClass = c(
+    "1 Interstates", 
+    "2 US Highways, Separated",  "3 US Highways, Unseparated", 
+    "4 Major State Highways, Separated",  "5 Major State Highways, Unseparated", 
+    "6 Other State Highways (Institutional)",  "7 Ramps, Collectors", 
+    "8 Major Local Roads, Paved",  "9 Major Local Roads, Not Paved",
+    "10 Other Federal Aid Eligible Local Roads", 
+    "11 Other Local, Neighborhood, Rural Roads",  "12 Other"
+  ),
+  ft = c(
+    "Freeway",  "MLHighway", "PrArterial", 
+    "MLHighway", "PrArterial", "MinArterial", "MinArterial",
+    "MinArterial", "MinArterial", "Local", "Local", "Local"
+  ),
+  lanes = c(
+    4,  3, 2, 3, 2,  2, 2,  2, 2,  1, 1, 1
+  ),
+  sl = c(
+    65, 55, 50, 50, 45, 40, 35, 30, 20, 25, 25, 25
+  ),
+  med = c(
+    "Restrictive", 
+    "Restrictive", "NonRestrictive",
+    "Restrictive", "NonRestrictive",
+    "NonRestrictive", "NonRestrictive",
+    "NonRestrictive", "NonRestrictive",
+    "None", "None", "None"
+  ),
+  at = "Suburban", terrain = "level"
+)
+
+mylinks_capacity <- mylinks %>%
+  left_join(link_attributes) %>%
+  left_join(hcmr_lookup)
+
+
+# plot to visualize capacity
+# ggplot(mylinks_capacity, aes(x = capacity * 10, y = AADT)) + geom_point() +
+#   geom_abline(slope = 1, intercept = 0, lty = "dotted") + 
+#   scale_x_log10() + scale_y_log10()
+# 
+# ggplot(mylinks_capacity, aes(color = capacity)) + geom_sf()
