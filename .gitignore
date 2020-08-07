@@ -19,3 +19,7 @@ hs_err_pid*
 
 /.idea/
 *.iml
+.Rproj.user
+
+data/UtahRoadsNetworkAnalysis.gdb
+data/agrc_network.zip
