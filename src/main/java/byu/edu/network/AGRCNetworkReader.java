@@ -10,9 +10,12 @@ import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.network.NetworkFactory;
 import org.matsim.api.core.v01.network.Node;
 import org.matsim.core.config.ConfigUtils;
+import org.matsim.core.network.NetworkUtils;
 import org.matsim.core.network.io.NetworkWriter;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordUtils;
+import org.matsim.core.utils.geometry.CoordinateTransformation;
+import org.matsim.core.utils.geometry.transformations.TransformationFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,6 +31,7 @@ import java.util.Map;
 public class AGRCNetworkReader {
     private static final Logger log = Logger.getLogger(AGRCNetworkReader.class);
     private Scenario scenario;
+    private CoordinateTransformation ct;
     private Network network;
     private NetworkFactory networkFactory;
 
@@ -43,6 +47,8 @@ public class AGRCNetworkReader {
         this.scenario = scenario;
         this.network = scenario.getNetwork();
         this.networkFactory = network.getFactory();
+        this.ct = TransformationFactory.getCoordinateTransformation("EPSG:4326",
+                scenario.getConfig().global().getCoordinateSystem());
 
         readNodes(nodesFile);
         readLinks(linksFile);
@@ -70,8 +76,8 @@ public class AGRCNetworkReader {
             Id<Node> nodeId = Id.createNodeId(nextLine[col.get("id")]);
             Double lon = Double.valueOf(nextLine[col.get("x")]);
             Double lat = Double.valueOf(nextLine[col.get("y")]);
-            Coord coord = CoordUtils.createCoord(lon, lat);
-
+            Coord coordLatLon = CoordUtils.createCoord(lon, lat);
+            Coord coord = ct.transform(coordLatLon);
             Node node = networkFactory.createNode(nodeId, coord);
             network.addNode(node);
         }
@@ -94,8 +100,10 @@ public class AGRCNetworkReader {
         File nodesFile = new File(args[0]);
         File linksFile = new File(args[1]);
         File outDir = new File(args[2]);
+        String crs = args[3];
 
         Scenario scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
+        scenario.getConfig().global().setCoordinateSystem(crs);
         try {
             AGRCNetworkReader reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir);
         } catch (IOException e) {
