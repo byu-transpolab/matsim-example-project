@@ -6,7 +6,17 @@ library(tigris)
 # and transit data for UTA.
 
 # Set up boundaries ========
+scope <- pumas("UT", class = "sf") %>%
+  filter(PUMACE10 %in% c("49002", "49003")) %>%
+  st_transform(4326)
+# scope <- tracts("UT", "Utah", class = "sf") %>%
+#   filter(NAME %in% c("24", "19", "18.01", "18.02", "18.03")) %>%
+#   st_transform(4326)
 
+scenario_name <- "provo_orem"
+if(!dir.exists(file.path("scenarios", scenario_name))){
+  dir.create(file.path("scenarios", scenario_name))
+}
 
 # Get AGRC Network data ==========
 # The Utah AGRC multimodal network database is available at 
@@ -41,15 +51,10 @@ links <- st_read(filegdb, layer = "AutoNetwork") %>%
   st_transform(4326)
 
 
-# Set up geographic scope ========
-scope <- pumas("UT", class = "sf") %>%
-  filter(PUMACE10 %in% c("49002", "49003")) %>%
-  st_transform(4326)
-scope <- tracts("UT", "Utah", class = "sf") %>%
-  filter(NAME %in% c("24", "19", "18.01", "18.02", "18.03")) %>%
-  st_transform(4326)
+
   
 
+# Set up geographic scope ========
 scope_nodes <- nodes %>% 
   st_filter(scope) 
 
@@ -122,7 +127,7 @@ link_attributes <- tibble(
   at = "Suburban", terrain = "level"
 )
 
-mylinks_capacity <- mylinks %>%
+mylinks <- mylinks %>%
   left_join(link_attributes) %>%
   left_join(hcmr_lookup)
 
@@ -133,3 +138,17 @@ mylinks_capacity <- mylinks %>%
 #   scale_x_log10() + scale_y_log10()
 # 
 # ggplot(mylinks_capacity, aes(color = capacity)) + geom_sf()
+
+
+# Write out ===================
+st_write(mylinks, file.path("scenarios", scenario_name, "network.geojson"), delete_dsn = TRUE)
+write_csv(mylinks %>% st_set_geometry(NULL), file.path("scenarios", scenario_name, "links.csv"))
+
+scope_nodes %>%
+  mutate(
+    x = st_coordinates(.)[, 1],
+    y = st_coordinates(.)[, 2]
+  ) %>%
+  st_set_geometry(NULL) %>%
+  write_csv(file.path("scenarios", scenario_name, "nodes.csv"))
+  
