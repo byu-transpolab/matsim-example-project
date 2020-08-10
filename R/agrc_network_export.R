@@ -129,7 +129,13 @@ link_attributes <- tibble(
 
 mylinks <- mylinks %>%
   left_join(link_attributes) %>%
-  left_join(hcmr_lookup)
+  left_join(hcmr_lookup) %>%
+  mutate(
+    Oneway = case_when(
+      Oneway == "B" ~ 0,
+      TRUE ~ 1
+    )
+  )
 
 
 # plot to visualize capacity
