@@ -20,6 +20,10 @@ import java.util.Map;
 
 public class ActivitySimFacilitiesReader {
 
+    //here are my questions
+    // I read the zones file, then match them with the facitlity in the plans?
+    // or do they save to the facilities in the scenario? what does that mean?
+    // I don't know why i would need trips file here.
 
     private Scenario scenario;
     File facilitiesFile;
