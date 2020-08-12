@@ -1,5 +1,6 @@
 package org.matsim.project;
 
+import byu.edu.activitysimutils.ActivitySimFacilitiesReader;
 import byu.edu.activitysimutils.ActivitySimPersonsReader;
 import byu.edu.activitysimutils.ActivitySimTripsReader;
 import org.apache.log4j.Logger;
@@ -23,11 +24,13 @@ public class InputFilesReader {
      * @param personsFile Path to activitysim output persons file
      * @param tripsFile Path to activitysim output trips file
      */
-    public void readActivitySimFiles(File personsFile, File tripsFile){
+    public void readActivitySimFiles(File personsFile, File tripsFile, File zonesFile){
         ActivitySimPersonsReader personsReader = new ActivitySimPersonsReader(scenario, personsFile);
         personsReader.readPersons();
         ActivitySimTripsReader tripsReader = new ActivitySimTripsReader(scenario, tripsFile);
         tripsReader.readTrips();
+        ActivitySimFacilitiesReader zonesReader = new ActivitySimFacilitiesReader(scenario, zonesFile);
+        zonesReader.readZones();
     }
 
 
@@ -37,8 +40,8 @@ public class InputFilesReader {
 
         File personsFile = new File("scenarios/activitysim_output/final_persons.csv");
         File tripsFile = new File("scenarios/activitysim_output/final_trips.csv");
-        // the zonesFile probably goes here then.
-        reader.readActivitySimFiles(personsFile, tripsFile);
+        //File zonesFile = new File("scenarios/activitysim_output/taz.csv");
+        reader.readActivitySimFiles(personsFile, tripsFile, zonesFile);
 
         new PopulationWriter(scenario.getPopulation()).write("scenarios/activitysim_output/population.xml");
     }
