@@ -23,5 +23,6 @@ hs_err_pid*
 
 data/MM_NetworkDataset_07272020.gdb
 data/agrc_network.zip
+R/facilities
 
 .Rhistory
