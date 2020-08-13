@@ -25,26 +25,24 @@ public class ActivitySimFacilitiesReader {
     PopulationFactory pf;
     ActivityFacilitiesFactory factory;
 
-/**
-     * Create an instance of ActivitySimFacilitiesReader using a new scenario
-     * @param tripsFile File path to csv file containing trips
- * */
-
-
-    public ActivitySimFacilitiesReader(File tripsFile) {
+    /**
+         * Create an instance of ActivitySimFacilitiesReader using a new scenario
+         * @param facilitiesFile File path to csv file containing facility coordinates
+     * */
+    public ActivitySimFacilitiesReader(File facilitiesFile) {
         Config config = ConfigUtils.createConfig();
         this.scenario = ScenarioUtils.createScenario(config);
-        this.facilitiesFile = tripsFile;
+        this.facilitiesFile = facilitiesFile;
         this.factory = scenario.getActivityFacilities().getFactory();
     }
 
-    public void readZones() {
+    public void readFacilities() {
         try {
             // Start a reader and read the header row. `col` is an index between the column names and numbers
-            CSVReader reader = CSVUtils.createCSVReader(zonesFile.toString());
+            CSVReader reader = CSVUtils.createCSVReader(facilitiesFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
-                    new String[]{"zone", "x", "y"}, // mandatory columns
+                    new String[]{"id", "zone", "x", "y"}, // mandatory columns
                     new String[]{"household_id"} // optional columns
             );
 
@@ -52,8 +50,11 @@ public class ActivitySimFacilitiesReader {
             String[] nextLine;
             while((nextLine = reader.readNext()) != null) {
                 // Create a MATsim Facilities object
-                Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("zone")], ActivityFacility.class);
-                Coord coord = CoordUtils.createCoord(nextLine[col.get("x")], nextLine[col.get("y")]);
+                Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("id")], ActivityFacility.class);
+                Double x = Double.valueOf(nextLine[col.get("x")]);
+                Double y = Double.valueOf(nextLine[col.get("y")]);
+
+                Coord coord = CoordUtils.createCoord(x, y);
                 ActivityFacility facility = factory.createActivityFacility(facilityId,coord);
 
                 scenario.getActivityFacilities().addActivityFacility(facility);
@@ -63,5 +64,11 @@ public class ActivitySimFacilitiesReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+
+
+
     }
 }
