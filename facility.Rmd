@@ -1,0 +1,51 @@
+---
+title: "Facility Coordinates"
+author: "Chris Day"
+date: "8/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(rmarkdown)
+library(tidyverse)
+```
+
+MATSim requires data for each facility within each TAZ. Each facility needs a specific coordinate. Using address point data, coordinates corresponding to commercial or other type addresses are given to each facility. A unique Facility ID is also given to each point. The AddressPoints.csv is used to assign coordinates to each facility.
+
+The AddressPoints.csv is a modified version of the AddressCoordinates.csv (found in branch population_wfrc on Github), and was created in QGIS by running a joint analysis of the AddressCoordinates.csv and Parcel information from AGRC.  It includes all building types. It also includes owner type, shape area, and parcel id information.
+
+```{r}
+#read in the important files
+#should we include Agricultural addresses?
+fac <- read_csv("R/facilities/AddressPoints.csv") %>%
+  filter(PtType == "Commercial" | PtType == "Other")
+         #| PtType == "Agricultural") %>%
+  colnames(fac)[1] <- "TAZ"
+  
+tazc <- read_csv("R/facilities/tazcentroids.csv") %>%
+  arrange(TAZID)
+  colnames(tazc)[1] <- "TAZ"
+```
+
+After reading in the address and TAZ centroid files, a table is created to display the coordinates of all Facility IDs. Business type is a combination of the Owner and Parcel type categories. If it is blank, "Private Other" is the default value given. 
+
+```{r}
+#a table that creates and organizes facility ids, business type, taz, and coordinates
+facility <- left_join(tazc, fac, by = "TAZ") %>%
+  mutate(facility_id = 1:n(),
+         own_type = ifelse(is.na(OWN_TYPE),"Private", OWN_TYPE),
+         pt_type = ifelse(is.na(PtType), "Other", PtType),
+         business_type = paste(own_type, pt_type),
+         lat = ifelse(is.na(xcoord.x), xcoord.y, xcoord.x),
+         lon = ifelse(is.na(ycoord.x), ycoord.y, ycoord.x)) %>%
+  select(facility_id, TAZ, business_type, lon, lat)
+
+#a table displaying the result
+paged_table(facility)
+```
+
+Finally, we write the csv file that will be used in the MATSim project.
+
+```{r}
+write_csv(facility,"data/facility_ids.csv")
+```
