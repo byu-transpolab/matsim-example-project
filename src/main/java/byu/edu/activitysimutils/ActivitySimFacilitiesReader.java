@@ -12,6 +12,7 @@ import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordUtils;
 import org.matsim.facilities.ActivityFacilitiesFactory;
 import org.matsim.facilities.ActivityFacility;
+import org.matsim.facilities.FacilitiesWriter;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,17 +43,17 @@ public class ActivitySimFacilitiesReader {
             CSVReader reader = CSVUtils.createCSVReader(facilitiesFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
-                    new String[]{"id", "zone", "x", "y"}, // mandatory columns
-                    new String[]{"household_id"} // optional columns
+                    new String[]{"facility_id", "TAZ", "lon", "lat"}, // mandatory columns
+                    new String[]{"business_id"} // optional columns
             );
 
             // Read each line of the persons file
             String[] nextLine;
             while((nextLine = reader.readNext()) != null) {
                 // Create a MATsim Facilities object
-                Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("id")], ActivityFacility.class);
-                Double x = Double.valueOf(nextLine[col.get("x")]);
-                Double y = Double.valueOf(nextLine[col.get("y")]);
+                Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("facility_id")], ActivityFacility.class);
+                Double x = Double.valueOf(nextLine[col.get("lon")]);
+                Double y = Double.valueOf(nextLine[col.get("lat")]);
 
                 Coord coord = CoordUtils.createCoord(x, y);
                 ActivityFacility facility = factory.createActivityFacility(facilityId,coord);
@@ -64,11 +65,26 @@ public class ActivitySimFacilitiesReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-
-
 
     }
+
+
+    private void writeFiles(File outFile) {
+         new FacilitiesWriter(scenario.getActivityFacilities()).write(outFile.toString());
+    }
+
+    public static void main(String[] args) throws IOException{
+        String directory = args[0];
+        String outDirectory = args[1];
+
+        File facilitiesFile = new File(directory, "facility_ids.csv");
+        File outFile = new File(outDirectory, "facility_list.xml.gz");
+
+        ActivitySimFacilitiesReader afr = new ActivitySimFacilitiesReader(facilitiesFile);
+        afr.readFacilities();
+        afr.writeFiles(outFile);
+
+    }
+
+
 }
