@@ -21,7 +21,7 @@ fac <- read_csv("R/facilities/AddressPoints.csv") %>%
   filter(PtType == "Commercial" | PtType == "Other")
          #| PtType == "Agricultural") %>%
   colnames(fac)[1] <- "TAZ"
-  
+    
 tazc <- read_csv("R/facilities/tazcentroids.csv") %>%
   arrange(TAZID)
   colnames(tazc)[1] <- "TAZ"
@@ -36,8 +36,8 @@ facility <- left_join(tazc, fac, by = "TAZ") %>%
          own_type = ifelse(is.na(OWN_TYPE),"Private", OWN_TYPE),
          pt_type = ifelse(is.na(PtType), "Other", PtType),
          business_type = paste(own_type, pt_type),
-         lat = ifelse(is.na(xcoord.x), xcoord.y, xcoord.x),
-         lon = ifelse(is.na(ycoord.x), ycoord.y, ycoord.x)) %>%
+         lat = ifelse(is.na(xcoord.y), xcoord.x, xcoord.y),
+         lon = ifelse(is.na(ycoord.y), ycoord.x, ycoord.y)) %>%
   select(facility_id, TAZ, business_type, lon, lat)
 
 #a table displaying the result
