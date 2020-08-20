@@ -38,7 +38,11 @@
 			<!-- For MATSim snapshots: -->
 			<id>ojo-snapshots</id>
 			<url>https://oss.jfrog.org/libs-snapshot</url>
-		</repository>	
+		</repository>
+        <repository>
+            <id>pt2matsim</id>
+            <url>http://dl.bintray.com/polettif/matsim</url>
+        </repository>
 	</repositories>
 
 	<dependencies>
@@ -114,7 +118,7 @@
 		<dependency>
 			<groupId>org.matsim</groupId>
 			<artifactId>pt2matsim</artifactId>
-			<version>19.11</version>
+			<version>20.7</version>
 		</dependency>
 		<!--Dependencies from where stated above to here are added as a service; they can be removed if you don't need them-->
 
