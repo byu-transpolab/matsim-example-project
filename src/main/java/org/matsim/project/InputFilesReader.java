@@ -39,8 +39,8 @@ public class InputFilesReader {
         Scenario scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
         InputFilesReader reader = new InputFilesReader(scenario);
 
-        File personsFile = new File("scenarios/activitysim_output/final_persons.csv");
-        File tripsFile = new File("scenarios/activitysim_output/final_trips.csv");
+        File personsFile = new File("data/final_persons.csv");
+        File tripsFile = new File("data/final_trips.csv");
         File facilitiesFile = new File("data/facility_ids.csv");
         reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile);
 
