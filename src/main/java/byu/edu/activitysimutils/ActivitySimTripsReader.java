@@ -2,6 +2,7 @@ package byu.edu.activitysimutils;
 
 import com.opencsv.CSVReader;
 import org.apache.log4j.Logger;
+import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.network.Link;
@@ -11,6 +12,7 @@ import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
+import org.matsim.facilities.Facility;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,13 +44,13 @@ public class ActivitySimTripsReader {
     /**
      * Create an instance of ActivitySimTripsReader using a new scenario
      * @param tripsFile File path to csv file containing trips
-     */
+     *//*
     public ActivitySimTripsReader(File tripsFile) {
         Config config = ConfigUtils.createConfig();
         this.scenario = ScenarioUtils.createScenario(config);
         this.tripsFile = tripsFile;
         this.pf = scenario.getPopulation().getFactory();
-    }
+    }*/
 
     /**
      * Create a method to get departure times
@@ -89,11 +91,20 @@ public class ActivitySimTripsReader {
 
                 prevPersonId = personId;
                 Person person = scenario.getPopulation().getPersons().get(personId);
+
+                // get the facility
                 Plan plan = person.getPlans().get(0);
 
                 // Get origin and destination id
+                //is this where we can add coord
                 Id<ActivityFacility> originId = Id.create(nextLine[col.get("origin")], ActivityFacility.class);
                 Id<ActivityFacility> destId   = Id.create(nextLine[col.get("destination")], ActivityFacility.class);
+
+                // get coords from facilities in scenario
+                ActivityFacility facility = scenario.getActivityFacilities().getFacilities().get(originId);
+                Coord originCoord = facility.getCoord();
+                ActivityFacility facility2 = scenario.getActivityFacilities().getFacilities().get(destId);
+                Coord destCoord = facility2.getCoord();
 
                 // Add mode and purpose to activity
                 String leg_mode = nextLine[col.get("trip_mode")];
@@ -117,6 +128,7 @@ public class ActivitySimTripsReader {
 
                 if (plan.getPlanElements().isEmpty()){
                     Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
+                    homeActivity.setCoord(originCoord);
                     homeActivity.setEndTime(depTime);
                     plan.addActivity(homeActivity);
                     // add departure time
@@ -125,6 +137,7 @@ public class ActivitySimTripsReader {
 
                 if(prevActivity != null) {
                     prevActivity.setEndTime(depTime);
+                    prevActivity.setCoord(originCoord);
                     plan.addActivity(prevActivity);
                 }
 

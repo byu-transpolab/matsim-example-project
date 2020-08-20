@@ -24,13 +24,14 @@ public class InputFilesReader {
      * @param personsFile Path to activitysim output persons file
      * @param tripsFile Path to activitysim output trips file
      */
-    public void readActivitySimFiles(File personsFile, File tripsFile, File zonesFile){
+    public void readActivitySimFiles(File personsFile, File tripsFile, File facilitiesFile){
+        ActivitySimFacilitiesReader facilitiesReader = new ActivitySimFacilitiesReader(scenario, facilitiesFile);
+        facilitiesReader.readFacilities();
         ActivitySimPersonsReader personsReader = new ActivitySimPersonsReader(scenario, personsFile);
         personsReader.readPersons();
         ActivitySimTripsReader tripsReader = new ActivitySimTripsReader(scenario, tripsFile);
         tripsReader.readTrips();
-        ActivitySimFacilitiesReader zonesReader = new ActivitySimFacilitiesReader(scenario, zonesFile);
-        zonesReader.readZones();
+
     }
 
 
@@ -40,8 +41,8 @@ public class InputFilesReader {
 
         File personsFile = new File("scenarios/activitysim_output/final_persons.csv");
         File tripsFile = new File("scenarios/activitysim_output/final_trips.csv");
-        //File zonesFile = new File("scenarios/activitysim_output/taz.csv");
-        reader.readActivitySimFiles(personsFile, tripsFile, zonesFile);
+        File facilitiesFile = new File("data/facility_ids.csv");
+        reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile);
 
         new PopulationWriter(scenario.getPopulation()).write("scenarios/activitysim_output/population.xml");
     }

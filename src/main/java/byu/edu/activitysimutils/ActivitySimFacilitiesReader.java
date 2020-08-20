@@ -21,7 +21,7 @@ import java.util.Map;
 public class ActivitySimFacilitiesReader {
 
     //here are my questions
-    // I read the zones file, then match them with the facitlity in the plans?
+    // I read the zones file, then match them with the facility in the plans?
     // or do they save to the facilities in the scenario? what does that mean?
     // I don't know why i would need trips file here.
 
@@ -34,9 +34,10 @@ public class ActivitySimFacilitiesReader {
          * Create an instance of ActivitySimFacilitiesReader using a new scenario
          * @param facilitiesFile File path to csv file containing facility coordinates
      * */
-    public ActivitySimFacilitiesReader(File facilitiesFile) {
-        Config config = ConfigUtils.createConfig();
-        this.scenario = ScenarioUtils.createScenario(config);
+    public ActivitySimFacilitiesReader(Scenario scenario, File facilitiesFile) {
+        //Config config = ConfigUtils.createConfig();
+        //this.scenario = ScenarioUtils.createScenario(config);
+        this.scenario = scenario;
         this.facilitiesFile = facilitiesFile;
         this.factory = scenario.getActivityFacilities().getFactory();
     }
@@ -77,18 +78,18 @@ public class ActivitySimFacilitiesReader {
          new FacilitiesWriter(scenario.getActivityFacilities()).write(outFile.toString());
     }
 
-    public static void main(String[] args) throws IOException{
+    /*public static void main(String[] args) throws IOException{
         String directory = args[0];
         String outDirectory = args[1];
 
         File facilitiesFile = new File(directory, "facility_ids.csv");
         File outFile = new File(outDirectory, "facility_list.xml.gz");
 
-        ActivitySimFacilitiesReader afr = new ActivitySimFacilitiesReader(facilitiesFile);
+        ActivitySimFacilitiesReader afr = new ActivitySimFacilitiesReader(scenario, facilitiesFile);
         afr.readFacilities();
         afr.writeFiles(outFile);
 
-    }
+    }*/
 
 
 }
