@@ -37,6 +37,7 @@ public class InputFilesReader {
 
     public static void main(String[] args){
         Scenario scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
+        scenario.getConfig().global().setCoordinateSystem("EPSG:26912");
         InputFilesReader reader = new InputFilesReader(scenario);
 
         File personsFile = new File("scenarios/activitysim_output/final_persons.csv");

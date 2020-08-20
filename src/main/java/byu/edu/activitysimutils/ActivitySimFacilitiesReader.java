@@ -10,6 +10,8 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordUtils;
+import org.matsim.core.utils.geometry.CoordinateTransformation;
+import org.matsim.core.utils.geometry.transformations.TransformationFactory;
 import org.matsim.facilities.ActivityFacilitiesFactory;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.FacilitiesWriter;
@@ -29,6 +31,7 @@ public class ActivitySimFacilitiesReader {
     File facilitiesFile;
     PopulationFactory pf;
     ActivityFacilitiesFactory factory;
+    CoordinateTransformation ct;
 
     /**
          * Create an instance of ActivitySimFacilitiesReader using a new scenario
@@ -40,6 +43,7 @@ public class ActivitySimFacilitiesReader {
         this.scenario = scenario;
         this.facilitiesFile = facilitiesFile;
         this.factory = scenario.getActivityFacilities().getFactory();
+        this.ct = TransformationFactory.getCoordinateTransformation("EPSG:4326", scenario.getConfig().global().getCoordinateSystem());
     }
 
     public void readFacilities() {
@@ -61,7 +65,8 @@ public class ActivitySimFacilitiesReader {
                 Double y = Double.valueOf(nextLine[col.get("lat")]);
 
                 Coord coord = CoordUtils.createCoord(x, y);
-                ActivityFacility facility = factory.createActivityFacility(facilityId,coord);
+                coord = ct.transform(coord);
+                ActivityFacility facility = factory.createActivityFacility(facilityId, coord);
 
                 scenario.getActivityFacilities().addActivityFacility(facility);
             }
