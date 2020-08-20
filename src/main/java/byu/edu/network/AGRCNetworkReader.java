@@ -212,6 +212,7 @@ public class AGRCNetworkReader {
         scenario.getConfig().global().setCoordinateSystem(crs);
         AGRCNetworkReader reader = null;
         if (hasTransit) {
+            log.info("GTFS file available, constructing transit");
             reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir, gtfsFolder);
         } else {
             reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir);
