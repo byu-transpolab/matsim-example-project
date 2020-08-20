@@ -19,3 +19,11 @@ hs_err_pid*
 
 /.idea/
 *.iml
+.Rproj.user
+
+data/MM_NetworkDataset_07272020.gdb
+data/agrc_network.zip
+data/gtfs.zip
+R/facilities
+
+.Rhistory
