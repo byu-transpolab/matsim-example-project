@@ -17,10 +17,12 @@ import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordUtils;
 import org.matsim.core.utils.geometry.CoordinateTransformation;
 import org.matsim.core.utils.geometry.transformations.TransformationFactory;
+import org.matsim.pt2matsim.tools.ScheduleTools;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 
 /***
@@ -35,6 +37,13 @@ public class AGRCNetworkReader {
     private CoordinateTransformation ct;
     private Network network;
     private NetworkFactory networkFactory;
+    private Boolean hasTransit = false;
+    private GTFSTransitMaker gtfsTransitMaker;
+
+    private final File outDir;
+    private final File nodesFile;
+    private final File linksFile;
+    private static File gtfsFolder;
 
 
     /**
@@ -44,16 +53,30 @@ public class AGRCNetworkReader {
      * @param linksFile A CSV file with link attributes
      * @param outDir The path to the output MATSim network *directory*. File is `<outDir>/highway_network.xml.gz`
      */
-    public AGRCNetworkReader(Scenario scenario, File nodesFile, File linksFile, File outDir) throws IOException {
+    public AGRCNetworkReader(Scenario scenario, File nodesFile, File linksFile, File outDir) {
         this.scenario = scenario;
-        this.network = scenario.getNetwork();
+        this.network = this.scenario.getNetwork();
         this.networkFactory = network.getFactory();
         this.ct = TransformationFactory.getCoordinateTransformation("EPSG:4326",
-                scenario.getConfig().global().getCoordinateSystem());
+                this.scenario.getConfig().global().getCoordinateSystem());
+        this.outDir = outDir;
+        this.nodesFile = nodesFile;
+        this.linksFile = linksFile;
+    }
 
-        readNodes(nodesFile);
-        readLinks(linksFile);
-        writeNetwork(outDir);
+    public AGRCNetworkReader(Scenario scenario, File nodesFile, File linksFile, File outDir, File gtfsFolder) {
+        this(scenario, nodesFile, linksFile, outDir);
+        this.hasTransit = true;
+        this.gtfsTransitMaker = new GTFSTransitMaker(this.scenario);
+        this.gtfsFolder = gtfsFolder;
+    }
+
+    public void makeNetwork() throws IOException {
+        readNodes(this.nodesFile);
+        readLinks(this.linksFile);
+        if(hasTransit){
+            gtfsTransitMaker.readGtfsFolder(this.gtfsFolder);
+        }
     }
 
     /**
@@ -156,23 +179,48 @@ public class AGRCNetworkReader {
 
     }
 
-    private void writeNetwork(File outDir){
+
+
+    private void writeNetwork(){
         log.info("Writing network to " + outDir);
         log.info("--- Links: " + network.getLinks().values().size());
         log.info("--- Nodes: " + network.getNodes().values().size());
         new NetworkWriter(network).write(outDir.toString() + "/highway_network.xml.gz");
+        if (hasTransit) {
+            gtfsTransitMaker.writeTransitOutputFiles(outDir);
+        }
     }
 
+
+
     public static void main(String[] args) {
+        Boolean hasTransit = false;
         File nodesFile = new File(args[0]);
         File linksFile = new File(args[1]);
         File outDir = new File(args[2]);
         String crs = args[3];
+        File gtfsFolder = null;
+
+        // If there are five command-line arguments given, then there is a GTFS folder in the
+        // scenario and therefore transit is included.
+        if(args.length == 5){
+            hasTransit = true;
+            gtfsFolder = new File(args[4]);
+        }
 
         Scenario scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
         scenario.getConfig().global().setCoordinateSystem(crs);
+        AGRCNetworkReader reader = null;
+        if (hasTransit) {
+            reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir, gtfsFolder);
+        } else {
+            reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir);
+        }
+
+
         try {
-            AGRCNetworkReader reader = new AGRCNetworkReader(scenario, nodesFile, linksFile, outDir);
+            reader.makeNetwork();
+            reader.writeNetwork();
         } catch (IOException e) {
             e.printStackTrace();
         }
