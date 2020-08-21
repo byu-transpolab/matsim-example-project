@@ -18,6 +18,9 @@ import org.matsim.facilities.FacilitiesWriter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ActivitySimFacilitiesReader {
@@ -32,6 +35,11 @@ public class ActivitySimFacilitiesReader {
     PopulationFactory pf;
     ActivityFacilitiesFactory factory;
     CoordinateTransformation ct;
+
+    /*
+    TAZID: [facility1, facility2, facility3]
+     */
+    public HashMap<String, List<Id<ActivityFacility>>> tazFacilityMap = new HashMap<>();
 
     /**
          * Create an instance of ActivitySimFacilitiesReader using a new scenario
@@ -63,12 +71,23 @@ public class ActivitySimFacilitiesReader {
                 Id<ActivityFacility> facilityId = Id.create(nextLine[col.get("facility_id")], ActivityFacility.class);
                 Double x = Double.valueOf(nextLine[col.get("lon")]);
                 Double y = Double.valueOf(nextLine[col.get("lat")]);
+                String tazId = nextLine[col.get("TAZ")];
 
                 Coord coord = CoordUtils.createCoord(x, y);
                 coord = ct.transform(coord);
                 ActivityFacility facility = factory.createActivityFacility(facilityId, coord);
 
                 scenario.getActivityFacilities().addActivityFacility(facility);
+
+                if(tazFacilityMap.containsKey(tazId)){
+                    List tazidList = tazFacilityMap.get(tazId);
+                    tazidList.add(facilityId);
+                    tazFacilityMap.put(tazId, tazidList);
+                } else {
+                    List<Id<ActivityFacility>> tazidList = new ArrayList();
+                    tazidList.add(facilityId);
+                    tazFacilityMap.put(tazId, tazidList);
+                }
             }
 
 
@@ -78,6 +97,9 @@ public class ActivitySimFacilitiesReader {
 
     }
 
+    public HashMap<String, List<Id<ActivityFacility>>> getTazFacilityMap() {
+        return tazFacilityMap;
+    }
 
     private void writeFiles(File outFile) {
          new FacilitiesWriter(scenario.getActivityFacilities()).write(outFile.toString());

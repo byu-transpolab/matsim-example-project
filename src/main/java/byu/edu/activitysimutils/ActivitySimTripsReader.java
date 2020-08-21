@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Period;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -29,6 +31,7 @@ public class ActivitySimTripsReader {
     File tripsFile;
 
     Random r = new Random(15);
+    HashMap<String, List<Id<ActivityFacility>>> tazFacilitymap = null;
 
     /**
      * Create an instance of ActivitySimTripsReader using an existing scenario
@@ -39,6 +42,11 @@ public class ActivitySimTripsReader {
         this.scenario = scenario;
         this.tripsFile = tripsFile;
         this.pf = scenario.getPopulation().getFactory();
+    }
+
+    public ActivitySimTripsReader(Scenario scenario, File tripsFile, HashMap<String, List<Id<ActivityFacility>>> tazFacilityMap) {
+        this(scenario, tripsFile);
+        this.tazFacilitymap = tazFacilityMap;
     }
 
     /**
@@ -97,13 +105,13 @@ public class ActivitySimTripsReader {
 
                 // Get origin and destination id
                 //is this where we can add coord
-                Id<ActivityFacility> originId = Id.create(nextLine[col.get("origin")], ActivityFacility.class);
-                Id<ActivityFacility> destId   = Id.create(nextLine[col.get("destination")], ActivityFacility.class);
+                String originId = nextLine[col.get("origin")];
+                String destId   = nextLine[col.get("destination")];
 
                 // get coords from facilities in scenario
-                ActivityFacility facility = scenario.getActivityFacilities().getFacilities().get(originId);
+                ActivityFacility facility = getFacilityinZone(originId);
                 Coord originCoord = facility.getCoord();
-                ActivityFacility facility2 = scenario.getActivityFacilities().getFacilities().get(destId);
+                ActivityFacility facility2 = getFacilityinZone(destId);
                 Coord destCoord = facility2.getCoord();
 
                 // Add mode and purpose to activity
@@ -189,6 +197,18 @@ public class ActivitySimTripsReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * select a random facility within a TAZ.
+     * @param tazId
+     * @return
+     */
+    private ActivityFacility getFacilityinZone(String tazId) {
+        List<Id<ActivityFacility>> facilityList = tazFacilitymap.get(tazId);
+        Id<ActivityFacility> facilityId = facilityList.get(r.nextInt(facilityList.size()));
+
+        return scenario.getActivityFacilities().getFacilities().get(facilityId);
     }
 
 
