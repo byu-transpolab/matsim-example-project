@@ -10,6 +10,7 @@ import org.matsim.api.core.v01.population.*;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
+import org.matsim.facilities.ActivityFacilities;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
 import org.matsim.facilities.Facility;
@@ -79,12 +80,22 @@ public class ActivitySimTripsReader {
                 // Is this the first trip of the day?
                 if (plan.getPlanElements().isEmpty()){
                     Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeId);
+                    ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity1);
                     homeActivity1.setEndTime(depTime);
+                    homeActivity1.setCoord(home.getCoord());
                     plan.addActivity(homeActivity1);
                 } else { // if not, then there is an existing activity that we need to find. maybe?
                     // and add a departure to it!
-
-
+                    // Find out how long the plan is
+                    Integer plansize = plan.getPlanElements().size();
+                    // The last item of the plan is a travel leg, and we actually want the last activity
+                    PlanElement lastElement = plan.getPlanElements().get(plansize - 2);
+                    if (lastElement instanceof Activity) {
+                        Activity lastActivity = (Activity) lastElement;
+                        ActivityFacility lastPlace = scenario.getActivityFacilities().getFacilities().get(lastActivity);
+                        lastActivity.setEndTime(depTime);
+                        lastActivity.setCoord(lastPlace.getCoord());
+                    }
                 }
 
                 // Add leg to plan
@@ -99,10 +110,16 @@ public class ActivitySimTripsReader {
 
                 if(purpose.equals("Home")) {
                     Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
+                    ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity2);
+                    homeActivity2.setEndTime(depTime);
+                    homeActivity2.setCoord(home.getCoord());
                     plan.addActivity(homeActivity2);
                 } else {
                     ActivityFacility nextPlace = getFacilityinZone(destId);
                     Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
+                    otherActivity.setCoord(nextPlace.getCoord());
+                    otherActivity.setEndTime(depTime);
+
                     plan.addActivity(otherActivity);
                 }
 

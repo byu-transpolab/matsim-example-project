@@ -62,6 +62,7 @@ public class ActivitySimPersonsReader {
 
                 person.getAttributes().putAttribute("age", nextLine[col.get("age")]);
                 person.getAttributes().putAttribute("sex", nextLine[col.get("sex")]);
+                person.getAttributes().putAttribute("household_id", nextLine[col.get("household_id")]);
 
                 if (col.keySet().contains("household_id")){
                     String hhId = nextLine[col.get("household_id")];

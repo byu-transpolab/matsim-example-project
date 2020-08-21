@@ -27,6 +27,7 @@ public class ActivitySimFacilitiesReader {
 
     private Scenario scenario;
     File facilitiesFile;
+    File householdsFile;
     PopulationFactory pf;
     ActivityFacilitiesFactory factory;
     CoordinateTransformation ct;
@@ -40,10 +41,11 @@ public class ActivitySimFacilitiesReader {
          * Create an instance of ActivitySimFacilitiesReader using an existing scenario
          * @param facilitiesFile File path to csv file containing facility coordinates
      * */
-    public ActivitySimFacilitiesReader(Scenario scenario, File facilitiesFile) {
+    public ActivitySimFacilitiesReader(Scenario scenario, File facilitiesFile, File householdsFile) {
 
         this.scenario = scenario;
         this.facilitiesFile = facilitiesFile;
+        this.householdsFile = householdsFile;
         this.factory = scenario.getActivityFacilities().getFactory();
         this.ct = TransformationFactory.getCoordinateTransformation("EPSG:4326", scenario.getConfig().global().getCoordinateSystem());
     }
@@ -89,6 +91,36 @@ public class ActivitySimFacilitiesReader {
             e.printStackTrace();
         }
 
+    }
+
+    public void readHouseholds(){
+        try {
+            // Start a reader and read the header row. `col` is an index between the column names and numbers
+            CSVReader reader = CSVUtils.createCSVReader(householdsFile.toString());
+            String[] header = reader.readNext();
+            Map<String, Integer> col = CSVUtils.getIndices(header,
+                    new String[]{"household_id", "longitude", "latitude"}, // mandatory columns
+                    new String[]{"income"} // optional columns
+            );
+
+            // Read each line of the persons file
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                // Create a MATsim Facilities object
+                Id<ActivityFacility> houseId = Id.create("h" + nextLine[col.get("household_id")], ActivityFacility.class);
+                Double x = Double.valueOf(nextLine[col.get("longitude")]);
+                Double y = Double.valueOf(nextLine[col.get("latitude")]);
+
+                Coord coord = CoordUtils.createCoord(x, y);
+                coord = ct.transform(coord);
+                ActivityFacility facility = factory.createActivityFacility(houseId, coord);
+
+                scenario.getActivityFacilities().addActivityFacility(facility);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public HashMap<String, List<Id<ActivityFacility>>> getTazFacilityMap() {

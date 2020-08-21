@@ -8,6 +8,7 @@ import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.population.PopulationWriter;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
+import org.matsim.facilities.FacilitiesWriter;
 
 import java.io.File;
 
@@ -24,9 +25,12 @@ public class InputFilesReader {
      * @param personsFile Path to activitysim output persons file
      * @param tripsFile Path to activitysim output trips file
      */
-    public void readActivitySimFiles(File personsFile, File tripsFile, File facilitiesFile){
-        ActivitySimFacilitiesReader facilitiesReader = new ActivitySimFacilitiesReader(scenario, facilitiesFile);
+    public void readActivitySimFiles(File personsFile, File tripsFile,
+                                     File facilitiesFile, File householdsFile){
+        ActivitySimFacilitiesReader facilitiesReader = new ActivitySimFacilitiesReader(scenario, facilitiesFile,
+                householdsFile);
         facilitiesReader.readFacilities();
+        facilitiesReader.readHouseholds();
         ActivitySimPersonsReader personsReader = new ActivitySimPersonsReader(scenario, personsFile);
         personsReader.readPersons();
         ActivitySimTripsReader tripsReader = new ActivitySimTripsReader(scenario, tripsFile,
@@ -40,13 +44,16 @@ public class InputFilesReader {
         Scenario scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
         scenario.getConfig().global().setCoordinateSystem("EPSG:26912");
         InputFilesReader reader = new InputFilesReader(scenario);
+        String scenarioPath = args[0];
 
-        File personsFile = new File("data/final_persons.csv");
-        File tripsFile = new File("data/final_trips.csv");
+        File personsFile = new File(scenarioPath + "/final_persons.csv");
+        File tripsFile = new File(scenarioPath + "/final_trips.csv");
+        File householdsFile = new File(scenarioPath + "/final_households.csv");
         File facilitiesFile = new File("data/facility_ids.csv");
-        reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile);
+        reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile, householdsFile);
 
-        new PopulationWriter(scenario.getPopulation()).write("data/final_population.xml.gz");
+        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "final_population.xml");
+        new FacilitiesWriter(scenario.getActivityFacilities()).write(scenarioPath + "facilities.xml.gz");
     }
 
 }
