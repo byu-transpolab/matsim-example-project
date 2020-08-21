@@ -49,20 +49,6 @@ public class ActivitySimTripsReader {
         this.tazFacilitymap = tazFacilityMap;
     }
 
-    /**
-     * Create an instance of ActivitySimTripsReader using a new scenario
-     * @param tripsFile File path to csv file containing trips
-     *//*
-    public ActivitySimTripsReader(File tripsFile) {
-        Config config = ConfigUtils.createConfig();
-        this.scenario = ScenarioUtils.createScenario(config);
-        this.tripsFile = tripsFile;
-        this.pf = scenario.getPopulation().getFactory();
-    }*/
-
-
-
-
     public void readTrips() {
         try {
             // Start a reader and read the header row. `col` is an index between the column names and numbers
@@ -76,77 +62,51 @@ public class ActivitySimTripsReader {
             // Read each line of the trips file
             String[] nextLine;
             Activity prevActivity = null;
+
             Id<Person> prevPersonId = null;
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
-                if (prevPersonId != null && !personId.toString().equals(prevPersonId.toString())){
-                    Person prevPerson = scenario.getPopulation().getPersons().get(prevPersonId);
-                    Plan prevPlan = prevPerson.getPlans().get(0);
-                    prevPlan.addActivity(prevActivity);
-                    prevActivity = null;
-                }
-
-                prevPersonId = personId;
+                Id<ActivityFacility> homeId = Id.create("h" + nextLine[col.get("household_id")], ActivityFacility.class);
                 Person person = scenario.getPopulation().getPersons().get(personId);
-
-                // get the facility
                 Plan plan = person.getPlans().get(0);
 
-                // Get origin and destination id
-                //is this where we can add coord
-                String originId = nextLine[col.get("origin")];
-                String destId   = nextLine[col.get("destination")];
+                // Get time of departure for this trip and add randomness
+                Double time = Double.valueOf(nextLine[col.get("depart")]);
+                Double depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
 
-                // get coords from facilities in scenario
-                ActivityFacility facility = getFacilityinZone(originId);
-                Coord originCoord = facility.getCoord();
-                ActivityFacility facility2 = getFacilityinZone(destId);
-                Coord destCoord = facility2.getCoord();
-
-
-                // Add mode and purpose to activity
-                String leg_mode = nextLine[col.get("trip_mode")];
-                String purpose = nextLine[col.get("purpose")];
-                // Get time of departure for each trip and convert to double
-                // then add randomness
-                String time = nextLine[col.get("depart")];
-                Double dt = Double.parseDouble(time);
-
-                Double depTime = dt*3600 + r.nextDouble()*3600; //adds a random number within 60 min
-
-
+                // Handle origin side
+                // Is this the first trip of the day?
                 if (plan.getPlanElements().isEmpty()){
-                    Activity homeActivity = pf.createActivityFromActivityFacilityId("Home", originId);
-                    homeActivity.setCoord(originCoord);
-                    homeActivity.setEndTime(depTime);
-                    plan.addActivity(homeActivity);
-                    // add departure time
-                    // departure time needs randomness (logic to check order)
+                    Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeId);
+                    homeActivity1.setEndTime(depTime);
+                    plan.addActivity(homeActivity1);
+                } else { // if not, then there is an existing activity that we need to find. maybe?
+                    // and add a departure to it!
+
+
                 }
 
-                if(prevActivity != null) {
-                    prevActivity.setEndTime(depTime);
-                    prevActivity.setCoord(originCoord);
-                    plan.addActivity(prevActivity);
-                }
-
+                // Add leg to plan
+                String leg_mode = nextLine[col.get("trip_mode")];
                 Leg leg = pf.createLeg(leg_mode);
                 plan.addLeg(leg);
 
-                prevActivity = pf.createActivityFromActivityFacilityId(purpose, destId);
 
+                // Handle next activity
+                String purpose = nextLine[col.get("purpose")];
+                String destId   = nextLine[col.get("destination")];
 
-
-
+                if(purpose.equals("Home")) {
+                    Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
+                    plan.addActivity(homeActivity2);
+                } else {
+                    ActivityFacility nextPlace = getFacilityinZone(destId);
+                    Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
+                    plan.addActivity(otherActivity);
+                }
 
             }
-
-            // last line
-            Person prevPerson = scenario.getPopulation().getPersons().get(prevPersonId);
-            Plan prevPlan = prevPerson.getPlans().get(0);
-            prevPlan.addActivity(prevActivity);
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -164,6 +124,5 @@ public class ActivitySimTripsReader {
 
         return scenario.getActivityFacilities().getFacilities().get(facilityId);
     }
-
 
 }
