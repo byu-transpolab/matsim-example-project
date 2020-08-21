@@ -43,6 +43,10 @@ public class RunMatsim{
 		config.controler().setOverwriteFileSetting( OutputDirectoryHierarchy.OverwriteFileSetting.deleteDirectoryIfExists );
 
 		// possibly modify config here
+		// set network
+		config.network().setInputFile("scenario/provo_orem/highway_network.xml.gz");
+		// set plans
+		config.plans().setInputFile("scenarios/activitysim_output/population.xml");
 
 		// set number of iterations
 		config.controler().setLastIteration(9);

@@ -8,11 +8,11 @@
 	</module>
 
 	<module name="network">
-		<param name="inputNetworkFile" value="payson_network.xml.gz" />
+		<param name="inputNetworkFile" value="scenarios/provo_orm/highway_network.xml.gz" />
 	</module>
 
 	<module name="plans">
-		<param name="inputPlansFile" value="plans100.xml" />
+		<param name="inputPlansFile" value="population.xml" />
 	</module>
 
 	<module name="controler">

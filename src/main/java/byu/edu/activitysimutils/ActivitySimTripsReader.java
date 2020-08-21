@@ -60,18 +60,8 @@ public class ActivitySimTripsReader {
         this.pf = scenario.getPopulation().getFactory();
     }*/
 
-    /**
-     * Create a method to get departure times
-     * Assign randomness to times
-     */
 
-//    private double getDepartureTime(activity) {
-//        // get time here (then call in both places in the while loop)
-//        Random r = new Random(15);
-//        Double departTime = nextLine[col.get("depart")];
-//        activity.setEndTime(7 * 3600 + r.nextGaussian() * 30*60); // random!
-//
-//    }
+
 
     public void readTrips() {
         try {
@@ -114,6 +104,7 @@ public class ActivitySimTripsReader {
                 ActivityFacility facility2 = getFacilityinZone(destId);
                 Coord destCoord = facility2.getCoord();
 
+
                 // Add mode and purpose to activity
                 String leg_mode = nextLine[col.get("trip_mode")];
                 String purpose = nextLine[col.get("purpose")];
@@ -123,15 +114,6 @@ public class ActivitySimTripsReader {
                 Double dt = Double.parseDouble(time);
 
                 Double depTime = dt*3600 + r.nextDouble()*3600; //adds a random number within 60 min
-
-
-
-            // Plan for each line
-            // if previous personId != current personId then write home (last activity)
-            // 1 get previous activity (if none then write home)
-            // 2 get end time
-            // 3 get leg
-            // 4
 
 
                 if (plan.getPlanElements().isEmpty()){
@@ -154,34 +136,6 @@ public class ActivitySimTripsReader {
 
                 prevActivity = pf.createActivityFromActivityFacilityId(purpose, destId);
 
-
-                //Leg leg = pf.createLeg(leg_mode);
-                //plan.addLeg(leg);
-
-
-
-                // If this is the first leg, add a home activity
-
-
-
-                // if not, add the next activity with the purpose
-                // Activity activity = pf.createActivityFromActivityFacilityId(purpose, destId);
-                // activity.setEndTime(actDepTime);
-               // plan.addActivity(activity);
-
-                //plan
-                //home activity endtime: 11
-                //leg walk
-                //activity (destination): eatout time: 11
-
-                //leg: walk
-                // activity home: endtime: 12
-
-                //leg: walk
-                //activyt: othermaint endtime: 13
-
-                //leg walk
-                //  home
 
 
 
