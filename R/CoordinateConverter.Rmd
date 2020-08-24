@@ -1,0 +1,26 @@
+---
+title: "coordinates"
+author: "Chris Day"
+date: "8/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(rmarkdown)
+library(tidyverse)
+library(data.table)
+```
+
+```{r}
+coord <- read_csv("hhcoord.csv")
+sperson <- read_csv("synthetic_persons.csv")
+fhouse <- read_csv("final_households.csv")
+fperson <- read_csv("final_persons.csv")
+```
+
+
+```{r}
+comb <- left_join(coord,sperson, by = "TAZ")
+paged_table(comb)
+```
+
