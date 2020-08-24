@@ -1,0 +1,54 @@
+---
+title: "Provo Orem Scenario Maker"
+author: "Nate Lant"
+date: "8/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# devtools::install_github("dkahle/ggmap")
+# library(ggmap)
+```
+
+```{r}
+# read in the data
+trips <- read_csv("data/final_trips.csv")
+persons <- read_csv("data/final_persons.csv")
+facilities <- read_csv("data/facility_ids.csv")
+households <- read_csv("data/hhcoord.csv")
+
+# filter hh by coordinates of provo orem boundary
+hh <- households %>%
+  filter(latitude < 40.30416667 & longitude > -111.72138889,
+         latitude > 40.21194444 & longitude < -111.61972222)
+```
+
+This file will filter the trips and persons files to only the origins and destinations
+of individuals and households in the Provo/Orem area. The modifided trips and persons
+files will be used in the WAV microtransit scenario.
+
+```{r}
+#this could be as easy as filtering to TAZs in provo orem
+trips_provo_orem <- trips %>%
+  filter(origin %in% hh$TAZ &
+         destination %in% hh$TAZ)
+
+# then filtering persons by trips inside provo orem
+persons %>%
+  filter(person_id %in% trips_provo_orem$person_id)
+```
+
+
+
+
+
+# Households
+I want to visualize the households on the map.
+
+```{r}
+
+```
+
