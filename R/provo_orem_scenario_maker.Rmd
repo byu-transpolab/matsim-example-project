@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 # devtools::install_github("dkahle/ggmap")
 # library(ggmap)
+library(leaflet)
+library(Hmisc)
 ```
 
 ```{r}
@@ -24,6 +26,17 @@ households <- read_csv("data/hhcoord.csv")
 hh <- households %>%
   filter(latitude < 40.30416667 & longitude > -111.72138889,
          latitude > 40.21194444 & longitude < -111.61972222)
+
+# non-range is all other tazs outside of provo orem
+# will be used for filter persons with at least one trip outside of provo orem
+nr <- households %>%
+  filter(latitude > 40.30416667)
+
+# visualize the tazs in provo orem
+hh %>% group_by(TAZ) %>%
+  tally() %>%
+  ggplot(aes(x = TAZ, y = n)) +
+  geom_col()
 ```
 
 This file will filter the trips and persons files to only the origins and destinations
@@ -37,8 +50,34 @@ trips_provo_orem <- trips %>%
          destination %in% hh$TAZ)
 
 # then filtering persons by trips inside provo orem
-persons %>%
+persons_provo_orem <- persons %>%
   filter(person_id %in% trips_provo_orem$person_id)
+
+# now check that these persons dont make other trips outside of provo/orem
+provo_trips <- trips %>% 
+  filter(person_id %in% persons_provo_orem$person_id) %>%
+  group_by(person_id) %>%
+  #if person has a trip not in the zone range, cut them out
+  filter(!any(origin %nin% hh$TAZ | destination %nin% hh$TAZ))
+    
+    
+provo_persons <- persons %>%
+  filter(person_id %in% provo_trips$person_id)
+  
+```
+
+```{r}
+#write to csv
+sample_persons <- provo_persons %>%
+  sample_n(100) 
+
+sample_persons %>%
+  write_csv("scenarios/provo_orem/persons100.csv")
+
+provo_trips %>%
+  filter(person_id %in% sample_persons$person_id) %>%
+  write_csv("scenarios/provo_orem/trips100.csv")
+
 ```
 
 
