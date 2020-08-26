@@ -71,7 +71,14 @@ provo_persons <- persons %>%
 sample_persons <- provo_persons %>%
   sample_n(100) 
 
+sample_hh <- households %>% 
+  filter(household_id %in% sample_persons$household_id)
+
 sample_persons %>%
+  left_join(sample_hh, by = "household_id") %>%
+  select(person_id, household_id, TAZ.x, TAZ.y)
+
+
   write_csv("scenarios/provo_orem/persons100.csv")
 
 provo_trips %>%
@@ -79,6 +86,13 @@ provo_trips %>%
   write_csv("scenarios/provo_orem/trips100.csv")
 
 ```
+
+```{r}
+# create households file
+households %>% 
+  filter(household_id %in% sample_persons$household_id) 
+```
+
 
 
 
