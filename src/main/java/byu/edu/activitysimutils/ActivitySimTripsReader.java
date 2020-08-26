@@ -62,9 +62,7 @@ public class ActivitySimTripsReader {
 
             // Read each line of the trips file
             String[] nextLine;
-            Activity prevActivity = null;
 
-            Id<Person> prevPersonId = null;
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
@@ -76,26 +74,26 @@ public class ActivitySimTripsReader {
                 Double time = Double.valueOf(nextLine[col.get("depart")]);
                 Double depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
 
+                // Handle next activity
+                String purpose = nextLine[col.get("purpose")];
+                String destId   = nextLine[col.get("destination")];
+                String originId = nextLine[col.get("origin")];
+
                 // Handle origin side
                 // Is this the first trip of the day?
                 if (plan.getPlanElements().isEmpty()){
-                    Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeId);
+                    ActivityFacility homeBase = getFacilityinZone(originId);
+                    Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeBase.getId());
                     ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity1);
+                    homeActivity1.setCoord(homeBase.getCoord());
                     homeActivity1.setEndTime(depTime);
-                    homeActivity1.setCoord(home.getCoord());
                     plan.addActivity(homeActivity1);
-                } else { // if not, then there is an existing activity that we need to find. maybe?
-                    // and add a departure to it!
-                    // Find out how long the plan is
-                    Integer plansize = plan.getPlanElements().size();
-                    // The last item of the plan is a travel leg, and we actually want the last activity
-                    PlanElement lastElement = plan.getPlanElements().get(plansize - 2);
-                    if (lastElement instanceof Activity) {
-                        Activity lastActivity = (Activity) lastElement;
-                        ActivityFacility lastPlace = scenario.getActivityFacilities().getFacilities().get(lastActivity);
-                        lastActivity.setEndTime(depTime);
-                        lastActivity.setCoord(lastPlace.getCoord());
-                    }
+                } else {
+                    ActivityFacility activity = getFacilityinZone(originId);
+                    Activity newActivity = pf.createActivityFromActivityFacilityId(purpose, activity.getId());
+                    newActivity.setCoord(activity.getCoord());
+                    newActivity.setEndTime(depTime);
+                    plan.addActivity((newActivity));
                 }
 
                 // Add leg to plan
@@ -104,23 +102,14 @@ public class ActivitySimTripsReader {
                 plan.addLeg(leg);
 
 
-                // Handle next activity
-                String purpose = nextLine[col.get("purpose")];
-                String destId   = nextLine[col.get("destination")];
+
 
                 if(purpose.equals("Home")) {
-                    Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
-                    ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity2);
-                    homeActivity2.setEndTime(depTime);
-                    homeActivity2.setCoord(home.getCoord());
+                    ActivityFacility homeBase2 = getFacilityinZone(destId);
+                    Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeBase2.getId());
+                    ActivityFacility home2 = scenario.getActivityFacilities().getFacilities().get(homeActivity2);
+                    homeActivity2.setCoord(homeBase2.getCoord());
                     plan.addActivity(homeActivity2);
-                } else {
-                    ActivityFacility nextPlace = getFacilityinZone(destId);
-                    Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
-                    otherActivity.setCoord(nextPlace.getCoord());
-                    otherActivity.setEndTime(depTime);
-
-                    plan.addActivity(otherActivity);
                 }
 
             }
