@@ -83,27 +83,37 @@ public class ActivitySimTripsReader {
                 String destId   = nextLine[col.get("destination")];
                 String originId = nextLine[col.get("origin")];
 
+                // sometimes 2296 is home and for someone else it is work...
                 purposeMap.put(destId, purpose);
                 String activityPurpose = purposeMap.get(originId);
+
+                // store the random facility with the origin id here
+
+                //Id<ActivityFacility> activityId = Id.create(getFacilityinZone(originId), ActivityFacility.class);
+                Id<ActivityFacility> activityId = getFacilityinZone(originId);
 
 
                 // Handle origin side
                 // Is this the first trip of the day?
                 if (plan.getPlanElements().isEmpty()){
-                    ActivityFacility homeBase = getFacilityinZone(originId);
+                    //ActivityFacility homeBase = getFacilityinZone(originId);
                     Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeId);
-                    ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity1);
+                    //ActivityFacility home = scenario.getActivityFacilities().getFacilities().get(homeActivity1);
                     // this coord is coming from a random facility in the same TAZ, not the households file
-                    homeActivity1.setCoord(homeBase.getCoord());
+                    Coord homeBase2 = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
+                    homeActivity1.setCoord(homeBase2);
+                    //homeActivity1.setCoord(homeBase.getCoord());
                     homeActivity1.setEndTime(depTime);
                     plan.addActivity(homeActivity1);
                 } else {
-                    ActivityFacility activity = getFacilityinZone(originId);
+                    //ActivityFacility activity = getFacilityinZone(originId);
+                    //Id<ActivityFacility> activityId = activity.getId();
                     // BUG: the purpose is related to destination not origin
                     // lets write a map that stores the purpose with destination (of previous trip)
                     // and gets the purpose from the matching origin
-                    Activity newActivity = pf.createActivityFromActivityFacilityId(activityPurpose, activity.getId());
-                    newActivity.setCoord(activity.getCoord());
+                    Activity newActivity = pf.createActivityFromActivityFacilityId(activityPurpose, activityId);
+                    Coord activityCoord = scenario.getActivityFacilities().getFacilities().get(activityId).getCoord();
+                    newActivity.setCoord(activityCoord);
                     newActivity.setEndTime(depTime);
                     plan.addActivity((newActivity));
                 }
@@ -117,10 +127,11 @@ public class ActivitySimTripsReader {
 
 
                 if(purpose.equals("Home")) {
-                    ActivityFacility homeBase2 = getFacilityinZone(destId);
+                    //ActivityFacility homeBase2 = getFacilityinZone(destId);
                     Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
-                    ActivityFacility home2 = scenario.getActivityFacilities().getFacilities().get(homeActivity2);
-                    homeActivity2.setCoord(homeBase2.getCoord());
+                    //ActivityFacility home2 = scenario.getActivityFacilities().getFacilities().get(homeActivity2);
+                    Coord homeBase2 = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
+                    homeActivity2.setCoord(homeBase2);
                     plan.addActivity(homeActivity2);
                 }
 
