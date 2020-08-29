@@ -147,11 +147,12 @@ public class ActivitySimTripsReader {
      * @param tazId
      * @return
      */
-    private ActivityFacility getFacilityinZone(String tazId) {
+    private Id<ActivityFacility> getFacilityinZone(String tazId) {
         List<Id<ActivityFacility>> facilityList = tazFacilitymap.get(tazId);
         Id<ActivityFacility> facilityId = facilityList.get(r.nextInt(facilityList.size()));
 
-        return scenario.getActivityFacilities().getFacilities().get(facilityId);
+        scenario.getActivityFacilities().getFacilities().get(facilityId);
+        return facilityId;
     }
 
 }
