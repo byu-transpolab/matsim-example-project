@@ -27,6 +27,6 @@ data/gtfs.zip
 data/final_persons.csv
 data/final_trips.csv
 data/final_population.xml.gz
-R/facilities
+R/coordinates
 
 .Rhistory
