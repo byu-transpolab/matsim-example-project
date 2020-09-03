@@ -49,7 +49,7 @@ public class InputFilesReader {
         File personsFile = new File(scenarioPath + args[1]);
         File tripsFile = new File(scenarioPath + args[2]);
         File householdsFile = new File(scenarioPath + args[3]);
-        File facilitiesFile = new File("data/facility_ids.csv");
+        File facilitiesFile = new File(scenarioPath + args[4]);
         reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile, householdsFile);
 
         new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "final_population.xml");
