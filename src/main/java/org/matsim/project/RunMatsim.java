@@ -36,7 +36,7 @@ public class RunMatsim{
 
 		Config config;
 		if ( args==null || args.length==0 || args[0]==null ){
-			config = ConfigUtils.loadConfig( "scenarios/equil/config.xml" );
+			config = ConfigUtils.loadConfig( "scenarios/provo_orem/config.xml" );
 		} else {
 			config = ConfigUtils.loadConfig( args );
 		}
@@ -44,9 +44,9 @@ public class RunMatsim{
 
 		// possibly modify config here
 		// set network
-		config.network().setInputFile("scenario/provo_orem/highway_network.xml.gz");
+		config.network().setInputFile("highway_network.xml.gz");
 		// set plans
-		config.plans().setInputFile("scenarios/activitysim_output/population.xml");
+		config.plans().setInputFile("final_population.xml");
 
 		// set number of iterations
 		config.controler().setLastIteration(9);

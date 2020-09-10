@@ -14,6 +14,7 @@ import org.matsim.facilities.ActivityFacilities;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
 import org.matsim.facilities.Facility;
+import org.matsim.api.core.v01.TransportMode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -100,8 +101,9 @@ public class ActivitySimTripsReader {
 
                 // Add leg to plan
                 String leg_mode = nextLine[col.get("trip_mode")];
-                Leg leg = pf.createLeg(leg_mode);
-                plan.addLeg(leg);
+                //Leg leg = pf.createLeg(leg_mode);
+                //plan.addLeg(leg);
+                convertLegMode(leg_mode, plan);
 
 
                 // Handle next activity
@@ -129,6 +131,30 @@ public class ActivitySimTripsReader {
         }
     }
 
+    private void convertLegMode(String leg_mode, Plan plan) {
+        if(leg_mode.equals("BIKE")){
+            String legMode = TransportMode.bike;
+            addLegToPlan(plan, legMode);
+        } else if(leg_mode.equals("DRIVEALONEFREE")){
+            String legMode = TransportMode.car;
+            addLegToPlan(plan, legMode);
+        } else if(leg_mode.equals("SHARED2FREE")){
+            String legMode = TransportMode.ride;
+            addLegToPlan(plan, legMode);
+        } else if(leg_mode.equals("SHARED3FREE")){
+            String legMode = TransportMode.ride;
+            addLegToPlan(plan, legMode);
+        } else {
+            String legMode = TransportMode.walk;
+            addLegToPlan(plan, legMode);
+        }
+    }
+
+    private void addLegToPlan(Plan plan, String legMode) {
+        Leg leg = pf.createLeg(legMode);
+        plan.addLeg(leg);
+    }
+
     /**
      * select a random facility within a TAZ.
      * @param tazId
@@ -140,5 +166,6 @@ public class ActivitySimTripsReader {
 
         return scenario.getActivityFacilities().getFacilities().get(facilityId);
     }
+
 
 }
