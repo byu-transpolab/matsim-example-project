@@ -62,11 +62,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" end_time="07:28:21" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="94525" x="442335.5781068291" y="4457187.0406593755" end_time="13:46:52" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" >
 			</activity>
@@ -139,7 +139,7 @@
 			</leg>
 			<activity type="escort" facility="93874" x="441206.65134709585" y="4460812.7503187535" end_time="08:42:10" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h613305" x="440815.77131481597" y="4459250.010515749" >
 			</activity>
@@ -212,11 +212,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h614705" x="442016.3588782082" y="4460878.700129655" end_time="08:05:45" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="94843" x="444647.81817381823" y="4458560.829946837" end_time="16:35:48" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h614705" x="442016.3588782082" y="4460878.700129655" >
 			</activity>
@@ -235,11 +235,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h614771" x="441832.2205536191" y="4460893.589705543" end_time="11:47:37" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="94568" x="443883.4422780456" y="4462010.9402398085" end_time="16:43:23" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h614771" x="441832.2205536191" y="4460893.589705543" >
 			</activity>
@@ -258,15 +258,15 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h615557" x="442532.7077822724" y="4460601.610127656" end_time="10:03:32" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="96412" x="442869.1032425051" y="4455117.5399948945" end_time="20:18:22" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="eatout" facility="96232" x="444925.8962155774" y="4454437.160267465" end_time="21:59:25" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h615557" x="442532.7077822724" y="4460601.610127656" >
 			</activity>
@@ -285,7 +285,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h616102" x="441695.8002037123" y="4459660.3305313" end_time="05:43:47" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="escort" facility="94970" x="443710.7081676341" y="4457231.269718004" end_time="05:25:06" >
 			</activity>
@@ -293,7 +293,7 @@
 			</leg>
 			<activity type="work" facility="94936" x="443807.1070159628" y="4457169.919685547" end_time="16:00:00" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h616102" x="441695.8002037123" y="4459660.3305313" >
 			</activity>
@@ -358,19 +358,19 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h618139" x="443004.92317698634" y="4459402.8796735965" end_time="11:50:47" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="shopping" facility="96370" x="441951.6338182996" y="4455168.44984388" end_time="13:41:46" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="eatout" facility="94891" x="443107.6575930962" y="4457375.629773559" end_time="14:01:31" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="othmaint" facility="94726" x="444059.9291266898" y="4459400.8295826465" end_time="14:11:40" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h618139" x="443004.92317698634" y="4459402.8796735965" >
 			</activity>
@@ -443,11 +443,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h682736" x="446004.0195237089" y="4460505.849793783" end_time="10:52:17" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="shopping" facility="94738" x="445343.18837946554" y="4460292.670117521" end_time="12:15:12" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h682736" x="446004.0195237089" y="4460505.849793783" >
 			</activity>
@@ -489,11 +489,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h683868" x="444174.22097573825" y="4459643.150374611" end_time="07:44:13" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96245" x="445262.6336865433" y="4454703.099865858" end_time="14:40:44" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h683868" x="444174.22097573825" y="4459643.150374611" >
 			</activity>
@@ -647,11 +647,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h687795" x="443725.7017779929" y="4461554.458326248" end_time="08:32:33" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="escort" facility="94213" x="440679.32777635276" y="4457676.000523793" end_time="08:44:35" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h687795" x="443725.7017779929" y="4461554.458326248" >
 			</activity>
@@ -697,11 +697,11 @@
 			</leg>
 			<activity type="univ" facility="94971" x="443956.33601593855" y="4456736.110575828" end_time="15:30:32" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="shopping" facility="91159" x="439061.5580866962" y="4457191.620572798" end_time="15:08:46" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h688897" x="444376.1502597891" y="4460734.029734861" >
 			</activity>
@@ -720,11 +720,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h690107" x="444970.82748056506" y="4458036.649683176" end_time="07:22:35" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="94702" x="443688.08409358317" y="4460929.239801609" end_time="16:26:01" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h690107" x="444970.82748056506" y="4458036.649683176" >
 			</activity>
@@ -766,11 +766,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h691051" x="444862.4194092794" y="4457647.460270087" end_time="09:16:51" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="escort" facility="96621" x="442067.24370957026" y="4453828.660093785" end_time="14:21:46" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h691051" x="444862.4194092794" y="4457647.460270087" >
 			</activity>
@@ -789,7 +789,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h692031" x="443020.80278851715" y="4456590.2901981585" end_time="11:58:32" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="eatout" facility="94921" x="443797.86106161634" y="4457084.050348328" end_time="18:38:06" >
 			</activity>
@@ -812,11 +812,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h692782" x="443908.5300557476" y="4456085.10999785" end_time="08:42:21" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="94558" x="443799.7233968593" y="4461872.84049566" end_time="16:51:16" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h692782" x="443908.5300557476" y="4456085.10999785" >
 			</activity>
@@ -947,19 +947,19 @@
 			</leg>
 			<activity type="escort" facility="97374" x="443459.0187842866" y="4453156.670508657" end_time="08:01:32" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="eatout" facility="93588" x="441325.7422169599" y="4459611.8705217475" end_time="08:09:28" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="escort" facility="95071" x="442481.9600113178" y="4456734.41981316" end_time="08:59:26" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="univ" facility="94931" x="443815.39918681537" y="4457040.000297911" end_time="08:15:57" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h694746" x="442656.89032762963" y="4456488.260369197" >
 			</activity>
@@ -1178,7 +1178,7 @@
 			</leg>
 			<activity type="Home" facility="h696782" x="444113.7729043309" y="4457106.519567733" end_time="19:11:24" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h696782" x="444113.7729043309" y="4457106.519567733" >
 			</activity>
@@ -1197,11 +1197,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h698433" x="445220.2585216442" y="4454720.029988157" end_time="14:26:09" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="escort" facility="95088" x="442474.7489805294" y="4456665.389927879" end_time="14:24:14" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h698433" x="445220.2585216442" y="4454720.029988157" >
 			</activity>
@@ -1243,11 +1243,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h699420" x="441110.5866362384" y="4455318.970346896" end_time="08:38:18" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="97442" x="443139.32723800954" y="4452592.579632032" end_time="10:50:16" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h699420" x="441110.5866362384" y="4455318.970346896" >
 			</activity>
@@ -1320,11 +1320,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h700476" x="444207.6816352922" y="4454038.1501305755" end_time="07:01:24" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="96243" x="445271.6889842535" y="4454660.330640026" end_time="10:35:55" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h700476" x="444207.6816352922" y="4454038.1501305755" >
 			</activity>
@@ -1374,11 +1374,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h701243" x="441062.41420183226" y="4456604.730405742" end_time="08:31:30" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="95103" x="442474.43907843775" y="4456674.929665394" end_time="15:29:19" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h701243" x="441062.41420183226" y="4456604.730405742" >
 			</activity>
@@ -1424,7 +1424,7 @@
 			</leg>
 			<activity type="univ" facility="94949" x="443886.4097577131" y="4456851.980177303" end_time="12:04:32" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="shopping" facility="96343" x="442618.44723803725" y="4456188.4000453185" end_time="12:42:52" >
 			</activity>
@@ -1447,11 +1447,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h702572" x="444746.99748688" y="4454713.310350579" end_time="08:25:16" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="work" facility="94737" x="444970.99924026104" y="4459850.240288989" end_time="18:39:40" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h702572" x="444746.99748688" y="4454713.310350579" >
 			</activity>
@@ -1505,15 +1505,15 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h703488" x="445473.0130079807" y="4455027.679735878" end_time="07:58:01" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="93108" x="439691.12037390505" y="4460718.730236726" end_time="20:42:19" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="shopping" facility="93584" x="441108.0213578835" y="4459864.980108062" end_time="21:45:40" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h703488" x="445473.0130079807" y="4455027.679735878" >
 			</activity>
@@ -1536,7 +1536,7 @@
 			</leg>
 			<activity type="school" facility="93921" x="442474.9041721739" y="4460743.4102151925" end_time="15:12:18" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h703619" x="445592.71630832355" y="4455046.219606864" >
 			</activity>
@@ -1578,7 +1578,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h704142" x="446253.96094625554" y="4454915.410020452" end_time="08:50:07" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="work" facility="97068" x="440960.4482080584" y="4453615.3605110645" end_time="17:46:48" >
 			</activity>
@@ -1655,11 +1655,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h705205" x="443311.15224164445" y="4454965.830044979" end_time="07:32:14" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96680" x="442397.60185751837" y="4454247.010355013" end_time="16:47:21" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h705205" x="443311.15224164445" y="4454965.830044979" >
 			</activity>
@@ -1732,11 +1732,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h705863" x="441547.3300599516" y="4454407.029969888" end_time="16:44:30" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="eatout" facility="97202" x="442458.05797070346" y="4453846.099795688" end_time="19:05:35" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h705863" x="441547.3300599516" y="4454407.029969888" >
 			</activity>
@@ -1778,7 +1778,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h706562" x="443465.0775458073" y="4454631.789877865" end_time="08:41:19" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="96177" x="445808.6315264427" y="4454592.4697062755" end_time="13:29:58" >
 			</activity>
@@ -1809,11 +1809,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h707122" x="443930.8170616699" y="4454138.089611487" end_time="07:08:53" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="96282" x="444148.8561403639" y="4453999.320577782" end_time="16:58:06" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h707122" x="443930.8170616699" y="4454138.089611487" >
 			</activity>
@@ -1844,7 +1844,7 @@
 			</leg>
 			<activity type="eatout" facility="94870" x="445254.8019903106" y="4457259.680349169" end_time="15:16:03" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h707290" x="439096.9810026028" y="4456457.41977152" end_time="16:47:51" >
 			</activity>
@@ -1894,15 +1894,15 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h708604" x="440030.0485173256" y="4454113.600377182" end_time="07:48:37" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="escort" facility="96980" x="440039.80660971045" y="4456778.729886994" end_time="08:06:04" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="95266" x="444301.9623212018" y="4456699.2804653" end_time="17:37:50" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h708604" x="440030.0485173256" y="4454113.600377182" >
 			</activity>
@@ -1921,11 +1921,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h709518" x="440141.22281713283" y="4453171.019872388" end_time="06:37:09" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96241" x="445246.70724806323" y="4454577.360423023" end_time="16:37:12" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h709518" x="440141.22281713283" y="4453171.019872388" >
 			</activity>
@@ -1944,15 +1944,15 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h709662" x="440124.7416161769" y="4453877.610542153" end_time="16:54:57" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="othmaint" facility="97382" x="443642.92923485854" y="4453442.229745246" end_time="17:59:13" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="shopping" facility="97174" x="443062.42794925073" y="4451835.990157139" end_time="17:05:53" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h709662" x="440124.7416161769" y="4453877.610542153" >
 			</activity>
@@ -1971,19 +1971,19 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h710247" x="439285.5177883814" y="4453129.980341729" end_time="05:09:19" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="escort" facility="95125" x="442468.43724942784" y="4456630.639778612" end_time="06:04:22" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="work" facility="94923" x="443811.6912136036" y="4457134.649934481" end_time="17:27:43" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="eatout" facility="96239" x="444801.0397342527" y="4454365.810488318" end_time="17:58:27" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="escort" facility="96363" x="440980.9903919068" y="4455544.920072325" end_time="17:22:35" >
 			</activity>
@@ -2006,7 +2006,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h710462" x="444086.5397536977" y="4456149.620143505" end_time="17:24:22" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96395" x="442819.72826280707" y="4456047.860008937" end_time="21:34:23" >
 			</activity>
@@ -2029,11 +2029,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h710803" x="443359.9575571361" y="4455140.990442225" end_time="08:08:04" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96244" x="445269.34949792887" y="4454530.150214813" end_time="08:30:00" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h710803" x="443359.9575571361" y="4455140.990442225" >
 			</activity>
@@ -2052,11 +2052,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h710850" x="441398.07345404563" y="4453489.699964291" end_time="06:20:20" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="escort" facility="97167" x="441357.0064053941" y="4453018.930397652" end_time="06:50:22" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h710850" x="441398.07345404563" y="4453489.699964291" end_time="07:20:25" >
 			</activity>
@@ -2064,7 +2064,7 @@
 			</leg>
 			<activity type="school" facility="95274" x="444175.04104051634" y="4456784.799804319" end_time="17:07:09" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="othdiscr" facility="97177" x="443395.676363932" y="4451606.610166433" end_time="17:40:01" >
 			</activity>
@@ -2179,11 +2179,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h712169" x="442811.0526711566" y="4453452.440540069" end_time="07:15:15" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="94937" x="443800.3579945822" y="4457040.28003368" end_time="14:45:07" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h712169" x="442811.0526711566" y="4453452.440540069" >
 			</activity>
@@ -2260,11 +2260,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h713609" x="442935.06690088" y="4452686.470269278" end_time="10:38:48" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96244" x="445269.34949792887" y="4454530.150214813" end_time="18:10:01" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h713609" x="442935.06690088" y="4452686.470269278" >
 			</activity>
@@ -2287,7 +2287,7 @@
 			</leg>
 			<activity type="escort" facility="97548" x="444964.3221045529" y="4453496.029575821" end_time="09:18:37" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h713959" x="444534.12411350425" y="4453498.200097345" >
 			</activity>
@@ -2306,7 +2306,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h714356" x="444724.91216446424" y="4453556.3605133" end_time="13:06:09" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="work" facility="94645" x="444002.521567344" y="4461438.929596659" end_time="16:03:07" >
 			</activity>
@@ -2356,7 +2356,7 @@
 			</leg>
 			<activity type="work" facility="94738" x="445343.18837946554" y="4460292.670117521" end_time="11:06:30" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h714644" x="444971.34110257647" y="4453620.8797727125" end_time="17:48:57" >
 			</activity>
@@ -2387,19 +2387,19 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h714963" x="446106.4127534985" y="4452847.559968379" end_time="07:00:31" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="work" facility="96925" x="443942.8175951197" y="4454079.2903198935" end_time="13:35:28" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="atwork" facility="96237" x="444955.37655813625" y="4454402.799826115" end_time="14:47:11" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Work" facility="96918" x="443944.7472436747" y="4454020.690188518" end_time="18:27:46" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h714963" x="446106.4127534985" y="4452847.559968379" >
 			</activity>
@@ -2461,11 +2461,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h716375" x="441503.5630848202" y="4453023.1801074" end_time="07:43:58" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="school" facility="96244" x="445269.34949792887" y="4454530.150214813" end_time="14:58:39" >
 			</activity>
-			<leg mode="walk">
+			<leg mode="pt">
 			</leg>
 			<activity type="Home" facility="h716375" x="441503.5630848202" y="4453023.1801074" >
 			</activity>
@@ -2523,7 +2523,7 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h716601" x="442684.870670211" y="4452294.749942765" end_time="07:54:08" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="97012" x="439305.1589308776" y="4453972.500357835" end_time="18:42:53" >
 			</activity>
@@ -2546,23 +2546,23 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h716952" x="443700.63626568945" y="4452632.080650965" end_time="16:45:45" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="shopping" facility="93643" x="440126.01835917257" y="4459070.639608415" end_time="16:26:36" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h716952" x="443700.63626568945" y="4452632.080650965" end_time="17:48:37" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="school" facility="97442" x="443139.32723800954" y="4452592.579632032" end_time="17:26:39" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="social" facility="96236" x="444908.84944942" y="4454437.260306944" end_time="18:20:43" >
 			</activity>
-			<leg mode="ride">
+			<leg mode="car">
 			</leg>
 			<activity type="Home" facility="h716952" x="443700.63626568945" y="4452632.080650965" >
 			</activity>

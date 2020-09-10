@@ -15,7 +15,6 @@ import org.matsim.facilities.ActivityFacilities;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
 import org.matsim.facilities.Facility;
-import org.matsim.api.core.v01.TransportMode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,6 +31,7 @@ public class ActivitySimTripsReader {
     Scenario scenario;
     PopulationFactory pf;
     File tripsFile;
+    TransportMode mode;
 
     Random r = new Random(15);
     HashMap<String, List<Id<ActivityFacility>>> tazFacilitymap = null;
@@ -100,28 +100,11 @@ public class ActivitySimTripsReader {
                     }
                 }
 
-                //add logic to convert mode to matsim modes
-
-                // BIKE            168644 bike
-                // 2 DRIVE_COM        40022 pt
-                // 3 DRIVE_EXP          172 pt
-                // 4 DRIVE_LOC        32867 pt
-                // 5 DRIVE_LRF        39463 pt
-                // 6 DRIVEALONEFREE 2840391 car
-                // 7 SHARED2FREE    1231245 car
-                // 8 SHARED3FREE     943780 car
-                // 9 WALK           1262057 walk
-                //10 WALK_COM         34958 pt
-                //11 WALK_EXP          2320 pt
-                //12 WALK_LOC        847714 pt
-                //13 WALK_LRF        395976 pt
-
                 // Add leg to plan
                 String leg_mode = nextLine[col.get("trip_mode")];
-                //Leg leg = pf.createLeg(leg_mode);
-                //plan.addLeg(leg);
-                convertLegMode(leg_mode, plan);
-
+                Leg leg = pf.createLeg(leg_mode);
+                leg.setMode(getLegMode(leg_mode));
+                plan.addLeg(leg);
 
                 // Handle next activity
                 String purpose = nextLine[col.get("purpose")];
@@ -148,29 +131,26 @@ public class ActivitySimTripsReader {
         }
     }
 
-    private void convertLegMode(String leg_mode, Plan plan) {
+
+    /**
+     * convert the trip mode value to a MATSim friendly trip mode value
+     * @param leg_mode
+     * @return
+     */
+    private String getLegMode(String leg_mode) {
         if(leg_mode.equals("BIKE")){
-            String legMode = TransportMode.bike;
-            addLegToPlan(plan, legMode);
-        } else if(leg_mode.equals("DRIVEALONEFREE")){
-            String legMode = TransportMode.car;
-            addLegToPlan(plan, legMode);
-        } else if(leg_mode.equals("SHARED2FREE")){
-            String legMode = TransportMode.ride;
-            addLegToPlan(plan, legMode);
-        } else if(leg_mode.equals("SHARED3FREE")){
-            String legMode = TransportMode.ride;
-            addLegToPlan(plan, legMode);
-        } else {
-            String legMode = TransportMode.walk;
-            addLegToPlan(plan, legMode);
+            return mode.bike;
+        } else if(leg_mode.equals("WALK")){
+            return mode.walk;
+        } else if(leg_mode.matches("DRIVEALONEFREE|SHARED2FREE|SHARED3FREE")){
+            return mode.car;
+        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF|WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF")){
+            return mode.pt;
+        } else{
+            return "we messed up";
         }
     }
 
-    private void addLegToPlan(Plan plan, String legMode) {
-        Leg leg = pf.createLeg(legMode);
-        plan.addLeg(leg);
-    }
 
     /**
      * select a random facility within a TAZ.
