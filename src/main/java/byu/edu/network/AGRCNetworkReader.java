@@ -11,7 +11,7 @@ import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.network.NetworkFactory;
 import org.matsim.api.core.v01.network.Node;
 import org.matsim.core.config.ConfigUtils;
-import org.matsim.core.network.NetworkUtils;
+import org.matsim.core.network.algorithms.NetworkCleaner;
 import org.matsim.core.network.io.NetworkWriter;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordUtils;
@@ -74,9 +74,12 @@ public class AGRCNetworkReader {
     public void makeNetwork() throws IOException {
         readNodes(this.nodesFile);
         readLinks(this.linksFile);
+        new NetworkCleaner().run(this.network);
         if(hasTransit){
             gtfsTransitMaker.readGtfsFolder(this.gtfsFolder);
         }
+
+
     }
 
     /**
