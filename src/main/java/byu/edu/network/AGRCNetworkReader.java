@@ -11,6 +11,7 @@ import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.network.NetworkFactory;
 import org.matsim.api.core.v01.network.Node;
 import org.matsim.core.config.ConfigUtils;
+import org.matsim.core.network.NetworkUtils;
 import org.matsim.core.network.algorithms.NetworkCleaner;
 import org.matsim.core.network.io.NetworkWriter;
 import org.matsim.core.scenario.ScenarioUtils;
@@ -23,6 +24,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 /***
@@ -72,14 +74,13 @@ public class AGRCNetworkReader {
     }
 
     public void makeNetwork() throws IOException {
-        readNodes(this.nodesFile);
-        readLinks(this.linksFile);
-        new NetworkCleaner().run(this.network);
+        readNodes(nodesFile);
+        readLinks(linksFile);
+        addTurnaroundLinks();
+        new NetworkCleaner().run(network);
         if(hasTransit){
-            gtfsTransitMaker.readGtfsFolder(this.gtfsFolder);
+            gtfsTransitMaker.readGtfsFolder(gtfsFolder);
         }
-
-
     }
 
     /**
@@ -179,6 +180,55 @@ public class AGRCNetworkReader {
             }
 
         }
+
+    }
+
+
+    /**
+     * Interstates at the edge of the boundary need to have additional turnaround links added or paths
+     * going in that direction end up breaking.
+     */
+    private void addTurnaroundLinks() {
+
+        // create map of nodes that only have one link entering or exiting.
+        ArrayList<Node> inOnlyNodes = new ArrayList<>();
+        ArrayList<Node> outOnlyNodes = new ArrayList<>();
+
+        // Loop through all nodes in the network, and populate the lists we just created
+        Iterator<? extends Node> iter = network.getNodes().values().iterator();
+        while (iter.hasNext()) {
+            Node myNode = iter.next();
+            if(myNode.getOutLinks().isEmpty()) inOnlyNodes.add(myNode); // no outbound links
+            if(myNode.getInLinks().isEmpty()) outOnlyNodes.add(myNode); // no inbound links
+        }
+
+        // loop through all the outOnlyNodes
+        for(Node outNode : outOnlyNodes){
+            // Loop through the inOnlyNodes and see if there are any outOnlyNodes within 200m. Finds the nearest outOnlyNode
+            Node matchInNode = null;
+            Coord outCoord = outNode.getCoord();
+            Double inDistance = Double.POSITIVE_INFINITY; // starting distance is infinite
+            for (Node inNode : inOnlyNodes) {
+                Coord inCoord = inNode.getCoord();
+                Double thisDistance = NetworkUtils.getEuclideanDistance(outCoord, inCoord);
+                if(thisDistance < inDistance & thisDistance < 200){
+                    matchInNode = inNode; // update the selected companion node
+                    inDistance = thisDistance; // update the comparison distance
+                }
+            }
+
+            // if there is a matched inOnlyNode, we will build a new link with default stupid attributes
+            if(matchInNode != null){
+                Id<Link> lid = Id.createLinkId(outNode.getId() + "_" + matchInNode.getId());
+                Link l =  networkFactory.createLink(lid, matchInNode, outNode);
+                l.setCapacity(2000);
+                l.setNumberOfLanes(1);
+                l.setFreespeed(20);
+                network.addLink(l);
+                log.info("Added turnaround link " + lid);
+            }
+        }
+
 
     }
 
