@@ -74,8 +74,6 @@ public class RunMatsim{
 		
 		controler.run();
 
-		config.planCalcScore().;
-
 
 	}
 

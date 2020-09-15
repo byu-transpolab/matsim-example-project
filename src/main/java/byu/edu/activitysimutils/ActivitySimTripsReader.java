@@ -6,18 +6,15 @@ import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
-import org.matsim.api.core.v01.DefaultActivityTypes;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.population.*;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.scenario.ScenarioUtils;
-import org.matsim.core.scoring.functions.ActivityUtilityParameters;
 import org.matsim.facilities.ActivityFacilities;
 import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
 import org.matsim.facilities.Facility;
-import org.matsim.core.scoring.functions.ActivityUtilityParameters.Builder;
 
 
 import java.io.File;
@@ -36,8 +33,6 @@ public class ActivitySimTripsReader {
     PopulationFactory pf;
     File tripsFile;
     TransportMode mode;
-    DefaultActivityTypes activity;
-    ActivityUtilityParameters.Builder util;
 
     Random r = new Random(15);
     HashMap<String, List<Id<ActivityFacility>>> tazFacilitymap = null;
@@ -87,7 +82,7 @@ public class ActivitySimTripsReader {
                 // Handle origin side
                 // Is this the first trip of the day?
                 if (plan.getPlanElements().isEmpty()){
-                    Activity homeActivity1 = pf.createActivityFromActivityFacilityId("home", homeId);
+                    Activity homeActivity1 = pf.createActivityFromActivityFacilityId("Home", homeId);
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity1.setEndTime(depTime);
                     homeActivity1.setCoord(home);
@@ -113,13 +108,11 @@ public class ActivitySimTripsReader {
                 plan.addLeg(leg);
 
                 // Handle next activity
-                String purp = nextLine[col.get("purpose")];
-                String purpose = getPurposeType(purp);
-               // util.setType(purpose);
+                String purpose = nextLine[col.get("purpose")];
                 String destId   = nextLine[col.get("destination")];
 
-                if(purp.equals("Home")) {
-                    Activity homeActivity2 = pf.createActivityFromActivityFacilityId("home", homeId);
+                if(purpose.equals("Home")) {
+                    Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity2.setCoord(home);
                     plan.addActivity(homeActivity2);
@@ -136,28 +129,6 @@ public class ActivitySimTripsReader {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private String getPurposeType(String purp) {
-        if(purp.equals("escort")){
-            return activity.work;
-        } /*else if(purp.matches("school|univ")){
-            return activity.work02;
-        } else if(purp.matches("othmaint|othdiscr")){
-            return activity.personalBusiness;
-        } else if(purp.equals("eatout")){
-            return activity.leisure;
-        } else if(purp.equals("social")) {
-            return activity.social;
-        } else if(purp.equals("shopping")) {
-            return activity.shopping;
-        } else if(purp.matches("Work|atwork|work")){
-            return activity.work;
-        } else if(purp.matches("Home|home")){
-            return activity.home;
-        } */ else{
-            return activity.work;
         }
     }
 
@@ -193,6 +164,7 @@ public class ActivitySimTripsReader {
 
         return scenario.getActivityFacilities().getFacilities().get(facilityId);
     }
+
 
 
 }

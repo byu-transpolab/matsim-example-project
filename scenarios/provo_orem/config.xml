@@ -39,12 +39,12 @@
 		<param name="traveling" value="-6" />
 		<param name="waiting" value="-0" />
 		
-		<param name="activityType_0"            value="h" /> <!-- home -->
+		<param name="activityType_0"            value="Home" /> <!-- home -->
 		<param name="activityPriority_0"        value="1" />
 		<param name="activityTypicalDuration_0" value="12:00:00" />
 		<param name="activityMinimalDuration_0" value="08:00:00" />
 	
-		<param name="activityType_1"            value="w" /> <!-- work -->
+		<param name="activityType_1"            value="work" /> <!-- work -->
 		<param name="activityPriority_1"        value="1" />
 		<param name="activityTypicalDuration_1" value="08:00:00" />
 		<param name="activityMinimalDuration_1" value="06:00:00" />
@@ -52,6 +52,74 @@
 		<param name="activityLatestStartTime_1" value="09:00:00" />
 		<param name="activityEarliestEndTime_1" value="" />
 		<param name="activityClosingTime_1"     value="18:00:00" />
+
+		<param name="activityType_2"            value="Work" /> <!-- work -->
+		<param name="activityPriority_2"        value="1" />
+		<param name="activityTypicalDuration_2" value="08:00:00" />
+		<param name="activityMinimalDuration_2" value="06:00:00" />
+		<param name="activityOpeningTime_2"     value="07:00:00" />
+		<param name="activityLatestStartTime_2" value="09:00:00" />
+		<param name="activityEarliestEndTime_2" value="" />
+		<param name="activityClosingTime_2"     value="18:00:00" />
+
+		<param name="activityType_3"            value="atwork" /> <!-- work -->
+		<param name="activityPriority_3"        value="1" />
+		<param name="activityTypicalDuration_3" value="08:00:00" />
+		<param name="activityMinimalDuration_3" value="06:00:00" />
+		<param name="activityOpeningTime_3"     value="07:00:00" />
+		<param name="activityLatestStartTime_3" value="09:00:00" />
+		<param name="activityEarliestEndTime_3" value="" />
+		<param name="activityClosingTime_3"     value="18:00:00" />
+
+		<param name="activityType_4"            value="shopping" /> <!-- shopping -->
+		<param name="activityPriority_4"        value="1" />
+		<param name="activityTypicalDuration_4" value="00:45:00" />
+		<param name="activityMinimalDuration_4" value="00:12:00" />
+		<param name="activityOpeningTime_4"     value="07:00:00" />
+		<param name="activityClosingTime_4"     value="22:00:00" />
+
+		<param name="activityType_5"            value="eatout" /> <!-- eating out -->
+		<param name="activityPriority_5"        value="1" />
+		<param name="activityTypicalDuration_5" value="00:35:00" />
+		<param name="activityMinimalDuration_5" value="00:10:00" />
+		<param name="activityOpeningTime_5"     value="07:00:00" />
+		<param name="activityClosingTime_5"     value="22:00:00" />
+
+		<param name="activityType_6"            value="escort" /> <!-- Pick-up/drop-off passengers -->
+		<param name="activityPriority_6"        value="1" />
+		<param name="activityTypicalDuration_6" value="00:40:00" />
+		<param name="activityMinimalDuration_6" value="00:10:00" />
+
+		<param name="activityType_7"            value="othdiscr" /> <!-- Volunteer work, religious activities -->
+		<param name="activityPriority_7"        value="1" />
+		<param name="activityTypicalDuration_7" value="01:00:00" />
+		<param name="activityMinimalDuration_7" value="00:30:00" />
+
+		<param name="activityType_8"            value="othmaint" /> <!-- Personal business/services and medical appointments -->
+		<param name="activityPriority_8"        value="1" />
+		<param name="activityTypicalDuration_8" value="02:00:00" />
+		<param name="activityMinimalDuration_8" value="00:30:00" />
+		<param name="activityOpeningTime_8"     value="08:00:00" />
+		<param name="activityClosingTime_8"     value="17:00:00" />
+
+		<param name="activityType_9"            value="school" /> <!-- school -->
+		<param name="activityPriority_9"        value="1" />
+		<param name="activityTypicalDuration_9" value="07:30:00" />
+		<param name="activityOpeningTime_9"     value="07:30:00" />
+		<param name="activityClosingTime_9"     value="15:00:00" />
+
+		<param name="activityType_10"            value="univ" /> <!-- university/college -->
+		<param name="activityPriority_10"        value="1" />
+		<param name="activityTypicalDuration_10" value="07:30:00" />
+		<param name="activityOpeningTime_10"     value="07:30:00" />
+		<param name="activityClosingTime_10"     value="15:00:00" />
+
+		<param name="activityType_11"            value="social" /> <!-- Recreation, visiting friends/family -->
+		<param name="activityPriority_11"        value="1" />
+		<param name="activityTypicalDuration_11" value="01:15:00" />
+		<param name="activityMinimalDuration_11" value="00:30:00" />
+
+
 	</module>
 	
 	<module name="strategy">
