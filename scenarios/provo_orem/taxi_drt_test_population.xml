@@ -16,11 +16,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h602716" x="439266.97612927866" y="4461473.690614623" end_time="09:48:31" >
 			</activity>
-			<leg mode="taxi">
+			<leg mode="drt">
 			</leg>
 			<activity type="work" facility="91154" x="438246.52580770093" y="4458468.900117955" end_time="16:51:12" >
 			</activity>
-			<leg mode="taxi">
+			<leg mode="drt">
 			</leg>
 			<activity type="Home" facility="h602716" x="439266.97612927866" y="4461473.690614623" >
 			</activity>
@@ -39,11 +39,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h603027" x="439947.0718941088" y="4461047.639579796" end_time="11:02:50" >
 			</activity>
-			<leg mode="taxi">
+			<leg mode="drt">
 			</leg>
 			<activity type="othmaint" facility="93097" x="438473.0663405455" y="4460406.159633542" end_time="13:54:27" >
 			</activity>
-			<leg mode="taxi">
+			<leg mode="drt">
 			</leg>
 			<activity type="Home" facility="h603027" x="439947.0718941088" y="4461047.639579796" >
 			</activity>
@@ -62,11 +62,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" end_time="07:28:21" >
 			</activity>
-			<leg mode="car">
+			<leg mode="drt">
 			</leg>
 			<activity type="school" facility="94525" x="442335.5781068291" y="4457187.0406593755" end_time="13:46:52" >
 			</activity>
-			<leg mode="car">
+			<leg mode="drt">
 			</leg>
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" >
 			</activity>
@@ -85,15 +85,15 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h607767" x="438391.25028542965" y="4459877.069803656" end_time="08:04:26" >
 			</activity>
-			<leg mode="car">
+			<leg mode="drt">
 			</leg>
 			<activity type="work" facility="96232" x="444925.8962155774" y="4454437.160267465" end_time="17:54:57" >
 			</activity>
-			<leg mode="car">
+			<leg mode="drt">
 			</leg>
 			<activity type="social" facility="96135" x="444104.76746383996" y="4454965.52984927" end_time="18:13:07" >
 			</activity>
-			<leg mode="car">
+			<leg mode="drt">
 			</leg>
 			<activity type="Home" facility="h607767" x="438391.25028542965" y="4459877.069803656" >
 			</activity>

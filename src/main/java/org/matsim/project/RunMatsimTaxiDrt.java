@@ -19,8 +19,12 @@
 
 package org.matsim.project;
 
+import org.matsim.contrib.av.robotaxi.fares.drt.DrtFareModule;
+import org.matsim.contrib.av.robotaxi.fares.drt.DrtFaresConfigGroup;
 import org.matsim.contrib.av.robotaxi.fares.taxi.TaxiFareModule;
 import org.matsim.contrib.av.robotaxi.fares.taxi.TaxiFaresConfigGroup;
+import org.matsim.contrib.drt.run.DrtControlerCreator;
+import org.matsim.contrib.drt.run.MultiModeDrtConfigGroup;
 import org.matsim.contrib.dvrp.run.DvrpConfigGroup;
 import org.matsim.contrib.otfvis.OTFVisLiveModule;
 import org.matsim.contrib.taxi.run.MultiModeTaxiConfigGroup;
@@ -41,17 +45,19 @@ import org.matsim.vis.otfvis.OTFVisConfigGroup;
 public class RunMatsimTaxi {
 
 	public static void main(String[] args) {
-		String configFile = "scenarios/provo_orem/taxi_config.xml";
+		String configFile = "scenarios/provo_orem/taxi_drt_config.xml";
 		RunMatsimTaxi.run(configFile, false);
 	}
 
 	public static void run(String configFile, boolean otfvis) {
 		Config config = ConfigUtils.loadConfig(configFile, new DvrpConfigGroup(), new TaxiFaresConfigGroup(),
-				new OTFVisConfigGroup(), new MultiModeTaxiConfigGroup());
-		createControler(config, otfvis).run();
+				new MultiModeTaxiConfigGroup(), new DrtFaresConfigGroup(), new MultiModeDrtConfigGroup(),
+				new OTFVisConfigGroup());
+		//createTaxiControler(config, otfvis).run();
+		createDrtControler(config,otfvis).run();
 	}
 
-	public static Controler createControler(Config config, boolean otfvis) {
+	public static Controler createTaxiControler(Config config, boolean otfvis) {
 		Controler controler=TaxiControlerCreator.createControler(config, otfvis);
 		controler.addOverridingModule(new TaxiFareModule());
 
@@ -61,4 +67,12 @@ public class RunMatsimTaxi {
 
 		return controler;
 	}
+
+	public static Controler createDrtControler(Config config, boolean otfvis) {
+		Controler controler = DrtControlerCreator.createControler(config, otfvis);
+		controler.addOverridingModule(new DrtFareModule());
+
+		return controler;
+	}
+
 }
