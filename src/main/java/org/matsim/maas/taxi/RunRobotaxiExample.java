@@ -41,7 +41,7 @@ import org.matsim.vis.otfvis.OTFVisConfigGroup;
 public class RunRobotaxiExample {
 
 	public static void main(String[] args) {
-		String configFile = "scenarios/provo_orem/taxi_config.xml";
+		String configFile = "scenarios/provo_orem/taxi_drt_config.xml";
 		RunRobotaxiExample.run(configFile, false);
 	}
 

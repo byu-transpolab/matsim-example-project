@@ -42,17 +42,19 @@ import org.matsim.vis.otfvis.OTFVisConfigGroup;
  * the config. Different fleet sizes can be created using
  * {@link org.matsim.contrib.av.robotaxi.vehicles.CreateTaxiVehicles}
  */
-public class RunMatsimTaxi {
+public class RunMatsimTaxiDrt {
 
 	public static void main(String[] args) {
 		String configFile = "scenarios/provo_orem/taxi_drt_config.xml";
-		RunMatsimTaxi.run(configFile, false);
+		RunMatsimTaxiDrt.run(configFile, false);
 	}
 
 	public static void run(String configFile, boolean otfvis) {
 		Config config = ConfigUtils.loadConfig(configFile, new DvrpConfigGroup(), new TaxiFaresConfigGroup(),
 				new MultiModeTaxiConfigGroup(), new DrtFaresConfigGroup(), new MultiModeDrtConfigGroup(),
 				new OTFVisConfigGroup());
+
+		//problem with running both at the same time, either one or the other. Find way to combine
 		//createTaxiControler(config, otfvis).run();
 		createDrtControler(config,otfvis).run();
 	}
