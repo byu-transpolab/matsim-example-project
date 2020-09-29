@@ -19,20 +19,29 @@
 
 package org.matsim.project;
 
+import org.matsim.api.core.v01.Scenario;
 import org.matsim.contrib.av.robotaxi.fares.drt.DrtFareModule;
 import org.matsim.contrib.av.robotaxi.fares.drt.DrtFaresConfigGroup;
 import org.matsim.contrib.av.robotaxi.fares.taxi.TaxiFareModule;
 import org.matsim.contrib.av.robotaxi.fares.taxi.TaxiFaresConfigGroup;
+import org.matsim.contrib.drt.run.DrtConfigs;
 import org.matsim.contrib.drt.run.DrtControlerCreator;
 import org.matsim.contrib.drt.run.MultiModeDrtConfigGroup;
+import org.matsim.contrib.drt.run.MultiModeDrtModule;
 import org.matsim.contrib.dvrp.run.DvrpConfigGroup;
+import org.matsim.contrib.dvrp.run.DvrpModule;
+import org.matsim.contrib.dvrp.run.DvrpQSimComponents;
 import org.matsim.contrib.otfvis.OTFVisLiveModule;
 import org.matsim.contrib.taxi.run.MultiModeTaxiConfigGroup;
+import org.matsim.contrib.taxi.run.MultiModeTaxiModule;
 import org.matsim.contrib.taxi.run.TaxiControlerCreator;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
+import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.vis.otfvis.OTFVisConfigGroup;
+
+import static org.matsim.contrib.drt.run.DrtControlerCreator.createScenarioWithDrtRouteFactory;
 
 /**
  * This class runs an example robotaxi scenario including fares. The simulation runs for 10 iterations, this takes
@@ -54,27 +63,24 @@ public class RunMatsimTaxiDrt {
 				new MultiModeTaxiConfigGroup(), new DrtFaresConfigGroup(), new MultiModeDrtConfigGroup(),
 				new OTFVisConfigGroup());
 
-		//problem with running both at the same time, either one or the other. Find way to combine
-		//createTaxiControler(config, otfvis).run();
-		createDrtControler(config,otfvis).run();
+		createControler(config,otfvis).run();
 	}
 
-	public static Controler createTaxiControler(Config config, boolean otfvis) {
-		Controler controler=TaxiControlerCreator.createControler(config, otfvis);
-		controler.addOverridingModule(new TaxiFareModule());
+	public static Controler createControler(Config config, boolean otfvis) {
+		Scenario scenario = createScenarioWithDrtRouteFactory(config);
+		ScenarioUtils.loadScenario(scenario);
 
-		if (otfvis) {
-			controler.addOverridingModule(new OTFVisLiveModule());
-		}
+		Controler controler = new Controler(scenario);
+		controler.addOverridingModule(new DvrpModule());
+		controler.addOverridingModule(new MultiModeTaxiModule());
+		controler.addOverridingModule(new MultiModeDrtModule());
+
+		MultiModeDrtConfigGroup multiModeDrtConfig = MultiModeDrtConfigGroup.get(config);
+		DrtConfigs.adjustMultiModeDrtConfig(multiModeDrtConfig, config.planCalcScore(), config.plansCalcRoute());
+		controler.configureQSimComponents(DvrpQSimComponents.activateAllModes(MultiModeTaxiConfigGroup.get(config),multiModeDrtConfig));
+
+		if (otfvis) { controler.addOverridingModule(new OTFVisLiveModule()); }
 
 		return controler;
 	}
-
-	public static Controler createDrtControler(Config config, boolean otfvis) {
-		Controler controler = DrtControlerCreator.createControler(config, otfvis);
-		controler.addOverridingModule(new DrtFareModule());
-
-		return controler;
-	}
-
 }

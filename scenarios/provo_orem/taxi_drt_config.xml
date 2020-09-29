@@ -60,7 +60,6 @@
 			<!--different optimizers can be used to run the taxi portion-->
 			<!--<parameterset type="AssignmentTaxiOptimizer"/>-->
 			<parameterset type="RuleBasedTaxiOptimizer"/>
-
 		</parameterset>
 	</module>
 
@@ -119,7 +118,6 @@
 				<param name="targetBeta" value="0.5"/>
 				<param name="cellSize" value="2000"/>
 				<param name="interval" value="1800"/>
-
 			</parameterset>
 		</parameterset>
 	</module>

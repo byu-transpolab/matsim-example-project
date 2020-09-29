@@ -39,11 +39,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h603027" x="439947.0718941088" y="4461047.639579796" end_time="11:02:50" >
 			</activity>
-			<leg mode="drt">
+			<leg mode="taxi">
 			</leg>
 			<activity type="othmaint" facility="93097" x="438473.0663405455" y="4460406.159633542" end_time="13:54:27" >
 			</activity>
-			<leg mode="drt">
+			<leg mode="taxi">
 			</leg>
 			<activity type="Home" facility="h603027" x="439947.0718941088" y="4461047.639579796" >
 			</activity>
@@ -62,11 +62,11 @@
 		<plan selected="yes">
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" end_time="07:28:21" >
 			</activity>
-			<leg mode="drt">
+			<leg mode="taxi">
 			</leg>
 			<activity type="school" facility="94525" x="442335.5781068291" y="4457187.0406593755" end_time="13:46:52" >
 			</activity>
-			<leg mode="drt">
+			<leg mode="taxi">
 			</leg>
 			<activity type="Home" facility="h606989" x="440087.068151825" y="4460753.129724848" >
 			</activity>
