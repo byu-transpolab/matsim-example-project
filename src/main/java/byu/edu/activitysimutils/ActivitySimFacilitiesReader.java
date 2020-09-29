@@ -1,6 +1,7 @@
 package byu.edu.activitysimutils;
 
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
@@ -87,7 +88,7 @@ public class ActivitySimFacilitiesReader {
             }
 
 
-        } catch (IOException e) {
+        } catch (IOException | CsvValidationException e) {
             e.printStackTrace();
         }
 
@@ -118,7 +119,7 @@ public class ActivitySimFacilitiesReader {
                 scenario.getActivityFacilities().addActivityFacility(facility);
 
             }
-        } catch (IOException e) {
+        } catch (IOException | CsvValidationException e) {
             e.printStackTrace();
         }
     }

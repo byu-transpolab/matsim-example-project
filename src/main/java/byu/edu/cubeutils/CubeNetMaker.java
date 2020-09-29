@@ -1,5 +1,6 @@
 package byu.edu.cubeutils;
 
+import com.opencsv.exceptions.CsvValidationException;
 import org.apache.log4j.Logger;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.core.config.Config;
@@ -25,7 +26,7 @@ public class CubeNetMaker {
         networkReader = new CubeNetworkReader(scenario);
         transitReader = new CubeTransitReader(scenario);
     }
-    public void makeHighwayNetwork(File nodesFile, File linksFile) throws IOException {
+    public void makeHighwayNetwork(File nodesFile, File linksFile) throws IOException, CsvValidationException {
         networkReader.readNodesFile(nodesFile);
         networkReader.readLinksFile(linksFile);
     }
@@ -65,7 +66,7 @@ public class CubeNetMaker {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CsvValidationException {
         String crs = args[0];
         String directory = args[1];
         String outDirectory = args[2];

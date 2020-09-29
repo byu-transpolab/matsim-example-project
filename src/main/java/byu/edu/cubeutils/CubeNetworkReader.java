@@ -2,6 +2,7 @@ package byu.edu.cubeutils;
 
 import byu.edu.activitysimutils.CSVUtils;
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import org.apache.log4j.Logger;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
@@ -53,7 +54,7 @@ public class CubeNetworkReader {
      * in the network
      * @param nodesFile Path to CSV file as a file
      */
-    public void readNodesFile(File nodesFile) throws IOException {
+    public void readNodesFile(File nodesFile) throws IOException, CsvValidationException {
         log.info("Reading Nodes file from " + nodesFile);
         CSVReader reader = CSVUtils.createCSVReader(nodesFile.toString());
         String[] header = reader.readNext();
@@ -79,7 +80,7 @@ public class CubeNetworkReader {
      * Read the links CSV file. For every link, create a MATSim network
      * @param linksFile Path to CSV links file, as file
      */
-    public void readLinksFile(File linksFile) throws IOException {
+    public void readLinksFile(File linksFile) throws IOException, CsvValidationException {
         log.info("Reading Links file from " + linksFile);
         CSVReader reader = CSVUtils.createCSVReader(linksFile.toString());
         String[] header = reader.readNext();
@@ -147,7 +148,7 @@ public class CubeNetworkReader {
      *            1: links DBF file
      *            2: output XML file
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CsvValidationException {
         log.info("======= Converting CUBE Highway Network DBF to MATSim Network ==========");
         CubeNetworkReader cubeNetworkReader = new CubeNetworkReader(args[3], args[4]);
         cubeNetworkReader.readNodesFile(new File(args[0]));

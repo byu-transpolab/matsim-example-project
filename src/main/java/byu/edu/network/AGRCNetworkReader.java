@@ -2,6 +2,7 @@ package byu.edu.network;
 
 import byu.edu.activitysimutils.CSVUtils;
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import org.apache.log4j.Logger;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
@@ -73,7 +74,7 @@ public class AGRCNetworkReader {
         this.gtfsFolder = gtfsFolder;
     }
 
-    public void makeNetwork() throws IOException {
+    public void makeNetwork() throws IOException, CsvValidationException {
         readNodes(nodesFile);
         readLinks(linksFile);
         addTurnaroundLinks();
@@ -90,7 +91,7 @@ public class AGRCNetworkReader {
      *                  - x (lon)
      *                  - y (lat)
      */
-    private void readNodes(File nodesFile) throws IOException {
+    private void readNodes(File nodesFile) throws IOException, CsvValidationException {
         // Start a reader and read the header row. `col` is an index between the column names and numbers
         CSVReader reader = CSVUtils.createCSVReader(nodesFile.toString());
         String[] header = reader.readNext();
@@ -131,7 +132,7 @@ public class AGRCNetworkReader {
      *                  - terrain
      *                  - capacity (vehicles / hr)
      */
-    private void readLinks(File linksFile) throws IOException {
+    private void readLinks(File linksFile) throws IOException, CsvValidationException {
         CSVReader reader = CSVUtils.createCSVReader(linksFile.toString());
         String[] header = reader.readNext();
         Map<String, Integer> col = CSVUtils.getIndices(header,
@@ -275,7 +276,7 @@ public class AGRCNetworkReader {
         try {
             reader.makeNetwork();
             reader.writeNetwork();
-        } catch (IOException e) {
+        } catch (IOException | CsvValidationException e) {
             e.printStackTrace();
         }
     }
