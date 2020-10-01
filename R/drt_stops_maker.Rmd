@@ -1,0 +1,54 @@
+---
+title: "DRT Stop Maker"
+author: "Chris Day"
+date: "10/1/2020"
+output: html_document
+---
+
+```{r warning=FALSE}
+library(rmarkdown)
+library(sf)
+library(tidyverse)
+library(knitr)
+library(XML)
+```
+
+## Introduction
+In order to implement an effective stop-based drt system in MATSim, an xml file of the stop facility details needs to be created. For example, we need the id, coordinates, and link reference id of each link that is a stop for the drt. 
+
+## Stop Facility Values Table
+To find the specific links that we want to act as drt stops, we select them from the network in QGIS and save it as a separate shapefile. As coordinates, I used the centroid of links. For a real example, we will just use the coordinates of the actual stop facilities.
+
+Below we read in the shapefile of central orem. We format it as a table and then select the values.I did not know what to put for stopFacility, so I just numbered them as their row number. 
+
+```{r warning=FALSE}
+#read in geojson of the stop facility links
+#select the values that matter
+center_orem <- st_read("CenterOrem2.geojson")
+center_orem <- as.tibble(center_orem) %>%
+  filter(DriveTime >.2) %>%
+  mutate(stopFacility = 1:n(), isBlocking = "false") %>%
+  select(stopFacility,xcoord,ycoord,link_id, isBlocking)
+```
+
+Note: This is using the coordinate systme WGS 84, or EPSG: 4326. I do not know if this is the correct type of coordinates, or if that needs to be changed.
+
+## Creating an XML of DRT Stops
+We use the XML package for R to manipulate the table previously created, and format it into the xml setup that we desire.The final output is ready to be used as the drt stop based locations file in MATSim. (This assumes the coordinates and ids are correct)
+
+```{r warning=FALSE}
+#name the details for each value of the stop facility
+center_orem$id <- rownames(center_orem)
+names(center_orem)<- c("id", "x", "y", "linkRefId", "isBlocking")
+
+#create the nested xml titles, and fill in the information for each value from the data table
+con <- xmlOutputDOM("transitSchedule")
+con$addTag("transitStops", close=FALSE)
+for(i in seq(nrow(center_orem))){
+  con$addTag("stopFacility", attrs = center_orem[i,-6])
+}
+
+#save the object as an XML file, and update the encoding and doctype.
+saveXML(con$value(), file = "drtstops.xml",prefix='<?xml version="1.0" encoding="UTF-8"?>\n',doctype = '<!DOCTYPE transitSchedule SYSTEM "http://www.matsim.org/files/dtd/transitSchedule_v1.dtd">\n')
+```
+

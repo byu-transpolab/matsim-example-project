@@ -97,15 +97,15 @@
 			<param name="maxWaitTime" value="1200.0"/>
 
 			<!-- Operational Scheme, either door2door or stopbased. door2door by default -->
-			<param name="operationalScheme" value="door2door"/>
-			<!--<param name="operationalScheme" value="stopbased"/>-->
+			<!--<param name="operationalScheme" value="door2door"/>-->
+			<param name="operationalScheme" value="stopbased"/>
 
 			<!-- Bus stop duration. -->
 			<param name="stopDuration" value="60.0"/>
 
 
 			<!-- Stop locations file (transit schedule format, but without lines) for DRT stops. Used only for the stopbased mode -->
-			<!--<param name="transitStopFile" value="drt_stops.xml"/>-->
+			<param name="transitStopFile" value="drt_stops_orem.xml"/>
 
 			<!-- An XML file specifying the vehicle fleet. The file format according to dvrp_vehicles_v1.dtd -->
 			<param name="vehiclesFile" value="drt_vehicles.xml"/>
@@ -148,10 +148,10 @@
 	</module>
 
 	<module name="controler">
-		<param name="outputDirectory" value="output/provo_orem"/>
+		<param name="outputDirectory" value="output/provo_orem_stopbased"/>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
 		<param name="firstIteration" value="0"/>
-		<param name="lastIteration" value="10"/>
+		<param name="lastIteration" value="20"/>
 	</module>
 
 	<module name="planCalcScore">
@@ -254,19 +254,45 @@
 			<param name="mode" value="drt" />
 			<param name="monetaryDistanceRate" value="0.0" />
 		</parameterset>
-
 	</module>
 
 	<module name="strategy">
-		<param name="fractionOfIterationsToDisableInnovation" value="0.8"/>
+		<param name="maxAgentPlanMemorySize" value="5"/>
 
-		<parameterset type="strategysettings">
+		<param name="ModuleProbability_1" value="0.8"/>
+		<param name="Module_1" value="BestScore"/>
+
+		<param name="ModuleProbability_2" value="0.1"/>
+		<param name="Module_2" value="ReRoute"/>
+
+		<!-- this does seem to affect taxi or drt-->
+		<param name="ModuleProbability_4" value="0.1"/>
+		<param name="Module_4" value="ChangeTripMode"/>
+
+		<param name="ModuleProbability_3" value="0.1"/>
+		<param name="Module_3" value="TimeAllocationMutator"/>
+
+		<!--<param name="fractionOfIterationsToDisableInnovation" value="0.8"/>-->
+		<!--<parameterset type="strategysettings">
 			<param name="strategyName" value="TimeAllocationMutator"/>
 			<param name="weight" value="0.1"/>
-		</parameterset>
+		</parameterset>-->
 	</module>
+
+	<module name="changeMode">
+		<param name="modes" value="drt,car,bike,walk,pt,taxi" />
+	</module>
+	<module name="subtourModeChoice" >
+		<!-- Defines the chain-based modes, seperated by commas -->
+		<param name="chainBasedModes" value="ride,car,pt,walk,bike,taxi" />
+		<!-- Defines whether car availability must be considered or not. A agent has no car only if it has no license, or never access to a car -->
+		<param name="considerCarAvailability" value="true" />
+		<!-- Defines all the modes available, including chain-based modes, seperated by commas -->
+		<param name="modes" value="drt,car,pt,bike,walk,taxi" />
+	</module>
+
 	<module name="TimeAllocationMutator">
 		<param name="mutationRange" value="900.0"/>
-
 	</module>
+
 </config>
