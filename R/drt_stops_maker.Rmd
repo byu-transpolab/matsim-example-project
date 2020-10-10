@@ -24,11 +24,25 @@ Below we read in the shapefile of central orem. We format it as a table and then
 ```{r warning=FALSE}
 #read in geojson of the stop facility links
 #select the values that matter
-center_orem <- st_read("CenterOrem2.geojson")
+center_orem <- st_read("Provo_Orem_Stops.geojson")
 center_orem <- as.tibble(center_orem) %>%
-  filter(DriveTime >.2) %>%
   mutate(stopFacility = 1:n(), isBlocking = "false") %>%
   select(stopFacility,xcoord,ycoord,link_id, isBlocking)
+```
+
+Here, we further manipulate the data into the table format we want. We want to create two stops at each coordinate, so we duplicate, and further define the stops.
+
+```{r}
+is.odd <- function(x) x %% 2 != 0
+
+center_orem <- center_orem %>% slice(rep(1:n(), each = 2)) %>%
+  mutate(
+    Index = 1:n(),
+    link_idr = ifelse(is.odd(Index), link_id, paste(link_id,"r",sep="")),
+    stopFacility = ifelse(is.odd(Index), paste(link_id,"_a",sep=""), paste(link_id,"_b",sep=""))) %>%
+  select(stopFacility,xcoord,ycoord,link_idr, isBlocking)
+
+paged_table(center_orem)
 ```
 
 Note: This is using the coordinate systme WGS 84, or EPSG: 4326. I do not know if this is the correct type of coordinates, or if that needs to be changed.
@@ -49,6 +63,6 @@ for(i in seq(nrow(center_orem))){
 }
 
 #save the object as an XML file, and update the encoding and doctype.
-saveXML(con$value(), file = "drtstops.xml",prefix='<?xml version="1.0" encoding="UTF-8"?>\n',doctype = '<!DOCTYPE transitSchedule SYSTEM "http://www.matsim.org/files/dtd/transitSchedule_v1.dtd">\n')
+saveXML(con$value(), file = "provo_orem_drtstops.xml",prefix='<?xml version="1.0" encoding="UTF-8"?>\n',doctype = '<!DOCTYPE transitSchedule SYSTEM "http://www.matsim.org/files/dtd/transitSchedule_v1.dtd">\n')
 ```
 

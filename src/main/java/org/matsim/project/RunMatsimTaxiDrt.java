@@ -38,20 +38,23 @@ import org.matsim.contrib.taxi.run.TaxiControlerCreator;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
+import org.matsim.core.mobsim.qsim.QSim;
+import org.matsim.core.mobsim.qsim.QSimBuilder;
+import org.matsim.core.mobsim.qsim.QSimModule;
+import org.matsim.core.mobsim.qsim.QSimProvider;
+import org.matsim.core.mobsim.qsim.components.*;
+import org.matsim.core.mobsim.qsim.pt.TransitStopAgentTracker;
+import org.matsim.core.mobsim.qsim.pt.TransitQSimEngine;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.vis.otfvis.OTFVisConfigGroup;
+import org.matsim.withinday.utils.EditTrips;
 
 import static org.matsim.contrib.drt.run.DrtControlerCreator.createScenarioWithDrtRouteFactory;
 
-/**
- * This class runs an example robotaxi scenario including fares. The simulation runs for 10 iterations, this takes
- * quite a bit time (25 minutes or so). You may switch on OTFVis visualisation in the main method below. The scenario
- * should run out of the box without any additional files. If required, you may find all input files in the resource
- * path or in the jar maven has downloaded). There are two vehicle files: 2000 vehicles and 5000, which may be set in
- * the config. Different fleet sizes can be created using
- * {@link org.matsim.contrib.av.robotaxi.vehicles.CreateTaxiVehicles}
- */
 public class RunMatsimTaxiDrt {
+
+	public RunMatsimTaxiDrt() {
+	}
 
 	public static void main(String[] args) {
 		String configFile = "scenarios/provo_orem/taxi_drt_config.xml";
