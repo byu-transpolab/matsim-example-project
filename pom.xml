@@ -47,6 +47,19 @@
 
 	<dependencies>
 		<dependency>
+			<!-- to use a weekly release using Jitpack from github, we have to use a different groupId -->
+			<groupId>com.github.simunto</groupId>
+
+			<!-- to use a release using Jitpack from github -->
+			<!--<groupId>com.github.SchweizerischeBundesbahnen</groupId>-->
+
+			<!-- to use a release or local development version -->
+			<!--<groupId>ch.sbb</groupId>-->
+			<artifactId>matsim-sbb-extensions</artifactId>
+			<version>0.11.0-2019w03b</version>
+		</dependency>
+
+		<dependency>
 			<!-- This is the matsim "core": -->
 			<groupId>org.matsim</groupId>
 			<artifactId>matsim</artifactId>

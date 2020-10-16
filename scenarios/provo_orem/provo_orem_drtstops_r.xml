@@ -191,8 +191,8 @@
   <stopFacility id="44840_b" x="442577.949985724" y="4460930.79957893" linkRefId="44840r" isBlocking="false"/>
   <stopFacility id="44924_a" x="442407.075139423" y="4453599.71278251" linkRefId="44924" isBlocking="false"/>
   <stopFacility id="44924_b" x="442407.075139423" y="4453599.71278251" linkRefId="44924r" isBlocking="false"/>
-  <stopFacility id="46314_a" x="444056.099998068" y="4454938.19950365" linkRefId="46314" isBlocking="false"/>
-  <stopFacility id="46314_b" x="444056.099998068" y="4454938.19950365" linkRefId="46314r" isBlocking="false"/>
+ <!-- <stopFacility id="46314_a" x="444056.099998068" y="4454938.19950365" linkRefId="46314" isBlocking="false"/>
+  <stopFacility id="46314_b" x="444056.099998068" y="4454938.19950365" linkRefId="46314r" isBlocking="false"/>-->
   <stopFacility id="46650_a" x="441213.00730712" y="4460965.08436714" linkRefId="46650" isBlocking="false"/>
   <stopFacility id="46650_b" x="441213.00730712" y="4460965.08436714" linkRefId="46650r" isBlocking="false"/>
   <stopFacility id="47667_a" x="440904.894977428" y="4457826.07988933" linkRefId="47667" isBlocking="false"/>
@@ -217,8 +217,8 @@
   <stopFacility id="50992_b" x="442984.300031882" y="4460929.49952341" linkRefId="50992r" isBlocking="false"/>
   <stopFacility id="51302_a" x="444997.90000084" y="4453759.69989626" linkRefId="51302" isBlocking="false"/>
   <stopFacility id="51302_b" x="444997.90000084" y="4453759.69989626" linkRefId="51302r" isBlocking="false"/>
-  <stopFacility id="51556_a" x="445300.10002001" y="4455026.74988865" linkRefId="51556" isBlocking="false"/>
-  <stopFacility id="51556_b" x="445300.10002001" y="4455026.74988865" linkRefId="51556r" isBlocking="false"/>
+  <!--<stopFacility id="51556_a" x="445300.10002001" y="4455026.74988865" linkRefId="51556" isBlocking="false"/>
+  <stopFacility id="51556_b" x="445300.10002001" y="4455026.74988865" linkRefId="51556r" isBlocking="false"/>-->
   <stopFacility id="51602_a" x="443376.344119304" y="4457211.68914121" linkRefId="51602" isBlocking="false"/>
   <stopFacility id="51602_b" x="443376.344119304" y="4457211.68914121" linkRefId="51602r" isBlocking="false"/>
   <stopFacility id="51684_a" x="439721.999986682" y="4459367.19971496" linkRefId="51684" isBlocking="false"/>
@@ -287,8 +287,8 @@
   <stopFacility id="70844_b" x="441969.249543948" y="4457810.84981175" linkRefId="70844r" isBlocking="false"/>
   <stopFacility id="72256_a" x="444001.649996858" y="4457137.44989399" linkRefId="72256" isBlocking="false"/>
   <stopFacility id="72256_b" x="444001.649996858" y="4457137.44989399" linkRefId="72256r" isBlocking="false"/>
-  <stopFacility id="72317_a" x="441278.484300796" y="4455191.81717718" linkRefId="72317" isBlocking="false"/>
-  <stopFacility id="72317_b" x="441278.484300796" y="4455191.81717718" linkRefId="72317r" isBlocking="false"/>
+ <!-- <stopFacility id="72317_a" x="441278.484300796" y="4455191.81717718" linkRefId="72317" isBlocking="false"/>
+  <stopFacility id="72317_b" x="441278.484300796" y="4455191.81717718" linkRefId="72317r" isBlocking="false"/>-->
   <stopFacility id="73531_a" x="443020.202234316" y="4459320.35993084" linkRefId="73531" isBlocking="false"/>
   <stopFacility id="73531_b" x="443020.202234316" y="4459320.35993084" linkRefId="73531r" isBlocking="false"/>
   <stopFacility id="73654_a" x="444216.199999301" y="4456351.74988926" linkRefId="73654" isBlocking="false"/>
@@ -493,8 +493,8 @@
   <stopFacility id="125500_b" x="439491.271081598" y="4459883.35160774" linkRefId="125500r" isBlocking="false"/>
   <stopFacility id="125942_a" x="444040.049998091" y="4453458.39950129" linkRefId="125942" isBlocking="false"/>
   <stopFacility id="125942_b" x="444040.049998091" y="4453458.39950129" linkRefId="125942r" isBlocking="false"/>
-  <stopFacility id="126381_a" x="440103.526945825" y="4456938.82177767" linkRefId="126381" isBlocking="false"/>
-  <stopFacility id="126381_b" x="440103.526945825" y="4456938.82177767" linkRefId="126381r" isBlocking="false"/>
+  <!--<stopFacility id="126381_a" x="440103.526945825" y="4456938.82177767" linkRefId="126381" isBlocking="false"/>
+  <stopFacility id="126381_b" x="440103.526945825" y="4456938.82177767" linkRefId="126381r" isBlocking="false"/>-->
   <stopFacility id="126583_a" x="443734.699997893" y="4453461.69953288" linkRefId="126583" isBlocking="false"/>
   <stopFacility id="126583_b" x="443734.699997893" y="4453461.69953288" linkRefId="126583r" isBlocking="false"/>
   <stopFacility id="129822_a" x="441726.321615017" y="4456441.69086313" linkRefId="129822" isBlocking="false"/>

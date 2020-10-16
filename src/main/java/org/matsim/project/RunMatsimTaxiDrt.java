@@ -34,20 +34,11 @@ import org.matsim.contrib.dvrp.run.DvrpQSimComponents;
 import org.matsim.contrib.otfvis.OTFVisLiveModule;
 import org.matsim.contrib.taxi.run.MultiModeTaxiConfigGroup;
 import org.matsim.contrib.taxi.run.MultiModeTaxiModule;
-import org.matsim.contrib.taxi.run.TaxiControlerCreator;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
-import org.matsim.core.mobsim.qsim.QSim;
-import org.matsim.core.mobsim.qsim.QSimBuilder;
-import org.matsim.core.mobsim.qsim.QSimModule;
-import org.matsim.core.mobsim.qsim.QSimProvider;
-import org.matsim.core.mobsim.qsim.components.*;
-import org.matsim.core.mobsim.qsim.pt.TransitStopAgentTracker;
-import org.matsim.core.mobsim.qsim.pt.TransitQSimEngine;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.vis.otfvis.OTFVisConfigGroup;
-import org.matsim.withinday.utils.EditTrips;
 
 import static org.matsim.contrib.drt.run.DrtControlerCreator.createScenarioWithDrtRouteFactory;
 
@@ -62,11 +53,12 @@ public class RunMatsimTaxiDrt {
 	}
 
 	public static void run(String configFile, boolean otfvis) {
-		Config config = ConfigUtils.loadConfig(configFile, new DvrpConfigGroup(), new TaxiFaresConfigGroup(),
-				new MultiModeTaxiConfigGroup(), new DrtFaresConfigGroup(), new MultiModeDrtConfigGroup(),
+		Config config = ConfigUtils.loadConfig(configFile, new DvrpConfigGroup(),
+				//new TaxiFaresConfigGroup(), new DrtFaresConfigGroup(), new MultiModeTaxiConfigGroup(),
+				new MultiModeDrtConfigGroup(),
 				new OTFVisConfigGroup());
 
-		createControler(config,otfvis).run();
+		createDRTControler(config,otfvis).run();
 	}
 
 	public static Controler createControler(Config config, boolean otfvis) {
@@ -86,4 +78,15 @@ public class RunMatsimTaxiDrt {
 
 		return controler;
 	}
+
+	public static Controler createDRTControler(Config config, boolean otfvis) {
+		Controler controler = DrtControlerCreator.createControler(config, otfvis);
+		controler.addOverridingModule(new SwissRailRaptorModule());
+
+		if (otfvis) { controler.addOverridingModule(new OTFVisLiveModule()); }
+
+		return controler;
+	}
+
+
 }
