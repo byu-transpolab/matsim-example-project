@@ -23,13 +23,31 @@ facilities <- read_csv("data/facility_ids.csv")
 households <- read_csv("data/hhcoord.csv")
 
 # filter hh by coordinates of provo orem boundary
+
+
+## nothing in this hhcoord file is in utah county... only salt lake and weber counties.
 hh <- households %>%
   filter(latitude < 40.30416667 & longitude > -111.72138889,
          latitude > 40.21194444 & longitude < -111.61972222)
 
+hh <- households %>%
+  filter(latitude < 43 & latitude > 38,
+         longitude < -110 & longitude > -114)
+
+
 
 
 ```
+
+```{r}
+# view in map
+library(sf)
+library(mapview)
+
+hh_visual <- st_as_sf(hh, coords = c("longitude", "latitude"), crs = 4326)
+mapview(hh_visual)
+```
+
 
 This file will filter the trips and persons files to only the origins and destinations
 of individuals and households in the Provo/Orem area. The modifided trips and persons
@@ -62,7 +80,7 @@ provo_persons <- persons %>%
 ```{r}
 # collect 100 persons
 sample_persons <- provo_persons %>%
-  sample_n(100) 
+  sample_n(200) 
 
 # get the households from the 100 persons (maybe < 100)
 # we need the coordinates from the households
@@ -72,12 +90,12 @@ sample_hh <- households %>%
 # attach a lat long to the persons file
 sample_persons %>%
   left_join(sample_hh, by = c("household_id", "TAZ")) %>%
-  write_csv("scenarios/provo_orem/persons100.csv")
+  write_csv("scenarios/provo_orem/persons_sample.csv")
 
 #from all trips in provo orem, take only those from 100 sample persons
 provo_trips %>%
   filter(person_id %in% sample_persons$person_id) %>%
-  write_csv("scenarios/provo_orem/trips100.csv")
+  write_csv("scenarios/provo_orem/trips_sample.csv")
 
 ```
 
@@ -85,7 +103,7 @@ provo_trips %>%
 # create households file from sample 100 persons
 households %>% 
   filter(household_id %in% sample_persons$household_id) %>%
-  write_csv("scenarios/provo_orem/households100.csv")
+  write_csv("scenarios/provo_orem/households_sample.csv")
 ```
 
 
