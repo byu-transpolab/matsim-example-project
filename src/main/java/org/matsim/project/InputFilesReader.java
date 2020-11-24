@@ -52,7 +52,7 @@ public class InputFilesReader {
         File facilitiesFile = new File(scenarioPath + args[4]);
         reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile, householdsFile);
 
-        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "final_population.xml");
+        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "final_population_saturated_wc.xml");
         // new FacilitiesWriter(scenario.getActivityFacilities()).write(scenarioPath + "facilities.xml.gz");
     }
 

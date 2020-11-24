@@ -34,6 +34,8 @@ hh <- households %>%
   filter(latitude < 43 & latitude > 38,
          longitude < -110 & longitude > -114)
 
+ggplot(data = hh)
+
 
 
 
@@ -44,7 +46,7 @@ hh <- households %>%
 library(sf)
 library(mapview)
 
-hh_visual <- st_as_sf(hh, coords = c("longitude", "latitude"), crs = 4326)
+hh_visual <- st_as_sf(households, coords = c("longitude", "latitude"), crs = 4326)
 mapview(hh_visual)
 ```
 

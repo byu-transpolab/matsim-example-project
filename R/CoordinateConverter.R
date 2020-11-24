@@ -3,7 +3,17 @@ library(rmarkdown)
 library(tidyverse)
 library(data.table)
 
-coord <- read_csv("coordinates/hhcoord.csv")
+# Looks like this code adds the household coordinates from 
+# hhcoord found in the population_wfrc repo and ties them 
+# to the synthetic popoulation and synthetic households
+# I am assuming this happens before we run activitysim?
+# that would mean that the columns would need to be added
+# in the config folder...
+
+coord <- read_csv("data/hhcoord.csv")
+
+# xy plot
+ggplot(data = coord %>% sample_n(10000), aes(x = longitude, y=latitude)) + geom_point()
 
 sperson <- read_csv("coordinates/synthetic_persons2.csv")
 comb <- left_join(coord,sperson, by = "household_id") 
@@ -11,14 +21,15 @@ comb <- left_join(coord,sperson, by = "household_id")
   colnames(comb)[2] <- "TAZ"
 write_csv(comb,"coordinates/synthetic_persons_xy.csv")
 
-fhouse <- read_csv("coordinates/final_households.csv")
-comb2 <- left_join(coord,fhouse, by = "household_id")
-  comb2 <- comb2[,-14]
+fhouse <- read_csv("scenarios/activitysim_output/sample/sample_households.csv")
+comb2 <- left_join(fhouse,coord, by = "household_id")
+  #comb2 <- comb2[,-14]
   colnames(comb2)[2] <- "TAZ"
-write_csv(comb2,"coordinates/final_households_xy.csv")
+write_csv(comb2,"scenarios/activitysim_output/sample/sample_households.csv")
 
-fperson <- read_csv("coordinates/final_persons.csv")
-comb3 <- left_join(coord,fperson, by = "household_id")
-  comb3 <- comb3[,-23]
-  colnames(comb3)[2] <- "TAZ"
-write_csv(comb3, "coordinates/final_persons_xy.csv")
+# see if households got the coordinates
+comb2 %>% select(household_id, TAZ, longitude, latitude)
+
+fperson <- read_csv("scenarios/activitysim_output/sample/sample_persons.csv")
+fperson %>% mutate(wc_var = ifelse(is.na(wc_var), F, wc_var)) %>%
+  write_csv("scenarios/activitysim_output/sample/sample_persons.csv")
