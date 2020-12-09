@@ -12,6 +12,31 @@ library(data.table)
 
 coord <- read_csv("data/hhcoord.csv")
 
+# the goal is to write coordinates onto households
+fhouse <- read_csv("data/final_households.csv")
+comb2 <- left_join(fhouse,coord, by = "household_id")
+colnames(comb2)[2] <- "TAZ"
+write_csv(comb2,"scenarios/activitysim_output/final_households_wc.csv")
+
+# see if households got the coordinates
+comb2 %>% select(household_id, TAZ, longitude, latitude)
+
+fperson <- read_csv("data/final_persons_wc.csv")
+fperson %>% mutate(wc_var = ifelse(is.na(wc_var), F, wc_var)) %>%
+  write_csv("scenarios/activitysim_output/final_persons_wc.csv")
+
+# check for outliers
+# ---- THERE ARE 20 NA HOUSEHOLDS -----------
+# we should probably just erase them.
+missing <- comb2 %>% select(household_id, TAZ, longitude, latitude) %>%
+  filter(is.na(latitude))
+
+coord %>% filter(household_id %in% missing$household_id)
+
+
+
+## ============= Samples and examples ==========================================
+
 # xy plot
 ggplot(data = coord %>% sample_n(10000), aes(x = longitude, y=latitude)) + geom_point()
 
