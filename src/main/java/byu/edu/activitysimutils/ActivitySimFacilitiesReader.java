@@ -17,6 +17,7 @@ import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.FacilitiesWriter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class ActivitySimFacilitiesReader {
     private Scenario scenario;
     File facilitiesFile;
     File householdsFile;
+    File coordinateFile;
     PopulationFactory pf;
     ActivityFacilitiesFactory factory;
     CoordinateTransformation ct;
@@ -41,11 +43,12 @@ public class ActivitySimFacilitiesReader {
          * Create an instance of ActivitySimFacilitiesReader using an existing scenario
          * @param facilitiesFile File path to csv file containing facility coordinates
      * */
-    public ActivitySimFacilitiesReader(Scenario scenario, File facilitiesFile, File householdsFile) {
+    public ActivitySimFacilitiesReader(Scenario scenario, File facilitiesFile, File householdsFile, File coordinateFile) {
 
         this.scenario = scenario;
         this.facilitiesFile = facilitiesFile;
         this.householdsFile = householdsFile;
+        this.coordinateFile = coordinateFile;
         this.factory = scenario.getActivityFacilities().getFactory();
         this.ct = TransformationFactory.getCoordinateTransformation("EPSG:4326", scenario.getConfig().global().getCoordinateSystem());
     }
@@ -96,14 +99,14 @@ public class ActivitySimFacilitiesReader {
     public void readHouseholds(){
         try {
             // Start a reader and read the header row. `col` is an index between the column names and numbers
-            CSVReader reader = CSVUtils.createCSVReader(householdsFile.toString());
+            CSVReader reader = CSVUtils.createCSVReader(coordinateFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
                     new String[]{"household_id", "longitude", "latitude"}, // mandatory columns
                     new String[]{"income"} // optional columns
             );
 
-            // Read each line of the persons file
+            // Read each line of the households file
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
                 // Create a MATsim Facilities object
@@ -122,7 +125,23 @@ public class ActivitySimFacilitiesReader {
             e.printStackTrace();
         }
     }
+    /*
+    private void readCoordinates(){
+        try {
+            CSVReader reader = CSVUtils.createCSVReader(coordinateFile.toString());
+            String[] header = reader.readNext();
+            Map<String, Integer> col = CSVUtils.getIndices(header,
+                    new String[]{"household_id", "longitude", "latitude"}, // mandatory columns
 
+            );
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }*/
     public HashMap<String, List<Id<ActivityFacility>>> getTazFacilityMap() {
         return tazFacilityMap;
     }
