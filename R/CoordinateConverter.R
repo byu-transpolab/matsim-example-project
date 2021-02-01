@@ -10,6 +10,11 @@ library(data.table)
 # that would mean that the columns would need to be added
 # in the config folder...
 
+# ActivitySim does not keep the coordinates. So in order for
+# the plansMaker to work, the households file needs coordinates
+# (an option would be to add the hhcoord file to the plans maker
+# and have the join happen inside java... -Nate)
+
 coord <- read_csv("data/hhcoord.csv")
 
 # the goal is to write coordinates onto households

@@ -37,6 +37,7 @@ public class InputFilesReader {
         ActivitySimTripsReader tripsReader = new ActivitySimTripsReader(scenario, tripsFile,
                 facilitiesReader.getTazFacilityMap());
         tripsReader.readTrips();
+        personsReader.readPlans();
 
     }
 

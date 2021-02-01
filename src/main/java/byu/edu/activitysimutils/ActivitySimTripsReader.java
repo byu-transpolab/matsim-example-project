@@ -69,8 +69,14 @@ public class ActivitySimTripsReader {
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
+
                 Id<ActivityFacility> homeId = Id.create("h" + nextLine[col.get("household_id")], ActivityFacility.class);
+
                 Person person = scenario.getPopulation().getPersons().get(personId);
+                if (person == null){
+                    personId = Id.createPersonId("wc-" + personId);
+                    person = scenario.getPopulation().getPersons().get(personId);
+                }
                 Plan plan = person.getPlans().get(0);
 
                 // Get time of departure for this trip and add randomness
