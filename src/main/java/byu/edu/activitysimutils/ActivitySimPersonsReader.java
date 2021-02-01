@@ -63,34 +63,20 @@ public class ActivitySimPersonsReader {
             while((nextLine = reader.readNext()) != null) {
                 // Create this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
-                Id<Person> personId1 = Id.createPersonId(nextLine[col.get("person_id")]);
 
-                //person.getAttributes().putAttribute("age", Integer.parseInt(nextLine[col.get("age")]));
-                //person.getAttributes().putAttribute("sex", nextLine[col.get("sex")]);
-                //person.getAttributes().putAttribute("wc_var", nextLine[col.get("wc_var")]);
-                //person.getAttributes().putAttribute("household_id", nextLine[col.get("household_id")]);
                 int age = Integer.parseInt(nextLine[col.get("age")]);
                 String sex = nextLine[col.get("sex")];
                 String wc_var = nextLine[col.get("wc_var")];
                 String household_id = nextLine[col.get("household_id")];
-                /*
-                if (col.keySet().contains("household_id")){
-                    String hhId = nextLine[col.get("household_id")];
-                }
-                */
+
                 if (wc_var.equals("True")) {
                     personId = Id.createPersonId("wc-" + personId);
-                    //person.getId() = person.getAttributes().getAttribute("personId");
-                    //person.getId(toString(personId));
                 }
                 Person person = pf.createPerson(personId);
                 person.getAttributes().putAttribute("age", age);
                 person.getAttributes().putAttribute("sex", sex);
                 person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
-
-                //Id<Person> personId = Id.createPersonId(personId1);
-                //Person person = scenario.getPopulation().getPersons().get(personId);
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());

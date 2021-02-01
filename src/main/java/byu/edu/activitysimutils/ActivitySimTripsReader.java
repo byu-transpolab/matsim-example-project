@@ -105,22 +105,6 @@ public class ActivitySimTripsReader {
                     }
                 }
 
-                //add logic to convert mode to matsim modes
-
-                // BIKE            168644 bike
-                // 2 DRIVE_COM        40022 pt
-                // 3 DRIVE_EXP          172 pt
-                // 4 DRIVE_LOC        32867 pt
-                // 5 DRIVE_LRF        39463 pt
-                // 6 DRIVEALONEFREE 2840391 car
-                // 7 SHARED2FREE    1231245 car
-                // 8 SHARED3FREE     943780 car
-                // 9 WALK           1262057 walk
-                //10 WALK_COM         34958 pt
-                //11 WALK_EXP          2320 pt
-                //12 WALK_LOC        847714 pt
-                //13 WALK_LRF        395976 pt
-
                 // Add leg to plan
                 String leg_mode = nextLine[col.get("trip_mode")];
                 Leg leg = pf.createLeg(leg_mode);
