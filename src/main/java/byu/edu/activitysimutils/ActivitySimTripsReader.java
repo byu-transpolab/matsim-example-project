@@ -16,6 +16,7 @@ import org.matsim.facilities.ActivityFacility;
 import org.matsim.facilities.ActivityFacilityImpl;
 import org.matsim.facilities.Facility;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class ActivitySimTripsReader {
     Scenario scenario;
     PopulationFactory pf;
     File tripsFile;
+    TransportMode mode;
 
     Random r = new Random(15);
     HashMap<String, List<Id<ActivityFacility>>> tazFacilitymap = null;
@@ -108,9 +110,8 @@ public class ActivitySimTripsReader {
                 // Add leg to plan
                 String leg_mode = nextLine[col.get("trip_mode")];
                 Leg leg = pf.createLeg(leg_mode);
-                leg.setMode(TransportMode.bike);
+                leg.setMode(getLegMode(leg_mode));
                 plan.addLeg(leg);
-
 
                 // Handle next activity
                 String purpose = nextLine[col.get("purpose")];
@@ -137,6 +138,27 @@ public class ActivitySimTripsReader {
         }
     }
 
+
+    /**
+     * convert the trip mode value to a MATSim friendly trip mode value
+     * @param leg_mode
+     * @return
+     */
+    private String getLegMode(String leg_mode) {
+        if(leg_mode.equals("BIKE")){
+            return mode.bike;
+        } else if(leg_mode.equals("WALK")){
+            return mode.walk;
+        } else if(leg_mode.matches("DRIVEALONEFREE|SHARED2FREE|SHARED3FREE")){
+            return mode.car;
+        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF|WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF")){
+            return mode.pt;
+        } else{
+            return "we messed up";
+        }
+    }
+
+
     /**
      * select a random facility within a TAZ.
      * @param tazId
@@ -148,5 +170,7 @@ public class ActivitySimTripsReader {
 
         return scenario.getActivityFacilities().getFacilities().get(facilityId);
     }
+
+
 
 }
