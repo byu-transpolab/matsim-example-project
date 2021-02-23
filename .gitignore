@@ -30,3 +30,6 @@ data/final_population.xml.gz
 R/coordinates
 
 .Rhistory
+**/scenarios
+
+*.csv
