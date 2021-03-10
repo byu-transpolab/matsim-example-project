@@ -20,3 +20,16 @@ trips <- trips[,-14]
 
 
 write_csv(trips,"scenarios/provo_orem/trips100c.csv")
+
+
+# We found that times are out of order.
+# rearrange the time so that activities are happening in 
+# chronological order.
+
+final_trips <- read_csv("scenarios/activitysim_output/final_trips.csv")
+
+# sort by person_id and depart
+# look at person 1774266
+final_trips %>%
+  group_by(person_id) %>%
+  arrange(person_id, depart) %>% write_csv("scenarios/activitysim_output/final_trips_chron.csv")
