@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(Hmisc)
 ```
 
 ```{r}
@@ -42,7 +43,72 @@ x = y in volume and n = total population in scenario.
 wc_population <- persons %>% 
   filter(wc_var == T)
 
+#write_csv(wc_population, "scenarios/slc_beam/scenario_1_fullWc/persons.csv")
+
 # find households
-households %>% filter(household_id %in% wc_population$household_id)
+house_wc <- households %>% filter(household_id %in% wc_population$household_id) 
+# write_csv(house_wc, "scenarios/slc_beam/scenario_1_fullWc/households.csv")
+
+# find and rearrange their trips
+trips %>% filter(person_id %in% wc_population$person_id) # %>% write_csv("scenarios/slc_beam/scenario_1_fullWc/trips.csv")
 ```
 
+# 2. Full wheelchair poulation plus an equal sized portion of general population
+
+In this scenario, I used households instead of persons, meaning the number of wheelchair
+households is how I base the scenario population total (n is about 20,000).
+
+```{r}
+#households_2 <- households %>% sample_n(20000) %>% bind_rows(house_wc) %>% distinct()
+# comment out households_2 because we use the same "random" population in the rest of the 
+# scenario maker
+household_2 <- read_csv("scenarios/slc_beam/scenario_2_05Wc/households.csv")
+
+#write_csv(households_2, "scenarios/slc_beam/scenario_2_05Wc/households.csv")
+
+persons_2 <- persons %>% filter(household_id %in% households_2$household_id)
+#write_csv(persons_2, "scenarios/slc_beam/scenario_2_05Wc/persons.csv")
+
+trips_2 <- trips %>% filter(person_id %in% persons_2$person_id)
+#write_csv(trips_2, "scenarios/slc_beam/scenario_2_05Wc/trips.csv")
+```
+
+# 3. Full wheelchair population plus a 9x sized portion of the general population
+
+this scenario population includes the same random general population households from
+the previous scenario plus 160,000 more households.
+
+```{r}
+
+#households_3 <- households %>% sample_n(160000) %>% bind_rows(household_2) %>% distinct()
+#write_csv(households_3, "scenarios/slc_beam/scenario_3_01Wc/households.csv")
+households_3 <- read_csv("scenarios/slc_beam/scenario_3_01Wc/households.csv")
+
+persons_3 <- persons %>% filter(household_id %in% households_3$household_id)
+#write_csv(persons_3, "scenarios/slc_beam/scenario_3_01Wc/persons.csv")
+
+trips_3 <- trips %>% filter(person_id %in% persons_3$person_id)
+#write_csv(trips_3, "scenarios/slc_beam/scenario_3_01Wc/trips.csv")
+```
+
+# 4. 10% sample of entire population
+
+This population should include roughly 2000 wc users
+
+```{r}
+#households_4 <- households %>% sample_frac(0.1)
+#write_csv(households_4, "scenarios/slc_beam/scenario_4_tenthWc/households.csv")
+households_4 <- read_csv("scenarios/slc_beam/scenario_4_tenthWc/households.csv")
+
+persons_4 <- persons %>% filter(household_id %in% households_4$household_id)
+# there are 2100 wc users exactly of the 248,740 population
+#write_csv(persons_4, "scenarios/slc_beam/scenario_4_tenthWc/persons.csv")
+
+trips_4 <- trips %>% filter(person_id %in% persons_4$person_id)
+#write_csv(trips_4, "scenarios/slc_beam/scenario_4_tenthWc/trips.csv")
+```
+
+
+# 5. 5% sample of entire population
+
+This population should include roughly 1000 wc users
