@@ -50,7 +50,10 @@ house_wc <- households %>% filter(household_id %in% wc_population$household_id)
 # write_csv(house_wc, "scenarios/slc_beam/scenario_1_fullWc/households.csv")
 
 # find and rearrange their trips
-trips %>% filter(person_id %in% wc_population$person_id) # %>% write_csv("scenarios/slc_beam/scenario_1_fullWc/trips.csv")
+trips_wc <- trips %>% 
+  filter(person_id %in% wc_population$person_id) %>%
+  arrange(person_id, household_id, depart)
+#write_csv(trips_wc, "scenarios/slc_beam/scenario_1_fullWc/trips.csv")
 ```
 
 # 2. Full wheelchair poulation plus an equal sized portion of general population
@@ -69,7 +72,8 @@ household_2 <- read_csv("scenarios/slc_beam/scenario_2_05Wc/households.csv")
 persons_2 <- persons %>% filter(household_id %in% households_2$household_id)
 #write_csv(persons_2, "scenarios/slc_beam/scenario_2_05Wc/persons.csv")
 
-trips_2 <- trips %>% filter(person_id %in% persons_2$person_id)
+trips_2 <- trips %>% filter(person_id %in% persons_2$person_id) %>%
+  arrange(person_id, household_id, depart)
 #write_csv(trips_2, "scenarios/slc_beam/scenario_2_05Wc/trips.csv")
 ```
 
@@ -87,7 +91,8 @@ households_3 <- read_csv("scenarios/slc_beam/scenario_3_01Wc/households.csv")
 persons_3 <- persons %>% filter(household_id %in% households_3$household_id)
 #write_csv(persons_3, "scenarios/slc_beam/scenario_3_01Wc/persons.csv")
 
-trips_3 <- trips %>% filter(person_id %in% persons_3$person_id)
+trips_3 <- trips %>% filter(person_id %in% persons_3$person_id) %>%
+  arrange(person_id, household_id, depart)
 #write_csv(trips_3, "scenarios/slc_beam/scenario_3_01Wc/trips.csv")
 ```
 
@@ -104,7 +109,8 @@ persons_4 <- persons %>% filter(household_id %in% households_4$household_id)
 # there are 2100 wc users exactly of the 248,740 population
 #write_csv(persons_4, "scenarios/slc_beam/scenario_4_tenthWc/persons.csv")
 
-trips_4 <- trips %>% filter(person_id %in% persons_4$person_id)
+trips_4 <- trips %>% filter(person_id %in% persons_4$person_id) %>%
+  arrange(person_id, household_id, depart)
 #write_csv(trips_4, "scenarios/slc_beam/scenario_4_tenthWc/trips.csv")
 ```
 
