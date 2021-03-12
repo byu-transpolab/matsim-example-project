@@ -1,0 +1,48 @@
+---
+title: "Population Maker"
+author: "Nate Lant"
+date: "3/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+persons <- read_csv("scenarios/slc_beam/wheelchair/final_persons.csv")
+households <- read_csv("scenarios/slc_beam/wheelchair/final_households.csv")
+trips <- read_csv("scenarios/slc_beam/wheelchair/final_trips.csv")
+```
+
+
+The challenge we face is how we can accurately simulate a tiny population of 
+wheelchair users compared to the enormous general population. If we take a random 5%
+sample, for example, we would get a limited number of wheelchair users.
+
+My idea is to simulate four different saturation levels of wc users and evaluate WAV usage
+at each level. The first level is 100% of the wheelchair population. The second level is 100% 
+wc population and a random sample of the same size from the general population. The third
+level is 100% of the wc population and a random sample of the general population ten times bigger
+than the wheelchair population. The fourth level is 10% sample of the entire population.
+
+In summary, let x = full wheelchair population and y = random sample of general population and
+x = y in volume and n = total population in scenario.
+
+1. $n = x$
+2. $n = x + y$
+3. $n = x + 9y$
+4. $n = x/10 + total_y/10$
+
+# 1. All Wheelchair population
+
+```{r}
+# wheelchair population
+wc_population <- persons %>% 
+  filter(wc_var == T)
+
+# find households
+households %>% filter(household_id %in% wc_population$household_id)
+```
+
