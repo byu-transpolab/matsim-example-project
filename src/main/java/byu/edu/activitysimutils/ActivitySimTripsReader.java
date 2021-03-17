@@ -84,22 +84,13 @@ public class ActivitySimTripsReader {
                 Double time = Double.valueOf(nextLine[col.get("depart")]);
                 //If the PersonID is the same for this plan as the last one, then we add random time to previous time
                 //
-                // time = 10
-                // depTime = 38700  == 10:45
-                // prevTime = 38700
-                //
-                // depTime = 0
-                // time = 10
-                // test = 10*3600 - 38700 = -2700
-                // smallTime = 900  == 15 minutes
-                // depTime = prevTime + r.nextDouble * smallTime
-                //
                 String testPerson = personId.toString();
                 if (prevPersonId.equals(personId)){
                     Double timeDifference = time*3600 - previousTime;
                     if(timeDifference < 0) {
                         double smallTime = 3600 + timeDifference;
                         if(smallTime < 0) {
+                            // trips should be arranged beforehand, activitysim had some trips out of order...
                             log.info("Person " + personId.toString() + " is traveling back in time.");
                         }
                         depTime = previousTime + r.nextDouble()*smallTime;
@@ -175,6 +166,7 @@ public class ActivitySimTripsReader {
 
     /**
      * convert the trip mode value to a MATSim friendly trip mode value
+     * convert trip mode value into a BEAM friendly trip mode value
      * @param leg_mode
      * @return
      */
