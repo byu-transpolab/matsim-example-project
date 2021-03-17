@@ -66,8 +66,8 @@ public class ActivitySimTripsReader {
             // Read each line of the trips file
             String[] nextLine;
             Activity prevActivity = null;
-
-            Id<Person> prevPersonId = null;
+            Double previousTime = -1.0;
+            Id<Person> prevPersonId = Id.createPersonId("Mister Impossible");
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
@@ -80,10 +80,44 @@ public class ActivitySimTripsReader {
                     person = scenario.getPopulation().getPersons().get(personId);
                 }
                 Plan plan = person.getPlans().get(0);
-
-                // Get time of departure for this trip and add randomness
+                Double depTime;
                 Double time = Double.valueOf(nextLine[col.get("depart")]);
-                Double depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
+                //If the PersonID is the same for this plan as the last one, then we add random time to previous time
+                //
+                // time = 10
+                // depTime = 38700  == 10:45
+                // prevTime = 38700
+                //
+                // depTime = 0
+                // time = 10
+                // test = 10*3600 - 38700 = -2700
+                // smallTime = 900  == 15 minutes
+                // depTime = prevTime + r.nextDouble * smallTime
+                //
+                String testPerson = personId.toString();
+                if (prevPersonId.equals(personId)){
+                    Double timeDifference = time*3600 - previousTime;
+                    if(timeDifference < 0) {
+                        double smallTime = 3600 + timeDifference;
+                        if(smallTime < 0) {
+                            log.info("Person " + personId.toString() + " is traveling back in time.");
+                        }
+                        depTime = previousTime + r.nextDouble()*smallTime;
+                    } else {
+                        depTime = time*3600 + r.nextDouble()*3600;
+                    }
+
+
+                }
+                else { //If the personID is different for this plan than the last plan, then we add random time to the departure time
+                    prevPersonId = personId;
+                    // Get time of departure for this trip and add randomness
+                    time = Double.valueOf(nextLine[col.get("depart")]);
+                    depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
+
+                }
+                previousTime = depTime;
+
 
                 // Handle origin side
                 // Is this the first trip of the day?
@@ -151,9 +185,18 @@ public class ActivitySimTripsReader {
             return mode.walk;
         } else if(leg_mode.matches("DRIVEALONEFREE|SHARED2FREE|SHARED3FREE")){
             return mode.car;
-        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF|WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF")){
-            return mode.pt;
-        } else{
+        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF")){
+            return "drive_transit";
+        } else if (leg_mode.matches("WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF")) {
+            return "walk_transit";
+        }
+        else if(leg_mode.matches("TNC_SINGLE|TAXI")){
+            return "ride_hail";
+        }
+        else if (leg_mode.matches("TNC_SHARED")){
+            return "ride_hail_pooled";
+        }
+        else{
             return "we messed up";
         }
     }

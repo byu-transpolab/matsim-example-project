@@ -51,7 +51,7 @@ public class InputFilesReader {
 
         //File personsFile = new File(scenarioPath + args[1]);
         File personsFile = new File(scenarioPath + "final_persons.csv");
-        File tripsFile = new File(scenarioPath + "final_trips.csv");
+        File tripsFile = new File(scenarioPath + "final_trips_arranged.csv");
         File householdsFile = new File(scenarioPath + "final_households.csv");
         File facilitiesFile = new File(scenarioPath + "facility_ids.csv");
         File householdCoordFile = new File(scenarioPath + "hhcoord.csv");
