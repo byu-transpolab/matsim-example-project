@@ -15,6 +15,12 @@ library(Hmisc)
 persons <- read_csv("scenarios/slc_beam/wheelchair/final_persons.csv")
 households <- read_csv("scenarios/slc_beam/wheelchair/final_households.csv")
 trips <- read_csv("scenarios/slc_beam/wheelchair/final_trips.csv")
+
+# rearrange trips for debugging plans maker
+trips_new <- trips %>% 
+  arrange(person_id, depart)
+
+#write_csv(trips_new, "scenarios/slc_beam/wheelchair/final_trips_arranged.csv")
 ```
 
 

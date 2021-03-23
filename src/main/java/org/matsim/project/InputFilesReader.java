@@ -47,17 +47,17 @@ public class InputFilesReader {
         scenario.getConfig().global().setCoordinateSystem("EPSG:26912");
         InputFilesReader reader = new InputFilesReader(scenario);
         // String scenarioPath = args[0];
-        String scenarioPath = "scenarios/slc_beam/wheelchair/";
+        String scenarioPath = "scenarios/slc_beam/scenario_1_fullWc/";
 
         //File personsFile = new File(scenarioPath + args[1]);
-        File personsFile = new File(scenarioPath + "final_persons.csv");
-        File tripsFile = new File(scenarioPath + "final_trips_arranged.csv");
-        File householdsFile = new File(scenarioPath + "final_households.csv");
+        File personsFile = new File(scenarioPath + "persons.csv");
+        File tripsFile = new File(scenarioPath + "trips.csv");
+        File householdsFile = new File(scenarioPath + "households.csv");
         File facilitiesFile = new File(scenarioPath + "facility_ids.csv");
         File householdCoordFile = new File(scenarioPath + "hhcoord.csv");
         reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile, householdsFile, householdCoordFile);
 
-        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "complete_population_plans.xml");
+        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "sc_1_plans.xml");
         // new FacilitiesWriter(scenario.getActivityFacilities()).write(scenarioPath + "facilities.xml.gz");
     }
 

@@ -69,7 +69,7 @@ public class ActivitySimPersonsReader {
                 String wc_var = nextLine[col.get("wc_var")];
                 String household_id = nextLine[col.get("household_id")];
 
-                if (wc_var.equals("True")) {
+                if (wc_var.equals("TRUE")) {
                     personId = Id.createPersonId("wc-" + personId);
                 }
                 Person person = pf.createPerson(personId);
