@@ -72,15 +72,22 @@ households is how I base the scenario population total (n is about 20,000).
 # comment out households_2 because we use the same "random" population in the rest of the 
 # scenario maker
 household_2 <- read_csv("scenarios/slc_beam/scenario_2_05Wc/households.csv")
+sample_hh <- household_2 %>% sample_n(100)
 
 #write_csv(households_2, "scenarios/slc_beam/scenario_2_05Wc/households.csv")
+#write_csv(sample_hh, "scenarios/slc_beam/sample/households.csv")
 
 persons_2 <- persons %>% filter(household_id %in% households_2$household_id)
+sample_p <- persons %>% filter(household_id %in% sample_hh$household_id)
 #write_csv(persons_2, "scenarios/slc_beam/scenario_2_05Wc/persons.csv")
+#write_csv(sample_p, "scenarios/slc_beam/sample/persons.csv")
 
 trips_2 <- trips %>% filter(person_id %in% persons_2$person_id) %>%
   arrange(person_id, household_id, depart)
+sample_t <- trips %>% filter(person_id %in% sample_p$person_id) %>%
+  arrange(person_id, household_id, depart)
 #write_csv(trips_2, "scenarios/slc_beam/scenario_2_05Wc/trips.csv")
+#write_csv(sample_t, "scenarios/slc_beam/sample/trips.csv")
 ```
 
 # 3. Full wheelchair population plus a 9x sized portion of the general population
