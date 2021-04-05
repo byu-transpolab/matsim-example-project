@@ -67,6 +67,7 @@ public class ActivitySimTripsReader {
             String[] nextLine;
             Activity prevActivity = null;
             Double previousTime = -1.0;
+            Coord prevCoord = null;
             Id<Person> prevPersonId = Id.createPersonId("Mister Impossible");
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
@@ -83,7 +84,7 @@ public class ActivitySimTripsReader {
                 Double depTime;
                 Double time = Double.valueOf(nextLine[col.get("depart")]);
                 //If the PersonID is the same for this plan as the last one, then we add random time to previous time
-                //
+                //The trips file has to be in order of persons and time...
                 String testPerson = personId.toString();
                 if (prevPersonId.equals(personId)){
                     Double timeDifference = time*3600 - previousTime;
@@ -107,7 +108,11 @@ public class ActivitySimTripsReader {
                     depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
 
                 }
+
+                
+                Double timeDiff = depTime - previousTime;
                 previousTime = depTime;
+
 
 
                 // Handle origin side
@@ -147,6 +152,12 @@ public class ActivitySimTripsReader {
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity2.setCoord(home);
                     plan.addActivity(homeActivity2);
+                } else if(timeDiff < 30 ) { // if travel time is impossible then put it at the same place
+                    ActivityFacility nextPlace = getFacilityinZone(destId);
+                    Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
+                    Coord lastCoord = prevActivity.getCoord();
+                    otherActivity.setCoord(lastCoord);
+                    prevActivity = otherActivity;
                 } else {
                     ActivityFacility nextPlace = getFacilityinZone(destId);
                     Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
@@ -154,7 +165,15 @@ public class ActivitySimTripsReader {
                     otherActivity.setCoord(nextCoord);
 
                     plan.addActivity(otherActivity);
+
+
+
+                    //store activity as next activity
+                    // if time > 30 from previous activity  (time = activ - previous activity < 1800 seconds
+                    // set coord as previous activity
+                    prevActivity = otherActivity;
                 }
+
 
             }
 
