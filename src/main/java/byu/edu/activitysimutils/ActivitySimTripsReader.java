@@ -68,6 +68,7 @@ public class ActivitySimTripsReader {
             Activity prevActivity = null;
             Double previousTime = -1.0;
             Coord prevCoord = null;
+            String prevDestId = "";
             Id<Person> prevPersonId = Id.createPersonId("Mister Impossible");
             while((nextLine = reader.readNext()) != null) {
                 // get plan for this person
@@ -105,7 +106,8 @@ public class ActivitySimTripsReader {
                     prevPersonId = personId;
                     // Get time of departure for this trip and add randomness
                     time = Double.valueOf(nextLine[col.get("depart")]);
-                    depTime = time*3600 + r.nextDouble()*3600; //adds a random number within 60 min
+                    depTime = time*3600 + r.nextDouble()*3600;//adds a random number within 60 min
+                    previousTime = 0.0;
 
                 }
 
@@ -123,17 +125,26 @@ public class ActivitySimTripsReader {
                     homeActivity1.setEndTime(depTime);
                     homeActivity1.setCoord(home);
                     plan.addActivity(homeActivity1);
-                } else { // if not, then there is an existing activity that we need to find. maybe?
+                }
+                else { // if not, then there is an existing activity that we need to find. maybe?
                     // and add a departure to it!
                     // Find out how long the plan is
                     Integer plansize = plan.getPlanElements().size();
                     // The last item of the plan is a travel leg, and we actually want the last activity
                     PlanElement lastElement = plan.getPlanElements().get(plansize - 1);
+                    PlanElement lastLastElement = plan.getPlanElements().get(plansize - 3);
                     if (lastElement instanceof Activity) {
                         Activity lastActivity = (Activity) lastElement;
+                        Activity lastLastActivity = (Activity) lastLastElement;
                         Coord lastPlace = scenario.getActivityFacilities().getFacilities().get(lastActivity.getFacilityId()).getCoord();
+                        //Coord lastLastPlace = scenario.getActivityFacilities().getFacilities().get(lastLastActivity.getFacilityId()).getCoord();
+                        Coord lastLastPlace = lastLastActivity.getCoord();
                         lastActivity.setEndTime(depTime);
-                        lastActivity.setCoord(lastPlace);
+                        if (timeDiff < 30*60) {
+                            lastActivity.setCoord(lastLastPlace);
+                        } else {
+                            lastActivity.setCoord(lastPlace);
+                        }
                     }
                 }
 
@@ -152,17 +163,24 @@ public class ActivitySimTripsReader {
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity2.setCoord(home);
                     plan.addActivity(homeActivity2);
-                } else if(timeDiff < 30 ) { // if travel time is impossible then put it at the same place
+
+                    prevDestId = destId;
+                }
+//                else if(timeDiff < 30*60 ) { // if travel time is impossible then put it at the same place
+//
+//                    ActivityFacility nextPlace = getFacilityinZone(prevDestId);
+//                    Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
+//                    Coord nextCoord = scenario.getActivityFacilities().getFacilities().get(nextPlace.getId()).getCoord();
+//                    otherActivity.setCoord(nextCoord);
+//                    plan.addActivity(otherActivity);
+//
+//                    prevDestId = destId;
+//                }
+                else {
                     ActivityFacility nextPlace = getFacilityinZone(destId);
                     Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
-                    Coord lastCoord = prevActivity.getCoord();
-                    otherActivity.setCoord(lastCoord);
-                    prevActivity = otherActivity;
-                } else {
-                    ActivityFacility nextPlace = getFacilityinZone(destId);
-                    Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
-                    Coord nextCoord = scenario.getActivityFacilities().getFacilities().get(nextPlace.getId()).getCoord();
-                    otherActivity.setCoord(nextCoord);
+//                    Coord nextCoord = scenario.getActivityFacilities().getFacilities().get(nextPlace.getId()).getCoord();
+//                    otherActivity.setCoord(nextCoord);
 
                     plan.addActivity(otherActivity);
 
@@ -171,7 +189,7 @@ public class ActivitySimTripsReader {
                     //store activity as next activity
                     // if time > 30 from previous activity  (time = activ - previous activity < 1800 seconds
                     // set coord as previous activity
-                    prevActivity = otherActivity;
+                    prevDestId = destId;
                 }
 
 
