@@ -23,6 +23,21 @@ trips_new <- trips %>%
 #write_csv(trips_new, "scenarios/slc_beam/wheelchair/final_trips_arranged.csv")
 ```
 
+# General Population Maker - Chris
+
+```{r}
+# randomly sample persons
+s_pop <- persons %>% sample_n(1000)
+
+s_hh <- households %>% (household_id %in% s_pop$household_id)
+
+s_trips
+```
+
+
+
+# WC Population Maker - Nate
+
 
 The challenge we face is how we can accurately simulate a tiny population of 
 wheelchair users compared to the enormous general population. If we take a random 5%
