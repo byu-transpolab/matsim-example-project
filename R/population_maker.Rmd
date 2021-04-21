@@ -12,9 +12,15 @@ library(Hmisc)
 ```
 
 ```{r}
+#input files for wheelchair population
 persons <- read_csv("scenarios/slc_beam/wheelchair/final_persons.csv")
 households <- read_csv("scenarios/slc_beam/wheelchair/final_households.csv")
 trips <- read_csv("scenarios/slc_beam/wheelchair/final_trips.csv")
+
+#input files for general population
+g_persons <- read_csv("../scenarios/slc_beam/general/final_persons.csv")
+g_households <-read_csv("../scenarios/slc_beam/general/final_households.csv")
+g_trips <- read_csv("../scenarios/slc_beam/general/final_trips.csv")
 
 # rearrange trips for debugging plans maker
 trips_new <- trips %>% 
@@ -27,13 +33,17 @@ trips_new <- trips %>%
 
 ```{r}
 # randomly sample persons
-s_pop <- persons %>% sample_n(1000)
+s_pop <- g_persons %>% sample_n(25000)
+#write_csv(s_pop, "../scenarios/slc_beam/general/25k/persons.csv")
 
-s_hh <- households %>% (household_id %in% s_pop$household_id)
+s_hh <- g_households %>% filter(household_id %in% s_pop$household_id)
+#write_csv(s_hh, "../scenarios/slc_beam/general/25k/households.csv")
 
-s_trips
+s_trips <- g_trips %>% 
+  filter(person_id %in% s_pop$person_id) %>% 
+  arrange(person_id,household_id,depart)
+#write_csv(s_trips, "../scenarios/slc_beam/general/25k/trips.csv")
 ```
-
 
 
 # WC Population Maker - Nate
