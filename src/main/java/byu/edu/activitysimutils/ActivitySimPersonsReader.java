@@ -66,16 +66,16 @@ public class ActivitySimPersonsReader {
 
                 int age = Integer.parseInt(nextLine[col.get("age")]);
                 String sex = nextLine[col.get("sex")];
-                String wc_var = nextLine[col.get("wc_var")];
+                //String wc_var = nextLine[col.get("wc_var")];
                 String household_id = nextLine[col.get("household_id")];
 
-                if (wc_var.equals("TRUE")) {
-                    personId = Id.createPersonId("wc-" + personId);
-                }
+                //if (wc_var.equals("TRUE")) {
+                //    personId = Id.createPersonId("wc-" + personId);
+                //}
                 Person person = pf.createPerson(personId);
                 person.getAttributes().putAttribute("age", age);
                 person.getAttributes().putAttribute("sex", sex);
-                person.getAttributes().putAttribute("wc_var", wc_var);
+                //person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
 
                 // create an empty plan

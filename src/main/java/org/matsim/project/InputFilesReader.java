@@ -47,18 +47,24 @@ public class InputFilesReader {
         scenario.getConfig().global().setCoordinateSystem("EPSG:26912");
         InputFilesReader reader = new InputFilesReader(scenario);
         // String scenarioPath = args[0];
-        String scenarioPath = "scenarios/slc_beam/sample/";
+        String allPath = "../files_to_kepp/activitysim_output/";
+        String scenarioPath = allPath + "SampleFiles_0.1-0.1/";
+        String outputFileName = "plans_100-100.xml.gz";
 
         //File personsFile = new File(scenarioPath + args[1]);
         File personsFile = new File(scenarioPath + "persons.csv");
         File tripsFile = new File(scenarioPath + "trips.csv");
         File householdsFile = new File(scenarioPath + "households.csv");
-        File facilitiesFile = new File(scenarioPath + "facility_ids.csv");
-        File householdCoordFile = new File(scenarioPath + "hhcoord.csv");
+        File facilitiesFile = new File(allPath + "facility_ids.csv");
+        File householdCoordFile = new File(allPath + "hhcoord.csv");
         reader.readActivitySimFiles(personsFile, tripsFile, facilitiesFile, householdsFile, householdCoordFile);
 
-        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + "mix.xml");
+        // new PopulationWriter(scenario.getPopulation()).write("../beam/test/input/south_salt_lake_100-100/conversion-input/" + outputFileName);
+        new PopulationWriter(scenario.getPopulation()).write(scenarioPath + outputFileName);
         // new FacilitiesWriter(scenario.getActivityFacilities()).write(scenarioPath + "facilities.xml.gz");
+        // write households.xml.gz
+        // write hhattrib
+        // write popattrib
     }
 
 }
