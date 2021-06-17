@@ -15,7 +15,6 @@ import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.facilities.ActivityFacility;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
@@ -55,7 +54,7 @@ public class ActivitySimPersonsReader {
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
                     new String[]{"person_id", "age", "sex",  }, // mandatory columns
-                    new String[]{"household_id", "wc_var"} // optional columns
+                    new String[]{"household_id", "wc_var", "modality-style"} // optional columns
             );
 
             // Read each line of the persons file
@@ -80,6 +79,7 @@ public class ActivitySimPersonsReader {
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
+                person.getSelectedPlan().getAttributes().putAttribute("modality-style", "class1");
                 scenario.getPopulation().addPerson(person);
             }
 
