@@ -17,6 +17,7 @@ import org.matsim.facilities.ActivityFacility;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Random;
 
 public class ActivitySimPersonsReader {
     private static final Logger log = Logger.getLogger(ActivitySimPersonsReader.class);
@@ -79,7 +80,7 @@ public class ActivitySimPersonsReader {
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
-                person.getSelectedPlan().getAttributes().putAttribute("modality-style", "class1");
+                person.getSelectedPlan().getAttributes().putAttribute("modality-style", getModalityStyle());
                 scenario.getPopulation().addPerson(person);
             }
 
@@ -87,6 +88,12 @@ public class ActivitySimPersonsReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Object getModalityStyle() {
+        Random rando = new Random();
+        String[] allStyles = {"class1","class2","class3","class4","class5","class6"};
+        return allStyles[rando.nextInt(allStyles.length)];
     }
 
     /**
