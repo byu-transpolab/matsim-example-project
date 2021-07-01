@@ -79,6 +79,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.8</version>
+		</dependency>
+
 		<!--some contribs:-->
 		<dependency>
 			<groupId>org.matsim.contrib</groupId>
