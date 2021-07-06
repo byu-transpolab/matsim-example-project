@@ -6,21 +6,11 @@ import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
-import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.population.*;
-import org.matsim.core.config.Config;
-import org.matsim.core.config.ConfigUtils;
-import org.matsim.core.scenario.ScenarioUtils;
-import org.matsim.facilities.ActivityFacilities;
 import org.matsim.facilities.ActivityFacility;
-import org.matsim.facilities.ActivityFacilityImpl;
-import org.matsim.facilities.Facility;
-
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.Period;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,7 +104,7 @@ public class ActivitySimTripsReader {
                 
                 Double timeDiff = depTime - previousTime;
                 previousTime = depTime;
-
+                String prim_purpose = nextLine[col.get("primary_purpose")];
 
 
                 // Handle origin side
@@ -124,6 +114,7 @@ public class ActivitySimTripsReader {
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity1.setEndTime(depTime);
                     homeActivity1.setCoord(home);
+                    homeActivity1.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(homeActivity1);
                 }
                 else { // if not, then there is an existing activity that we need to find. maybe?
@@ -162,8 +153,8 @@ public class ActivitySimTripsReader {
                     Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity2.setCoord(home);
+                    //homeActivity2.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(homeActivity2);
-
                     prevDestId = destId;
                 }
 //                else if(timeDiff < 30*60 ) { // if travel time is impossible then put it at the same place
@@ -179,9 +170,11 @@ public class ActivitySimTripsReader {
                 else {
                     ActivityFacility nextPlace = getFacilityinZone(destId);
                     Activity otherActivity = pf.createActivityFromActivityFacilityId(purpose, nextPlace.getId());
+
 //                    Coord nextCoord = scenario.getActivityFacilities().getFacilities().get(nextPlace.getId()).getCoord();
 //                    otherActivity.setCoord(nextCoord);
 
+                    otherActivity.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(otherActivity);
 
 

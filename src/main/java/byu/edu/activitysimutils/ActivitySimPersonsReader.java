@@ -80,7 +80,7 @@ public class ActivitySimPersonsReader {
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
-                person.getSelectedPlan().getAttributes().putAttribute("modality-style", getModalityStyle());
+                //person.getSelectedPlan().getAttributes().putAttribute("modality-style", getModalityStyle());
                 scenario.getPopulation().addPerson(person);
             }
 
