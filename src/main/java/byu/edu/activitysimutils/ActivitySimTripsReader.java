@@ -153,7 +153,7 @@ public class ActivitySimTripsReader {
                     Activity homeActivity2 = pf.createActivityFromActivityFacilityId("Home", homeId);
                     Coord home = scenario.getActivityFacilities().getFacilities().get(homeId).getCoord();
                     homeActivity2.setCoord(home);
-                    //homeActivity2.getAttributes().putAttribute("primary_purpose",prim_purpose);
+                    homeActivity2.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(homeActivity2);
                     prevDestId = destId;
                 }
