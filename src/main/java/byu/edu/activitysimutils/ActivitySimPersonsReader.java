@@ -16,6 +16,8 @@ import org.matsim.facilities.ActivityFacility;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -26,6 +28,8 @@ public class ActivitySimPersonsReader {
     PopulationFactory pf;
     File personsFile;
 
+    HashMap<String, List<Double>> householdMap = null;
+
     /**
      * Create an instance of ActivitySimPersonsReader using an existing scenario
      * @param scenario A scenario
@@ -35,6 +39,11 @@ public class ActivitySimPersonsReader {
         this.scenario = scenario;
         this.personsFile = personsFile;
         this.pf = scenario.getPopulation().getFactory();
+    }
+
+    public ActivitySimPersonsReader(Scenario scenario, File personsFile, HashMap<String, List<Double>> householdMap){
+        this(scenario, personsFile);
+        this.householdMap = householdMap;
     }
 
     /**
@@ -77,17 +86,31 @@ public class ActivitySimPersonsReader {
                 person.getAttributes().putAttribute("sex", sex);
                 //person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
+                Double income = householdMap.get(household_id).get(0);
+                person.getAttributes().putAttribute("income",income);
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
-                //person.getSelectedPlan().getAttributes().putAttribute("modality-style", getModalityStyle());
+                //
+
+                //read in and create a plan attribute for the ratio of number of vehicles to number of workers in a household
+                person.getSelectedPlan().getAttributes().putAttribute("autoWorkRatio", getCarAutoRatio(household_id));
                 scenario.getPopulation().addPerson(person);
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Object getCarAutoRatio(String household_id) {
+        Double auto_ownership = householdMap.get(household_id).get(1);
+        Double num_workers = householdMap.get(household_id).get(2);
+        Double carWorkRatio = auto_ownership / num_workers;
+        if (auto_ownership == 0){ return "NoAutos"; }
+        else if (carWorkRatio < 1){ return "FewerAutosThanWorkers"; }
+        else if (carWorkRatio >= 1){ return "AsManyCarsAsWorkers"; }
+        else return "error";
     }
 
     private Object getModalityStyle() {
