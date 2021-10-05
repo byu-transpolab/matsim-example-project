@@ -90,7 +90,7 @@ public class ActivitySimPersonsReader {
                 //get values and put into the planesthe values for income and auto worker ratio
                 Double income = householdMap.get(household_id).get(0);
                 person.getAttributes().putAttribute("income", income);
-                person.getAttributes().putAttribute("autoWorkRatio", getCarAutoRatio(household_id));
+                person.getAttributes().putAttribute("autoWorkRatio", getAutoWorkerRatio(household_id));
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
@@ -104,13 +104,13 @@ public class ActivitySimPersonsReader {
         }
     }
 
-    private Object getCarAutoRatio(String household_id) {
+    private Object getAutoWorkerRatio(String household_id) {
         Double auto_ownership = householdMap.get(household_id).get(1);
         Double num_workers = householdMap.get(household_id).get(2);
         Double carWorkRatio = auto_ownership / num_workers;
         if (auto_ownership == 0){ return "NoAutos"; }
         else if (carWorkRatio < 1){ return "FewerAutosThanWorkers"; }
-        else if (carWorkRatio >= 1){ return "AsManyCarsAsWorkers"; }
+        else if (carWorkRatio >= 1){ return "AsManyAutosAsWorkers"; }
         else return "error";
     }
 
