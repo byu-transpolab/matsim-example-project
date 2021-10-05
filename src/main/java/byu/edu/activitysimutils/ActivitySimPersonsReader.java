@@ -86,15 +86,16 @@ public class ActivitySimPersonsReader {
                 person.getAttributes().putAttribute("sex", sex);
                 //person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
+
+                //get values and put into the planesthe values for income and auto worker ratio
                 Double income = householdMap.get(household_id).get(0);
-                person.getAttributes().putAttribute("income",income);
+                person.getAttributes().putAttribute("income", income);
+                person.getAttributes().putAttribute("autoWorkRatio", getCarAutoRatio(household_id));
 
                 // create an empty plan
                 person.addPlan(pf.createPlan());
                 //
-
-                //read in and create a plan attribute for the ratio of number of vehicles to number of workers in a household
-                person.getSelectedPlan().getAttributes().putAttribute("autoWorkRatio", getCarAutoRatio(household_id));
+                //person.getSelectedPlan().getAttributes().putAttribute("modality-style", getModalityStyle());
                 scenario.getPopulation().addPerson(person);
             }
 
