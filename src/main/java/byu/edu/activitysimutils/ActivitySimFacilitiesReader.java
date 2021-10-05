@@ -13,10 +13,9 @@ import org.matsim.facilities.ActivityFacility;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.Double.parseDouble;
 
 public class ActivitySimFacilitiesReader {
 
@@ -32,6 +31,7 @@ public class ActivitySimFacilitiesReader {
     TAZID: [facility1, facility2, facility3]
      */
     public HashMap<String, List<Id<ActivityFacility>>> tazFacilityMap = new HashMap<>();
+    public HashMap<String, List<Double>> householdMap = new HashMap<>();
 
     /**
          * Create an instance of ActivitySimFacilitiesReader using an existing scenario
@@ -119,6 +119,35 @@ public class ActivitySimFacilitiesReader {
             e.printStackTrace();
         }
     }
+
+    public void readHouseholdAttributes(){
+        try {
+            // Start a reader and read the header row. `col` is an index between the column names and numbers
+            CSVReader reader = CSVUtils.createCSVReader(householdsFile.toString());
+            String[] header = reader.readNext();
+            Map<String, Integer> col = CSVUtils.getIndices(header,
+                    new String[]{"household_id", "income", "auto_ownership", "num_workers"}, // mandatory columns
+                    new String[]{"hhsize", "income_segment", "num_non_workers"} // optional columns
+            );
+
+            // Read each line of the households file
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                // Read in household attribute values
+                String household_id = nextLine[col.get("household_id")];
+                Double income = parseDouble(nextLine[col.get("income")]);
+                Double auto_ownership = parseDouble(nextLine[col.get("auto_ownership")]);
+                Double num_workers = parseDouble(nextLine[col.get("num_workers")]);
+
+                // Add household attributes to household map
+                List<Double> hhAttributes = Arrays.asList(income, auto_ownership, num_workers);
+                householdMap.put(household_id, hhAttributes);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /*
     private void readCoordinates(){
         try {
@@ -139,6 +168,7 @@ public class ActivitySimFacilitiesReader {
     public HashMap<String, List<Id<ActivityFacility>>> getTazFacilityMap() {
         return tazFacilityMap;
     }
+    public HashMap<String, List<Double>> getHouseholdMap(){return householdMap;}
 
 
 
