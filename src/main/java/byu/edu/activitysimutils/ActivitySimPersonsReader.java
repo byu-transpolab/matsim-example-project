@@ -108,9 +108,9 @@ public class ActivitySimPersonsReader {
         Double auto_ownership = householdMap.get(household_id).get(1);
         Double num_workers = householdMap.get(household_id).get(2);
         Double carWorkRatio = auto_ownership / num_workers;
-        if (auto_ownership == 0){ return "NoAutos"; }
-        else if (carWorkRatio < 1){ return "FewerAutosThanWorkers"; }
-        else if (carWorkRatio >= 1){ return "AsManyAutosAsWorkers"; }
+        if (auto_ownership == 0){ return "no_auto"; }
+        else if (carWorkRatio < 1){ return "auto_deficient"; }
+        else if (carWorkRatio >= 1){ return "auto_sufficient"; }
         else return "error";
     }
 
