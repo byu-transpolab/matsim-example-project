@@ -63,8 +63,8 @@ public class ActivitySimPersonsReader {
             CSVReader reader = CSVUtils.createCSVReader(personsFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
-                    new String[]{"person_id", "age", "sex",  }, // mandatory columns
-                    new String[]{"household_id", "wc_var", "modality-style"} // optional columns
+                    new String[]{"person_id", "age", "sex"}, // mandatory columns
+                    new String[]{"household_id", "value_of_time", "wc_var", "modality-style"} // optional columns
             );
 
             // Read each line of the persons file
@@ -74,6 +74,7 @@ public class ActivitySimPersonsReader {
                 Id<Person> personId = Id.createPersonId(nextLine[col.get("person_id")]);
 
                 int age = Integer.parseInt(nextLine[col.get("age")]);
+                double vot = Double.parseDouble(nextLine[col.get("value_of_time")]);
                 String sex = nextLine[col.get("sex")];
                 //String wc_var = nextLine[col.get("wc_var")];
                 String household_id = nextLine[col.get("household_id")];
@@ -84,6 +85,7 @@ public class ActivitySimPersonsReader {
                 Person person = pf.createPerson(personId);
                 person.getAttributes().putAttribute("age", age);
                 person.getAttributes().putAttribute("sex", sex);
+                person.getAttributes().putAttribute("vot",vot);
                 //person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
 
