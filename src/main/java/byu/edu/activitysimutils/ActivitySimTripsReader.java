@@ -116,6 +116,7 @@ public class ActivitySimTripsReader {
                     homeActivity1.setCoord(home);
                     homeActivity1.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(homeActivity1);
+                    prevActivity = null;
                 }
                 else { // if not, then there is an existing activity that we need to find. maybe?
                     // and add a departure to it!
@@ -156,6 +157,7 @@ public class ActivitySimTripsReader {
                     homeActivity2.getAttributes().putAttribute("primary_purpose",prim_purpose);
                     plan.addActivity(homeActivity2);
                     prevDestId = destId;
+                    prevActivity = homeActivity2;
                 }
 //                else if(timeDiff < 30*60 ) { // if travel time is impossible then put it at the same place
 //
@@ -175,6 +177,9 @@ public class ActivitySimTripsReader {
 //                    otherActivity.setCoord(nextCoord);
 
                     otherActivity.getAttributes().putAttribute("primary_purpose",prim_purpose);
+                    if(prevActivity != null && prevActivity.getType() == "Home"){
+                        prevActivity.getAttributes().putAttribute("primary_purpose",prim_purpose);
+                    }
                     plan.addActivity(otherActivity);
 
 
@@ -183,6 +188,7 @@ public class ActivitySimTripsReader {
                     // if time > 30 from previous activity  (time = activ - previous activity < 1800 seconds
                     // set coord as previous activity
                     prevDestId = destId;
+                    prevActivity = otherActivity;
                 }
 
 
