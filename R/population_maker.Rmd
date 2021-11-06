@@ -17,11 +17,6 @@ persons <- read_csv("scenarios/slc_beam/wheelchair/final_persons.csv")
 households <- read_csv("scenarios/slc_beam/wheelchair/final_households.csv")
 trips <- read_csv("scenarios/slc_beam/wheelchair/final_trips.csv")
 
-#input files for general population
-g_persons <- read_csv("../scenarios/slc_beam/general/final_persons.csv")
-g_households <-read_csv("../scenarios/slc_beam/general/final_households.csv")
-g_trips <- read_csv("../scenarios/slc_beam/general/final_trips.csv")
-
 # rearrange trips for debugging plans maker
 trips_new <- trips %>% 
   arrange(person_id, depart)
@@ -32,17 +27,27 @@ trips_new <- trips %>%
 # General Population Maker - Chris
 
 ```{r}
+#input files for general population
+g_persons <- read_csv("../scenarios/slc_beam/general/final_persons.csv")
+g_households <-read_csv("../scenarios/slc_beam/general/final_households.csv")
+g_trips <- read_csv("../scenarios/slc_beam/general/final_trips.csv") %>%
+  arrange(person_id, trip_id)
+  # if trips are not arranged by trip_id, they break the plans maker
+```
+
+
+```{r}
 # randomly sample persons
 s_pop <- g_persons %>% sample_n(25000)
-#write_csv(s_pop, "../scenarios/slc_beam/general/25k/persons.csv")
+write_csv(s_pop, "../scenarios/slc_beam/general/25k/persons.csv")
 
 s_hh <- g_households %>% filter(household_id %in% s_pop$household_id)
-#write_csv(s_hh, "../scenarios/slc_beam/general/25k/households.csv")
+write_csv(s_hh, "../scenarios/slc_beam/general/25k/households.csv")
 
 s_trips <- g_trips %>% 
   filter(person_id %in% s_pop$person_id) %>% 
-  arrange(person_id,household_id,depart)
-#write_csv(s_trips, "../scenarios/slc_beam/general/25k/trips.csv")
+  arrange(person_id,trip_id)
+write_csv(s_trips, "../scenarios/slc_beam/general/25k/trips.csv")
 ```
 
 
