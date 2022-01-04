@@ -89,9 +89,11 @@ public class ActivitySimPersonsReader {
                 //person.getAttributes().putAttribute("wc_var", wc_var);
                 person.getAttributes().putAttribute("household_id", household_id);
 
-                //get values and put into the planesthe values for income and auto worker ratio
+                //get values and put into the plans the values for income and auto worker ratio
                 Double income = householdMap.get(household_id).get(0);
+                Double hhSize = householdMap.get(household_id).get(3);
                 person.getAttributes().putAttribute("income", income);
+                person.getAttributes().putAttribute("hhSize", hhSize);
                 person.getAttributes().putAttribute("autoWorkRatio", getAutoWorkerRatio(household_id));
 
                 // create an empty plan

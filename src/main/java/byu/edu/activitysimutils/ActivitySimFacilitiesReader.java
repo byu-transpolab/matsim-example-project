@@ -126,8 +126,8 @@ public class ActivitySimFacilitiesReader {
             CSVReader reader = CSVUtils.createCSVReader(householdsFile.toString());
             String[] header = reader.readNext();
             Map<String, Integer> col = CSVUtils.getIndices(header,
-                    new String[]{"household_id", "income", "auto_ownership", "num_workers"}, // mandatory columns
-                    new String[]{"hhsize", "income_segment", "num_non_workers"} // optional columns
+                    new String[]{"household_id", "income", "auto_ownership", "num_workers","hhsize"}, // mandatory columns
+                    new String[]{"income_segment", "num_non_workers"} // optional columns
             );
 
             // Read each line of the households file
@@ -138,9 +138,10 @@ public class ActivitySimFacilitiesReader {
                 Double income = parseDouble(nextLine[col.get("income")]);
                 Double auto_ownership = parseDouble(nextLine[col.get("auto_ownership")]);
                 Double num_workers = parseDouble(nextLine[col.get("num_workers")]);
+                Double hhSize = parseDouble(nextLine[col.get("hhsize")]);
 
                 // Add household attributes to household map
-                List<Double> hhAttributes = Arrays.asList(income, auto_ownership, num_workers);
+                List<Double> hhAttributes = Arrays.asList(income, auto_ownership, num_workers, hhSize);
                 householdMap.put(household_id, hhAttributes);
 
             }
