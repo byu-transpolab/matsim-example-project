@@ -208,14 +208,30 @@ public class ActivitySimTripsReader {
      */
     private String getLegMode(String leg_mode) {
         if(leg_mode.equals("BIKE")){
-            return mode.bike;
+            return "bike";
         } else if(leg_mode.equals("WALK")){
-            return mode.walk;
-        } else if(leg_mode.matches("DRIVEALONEFREE|SHARED2FREE|SHARED3FREE")){
-            return mode.car;
-        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF")){
+            return "walk";
+        } else if(leg_mode.matches("DRIVEALONEFREE|DRIVEALONEPAY")) {
+            return "car";
+        } else if(leg_mode.matches("SHARED2FREE|SHARED2PAY")) {
+            Random rand = new Random(); //instance of random class
+            double double_random=rand.nextDouble();
+            if (double_random <= 0.5) {
+                return "hov2_teleportation";
+            } else
+                return "hov2";
+//            return "hov2";
+        } else if(leg_mode.matches("SHARED3FREE|SHARED3PAY")) {
+            Random rand = new Random(); //instance of random class
+            double double_random=rand.nextDouble();
+            if (double_random <= .66) {
+                return "hov3_teleportation";
+            } else
+                return "hov3";
+//            return "hov3";
+        } else if(leg_mode.matches("DRIVE_COM|DRIVE_EXP|DRIVE_LOC|DRIVE_LRF|DRIVE_HVY")){
             return "drive_transit";
-        } else if (leg_mode.matches("WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF")) {
+        } else if (leg_mode.matches("WALK_COM|WALK_EXP|WALK_LOC|WALK_LRF|WALK_HVY")) {
             return "walk_transit";
         }
         else if(leg_mode.matches("TNC_SINGLE|TAXI")){
